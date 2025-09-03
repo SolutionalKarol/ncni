@@ -18,85 +18,113 @@
   <meta name="twitter:title" content="Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności" />
   <meta name="twitter:description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
   <meta name="twitter:image" content="https://ncni.pl/og-image.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0B1220; --panel: #111A2E; --line: #1F2A44;
       --text: #EEF3FF; --muted: #CDD7F5;
       --cta: #3559FF; --ctaHi: #55AAFF;
+      --gold: #D4A017; /* Dodany akcent złota dla footera */
       --radius: 16px; --radius-sm: 12px; --max: 1200px;
       --shadow: 0 8px 24px rgba(0,0,0,.28);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
     a { color: var(--ctaHi); text-decoration: none; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    /* Animacje */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { opacity: 0; animation: fadeIn 0.6s ease-out forwards; }
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
     /* NAV */
-    .nav { position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,.85); backdrop-filter: saturate(130%) blur(6px); border-bottom: 1px solid var(--line); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; gap: 10px; align-items: center; font-family: Poppins, sans-serif; font-weight: 700; }
-    .brand-badge { width: 28px; height: 28px; border-radius: 8px; background: var(--cta); display: grid; place-items: center; font-weight: 700; color: #fff; }
-    .menu { display: flex; gap: 18px; }
-    .menu a { padding: 8px 10px; border-radius: 10px; color: var(--text); opacity: .9; }
-    .menu a:hover, .menu a.active { background: #0f1730; color: #fff; }
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,.9); backdrop-filter: saturate(130%) blur(8px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .brand { display: flex; gap: 12px; align-items: center; font-family: Poppins, sans-serif; font-weight: 700; font-size: clamp(18px, 3vw, 22px); }
+    .brand-badge { width: 36px; height: 36px; border-radius: 10px; background: var(--cta); display: grid; place-items: center; font-weight: 800; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    .menu { display: flex; gap: 24px; align-items: center; }
+    .menu a { padding: 12px 16px; border-radius: 12px; color: var(--text); opacity: .9; font-size: clamp(14px, 2.5vw, 16px); transition: all 0.3s; }
+    .menu a:hover, .menu a.active { background: #0f1730; color: #fff; transform: scale(1.05); }
     .menu a:focus { outline: 2px solid var(--ctaHi); outline-offset: 2px; }
-    .btn { display: inline-block; background: var(--cta); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; }
-    .btn:hover { background: #2B4AE0; }
+    .btn { display: inline-block; background: var(--cta); color: #fff; padding: 14px 24px; border-radius: 12px; font-weight: 600; font-size: clamp(14px, 2.5vw, 16px); touch-action: manipulation; transition: all 0.3s; }
+    .btn:hover { background: #2B4AE0; transform: scale(1.05); }
     .btn:focus { outline: 2px solid var(--ctaHi); outline-offset: 2px; }
+    .hamburger { display: none; cursor: pointer; font-size: 28px; color: var(--text); }
     /* HERO */
-    .hero { padding: 88px 0; background: linear-gradient(135deg, rgba(11,18,32,0.8) 0%, rgba(17,26,46,0.8) 100%), url('/images/neural-bg.svg') center/cover no-repeat; }
-    .hero h1 { font-family: Poppins, sans-serif; font-size: clamp(28px, 4.5vw, 48px); margin: 0 0 12px; text-align: center; }
-    .hero p { color: var(--muted); font-size: clamp(16px, 2.1vw, 20px); margin: 0 0 24px; text-align: center; }
-    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero { padding: 80px 0; background: linear-gradient(135deg, rgba(11,18,32,0.85) 0%, rgba(17,26,46,0.85) 100%), url('/images/neural-bg.svg') center/cover no-repeat; }
+    .hero h1 { font-family: Poppins, sans-serif; font-weight: 800; font-size: clamp(28px, 5.5vw, 48px); margin: 0 0 16px; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,.3); }
+    .hero p { color: var(--muted); font-size: clamp(16px, 2.5vw, 20px); margin: 0 0 24px; text-align: center; }
+    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     /* SECTIONS */
     section { padding: 64px 0; }
-    h2 { font-family: Poppins, sans-serif; font-size: clamp(24px, 3.2vw, 36px); margin: 0 0 16px; text-align: center; }
-    .lead { color: var(--muted); margin: 0 0 24px; text-align: center; }
-    .grid { display: grid; gap: 22px; }
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    section.fade-in { animation-delay: 0.2s; }
+    h2 { font-family: Poppins, sans-serif; font-weight: 700; font-size: clamp(24px, 4vw, 36px); margin: 0 0 16px; text-align: center; }
+    .lead { color: var(--muted); margin: 0 0 24px; text-align: center; font-size: clamp(14px, 2.5vw, 18px); }
+    .grid { display: grid; gap: 24px; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     /* CARDS / PRICING */
-    .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.32); transition: transform 0.2s, box-shadow 0.2s; }
-    .card-content { flex: 1 1 420px; min-width: 280px; }
-    .price { background: #0f1730; border: 1px solid #203055; border-radius: var(--radius-sm); padding: 14px; min-width: 260px; }
-    .row { display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
-    .price .item { display: flex; justify-content: space-between; gap: 14px; margin: 8px 0; }
-    .caption { color: var(--muted); font-size: 13px; margin-top: 8px; }
-    ul.bullets { margin: 10px 0 0 18px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); transition: all 0.3s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .card-content { flex: 1 1 360px; min-width: 260px; }
+    .price { background: #0f1730; border: 1px solid #203055; border-radius: var(--radius-sm); padding: 16px; min-width: 240px; }
+    .price:hover { border-color: var(--ctaHi); }
+    .row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
+    .price .item { display: flex; justify-content: space-between; gap: 16px; margin: 10px 0; font-size: clamp(14px, 2.5vw, 16px); }
+    .caption { color: var(--muted); font-size: clamp(12px, 2vw, 13px); margin-top: 8px; }
+    ul.bullets { margin: 12px 0 0 20px; font-size: clamp(14px, 2.5vw, 16px); }
     ul.clean { list-style: none; margin: 12px 0; padding: 0; }
-    ul.clean li { padding: .25rem 0; }
+    ul.clean li { padding: .5rem 0; font-size: clamp(14px, 2.5vw, 16px); }
     /* HOW IT WORKS */
-    .steps { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    .step h3 { color: var(--ctaHi); margin: 0 0 6px; }
+    .steps { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .step h3 { color: var(--ctaHi); margin: 0 0 8px; font-size: clamp(16px, 3vw, 18px); }
     /* TEAM */
-    .team { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    details summary { cursor: pointer; color: var(--muted); margin-top: 8px; }
+    .team { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    details summary { cursor: pointer; color: var(--muted); margin-top: 8px; font-size: clamp(14px, 2.5vw, 16px); }
     /* FAQ */
-    .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px; }
-    .faq details + details { margin-top: 10px; }
-    .faq summary { color: var(--ctaHi); font-weight: 600; }
+    .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; transition: all 0.3s; }
+    .faq details:hover { border-color: var(--ctaHi); }
+    .faq details + details { margin-top: 12px; }
+    .faq summary { color: var(--ctaHi); font-weight: 600; font-size: clamp(14px, 2.5vw, 16px); }
     /* FORM */
-    .form { display: grid; gap: 12px; max-width: 720px; margin: 0 auto; }
-    .input { padding: 12px; border: none; border-radius: 10px; background: #0f1730; color: #fff; }
-    .input:focus { outline: none; border: 1px solid var(--ctaHi); box-shadow: 0 0 8px rgba(85, 170, 255, 0.3); }
-    textarea.input { min-height: 120px; }
-    label { font-size: 13px; color: var(--muted); }
+    .form { display: grid; gap: 16px; max-width: 640px; margin: 0 auto; }
+    .input { padding: 16px; border: none; border-radius: 10px; background: #0f1730; color: #fff; font-size: clamp(14px, 2.5vw, 16px); transition: all 0.3s; }
+    .input:focus { outline: none; border: 1px solid var(--ctaHi); box-shadow: 0 0 10px rgba(85, 170, 255, 0.4); }
+    textarea.input { min-height: 140px; }
+    label { font-size: clamp(13px, 2vw, 14px); color: var(--muted); }
     /* FOOTER */
-    .footer { background: #111A2E; color: var(--muted); text-align: center; padding: 22px; border-top: 1px solid var(--line); }
-    .footer a { color: var(--ctaHi); }
-    .footer .trademark { font-size: 12px; margin-top: 8px; }
-    @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .container { padding: 0 24px; } }
+    .footer { background: #111A2E; color: var(--muted); text-align: center; padding: 32px; border-top: 1px solid var(--line); }
+    .footer a { color: var(--ctaHi); font-size: clamp(14px, 2.5vw, 16px); transition: color 0.3s; }
+    .footer a:hover { color: var(--gold); }
+    .footer .trademark { font-size: clamp(12px, 2vw, 13px); margin-top: 8px; color: var(--gold); }
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      .container { padding: 0 28px; }
+      .nav-inner { flex-wrap: wrap; height: auto; padding: 12px 0; }
+      .menu { display: none; flex-direction: column; width: 100%; background: var(--panel); padding: 20px; position: absolute; top: 80px; left: 0; box-shadow: 0 8px 16px rgba(0,0,0,.3); animation: slideIn 0.3s ease-out; }
+      .menu.active { display: flex; }
+      .hamburger { display: block; }
+      .btn { padding: 12px 20px; min-width: 48px; min-height: 48px; }
+      .hero { padding: 48px 0; }
+      section { padding: 40px 0; }
+      .card-content { flex: 1 1 100%; }
+      .price { min-width: 100%; }
+      .hero h1 { font-size: clamp(24px, 6vw, 36px); }
+      .hero p { font-size: clamp(14px, 3vw, 16px); }
+      h2 { font-size: clamp(20px, 5vw, 28px); }
+    }
+    @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   </style>
 </head>
 <body>
 <!-- NAV -->
 <nav class="nav">
   <div class="container nav-inner">
-    <div class="brand">
+    <div class="brand fade-in">
       <div class="brand-badge">N</div>
       <span>Naukowe Centrum NeuroInnowacji</span>
     </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <div class="menu">
       <a href="#oferta" class="active" aria-label="Przejdź do sekcji Oferta">Oferta</a>
       <a href="#vr-ai" aria-label="Przejdź do sekcji VR/AI">VR/AI</a>
@@ -108,7 +136,7 @@
   </div>
 </nav>
 <!-- HERO -->
-<header class="hero">
+<header class="hero fade-in">
   <div class="container" style="max-width:960px">
     <h1>NCNI — Naukowe Centrum NeuroInnowacji</h1>
     <p>VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju.</p>
@@ -119,16 +147,16 @@
   </div>
 </header>
 <!-- VR/AI SECTION -->
-<section id="vr-ai">
+<section id="vr-ai" class="fade-in">
   <div class="container">
     <h2>VR/AI dla Neuroróżnorodności</h2>
     <p class="lead">Innowacyjne rozwiązania wspierające autyzm, ADHD i dobrostan psychiczny.</p>
     <div class="grid grid-2">
-      <article class="card">
+      <article class="card fade-in">
         <h3>VR w terapii</h3>
         <p>Wirtualna rzeczywistość wspiera trening społeczny i regulację emocji.</p>
       </article>
-      <article class="card">
+      <article class="card fade-in">
         <h3>AI w edukacji</h3>
         <p>Personalizowane algorytmy uczenia dla dzieci i dorosłych.</p>
       </article>
@@ -136,13 +164,13 @@
   </div>
 </section>
 <!-- OFERTA & CENNIK -->
-<section id="oferta">
+<section id="oferta" class="fade-in">
   <div class="container">
     <h2>Oferta & Cennik</h2>
     <p class="lead">Wszystkie ceny PLN brutto. Wystawiamy faktury. Rezerwacje: telefon / e-mail / formularz.</p>
     <div class="grid">
       <!-- 1. Konsulting / Wdrożenia AI -->
-      <article class="card">
+      <article class="card fade-in">
         <div class="row">
           <div class="card-content">
             <h3 style="margin:0 0 6px">Konsulting i wdrożenia AI</h3>
@@ -162,7 +190,7 @@
         </div>
       </article>
       <!-- 2. Neurofeedback -->
-      <article class="card">
+      <article class="card fade-in">
         <div class="row">
           <div class="card-content">
             <h3 style="margin:0 0 6px">Neurofeedback (EEG-biofeedback)</h3>
@@ -181,7 +209,7 @@
         </div>
       </article>
       <!-- 3. Programy edukacyjne -->
-      <article class="card">
+      <article class="card fade-in">
         <div class="row">
           <div class="card-content">
             <h3 style="margin:0 0 6px">Programy edukacyjne (neuroróżnorodność)</h3>
@@ -199,7 +227,7 @@
         </div>
       </article>
       <!-- 4. Szkolenia i certyfikacje -->
-      <article class="card">
+      <article class="card fade-in">
         <div class="row">
           <div class="card-content">
             <h3 style="margin:0 0 6px">Szkolenia i certyfikacje</h3>
@@ -218,7 +246,7 @@
         </div>
       </article>
       <!-- 5. B2B / Instytucje -->
-      <article class="card">
+      <article class="card fade-in">
         <div class="row">
           <div class="card-content">
             <h3 style="margin:0 0 6px">Programy B2B i instytucje</h3>
@@ -236,7 +264,7 @@
         </div>
       </article>
       <!-- 6. Badania i rozwój -->
-      <article class="card">
+      <article class="card fade-in">
         <div class="row">
           <div class="card-content">
             <h3 style="margin:0 0 6px">Badania i rozwój (R&D)</h3>
@@ -257,25 +285,25 @@
   </div>
 </section>
 <!-- JAK TO DZIAŁA -->
-<section id="jak" style="background:#111A2E">
+<section id="jak" style="background: linear-gradient(135deg, var(--panel) 0%, #1a263f 100%);" class="fade-in">
   <div class="container">
     <h2>Jak to działa?</h2>
     <p class="lead">Od diagnozy do wdrożenia i ewaluacji.</p>
     <div class="grid steps">
-      <div class="card step"><h3>1. Diagnoza</h3><p>Wywiad, ankiety, testy przesiewowe, plan indywidualny.</p></div>
-      <div class="card step"><h3>2. Wdrożenie</h3><p>AI, automatyzacja, metody pracy dobrane do celu.</p></div>
-      <div class="card step"><h3>3. Raport</h3><p>Monitorowanie postępów, korekty, wskaźniki efektywności.</p></div>
-      <div class="card step"><h3>4. Rozwój</h3><p>Mentoring, szkolenia, skalowanie w szkole/firmie.</p></div>
+      <div class="card step fade-in"><h3>1. Diagnoza</h3><p>Wywiad, ankiety, testy przesiewowe, plan indywidualny.</p></div>
+      <div class="card step fade-in"><h3>2. Wdrożenie</h3><p>AI, automatyzacja, metody pracy dobrane do celu.</p></div>
+      <div class="card step fade-in"><h3>3. Raport</h3><p>Monitorowanie postępów, korekty, wskaźniki efektywności.</p></div>
+      <div class="card step fade-in"><h3>4. Rozwój</h3><p>Mentoring, szkolenia, skalowanie w szkole/firmie.</p></div>
     </div>
   </div>
 </section>
 <!-- ZESPÓŁ -->
-<section id="zespol">
+<section id="zespol" class="fade-in">
   <div class="container">
     <h2>Zespół</h2>
     <div class="grid team">
       <!-- Sebastian -->
-      <article class="card">
+      <article class="card fade-in">
         <h3>dr hab. inż. Sebastian Kraszewski</h3>
         <p style="color:var(--ctaHi);margin:0 0 10px">AI • neurofeedback • ewaluacja naukowa</p>
         <ul class="clean" style="margin:0 0 10px">
@@ -294,7 +322,7 @@
         </details>
       </article>
       <!-- Marlena -->
-      <article class="card">
+      <article class="card fade-in">
         <h3>dr inż. Marlena Gąsior-Głogowska</h3>
         <p style="color:var(--ctaHi);margin:0 0 10px">Bioinżynieria • dydaktyka • neuroróżnorodność</p>
         <ul class="clean" style="margin:0 0 10px">
@@ -313,7 +341,7 @@
         </details>
       </article>
       <!-- Karol -->
-      <article class="card">
+      <article class="card fade-in">
         <h3>Karol Kiszło</h3>
         <p style="color:var(--ctaHi);margin:0 0 10px">Strategia • e-commerce • AI & komunikacja</p>
         <ul class="clean" style="margin:0 0 10px">
@@ -343,7 +371,7 @@
   </div>
 </section>
 <!-- FAQ -->
-<section id="faq" style="background:#111A2E">
+<section id="faq" style="background: linear-gradient(135deg, var(--panel) 0%, #1a263f 100%);" class="fade-in">
   <div class="container">
     <h2>FAQ</h2>
     <div class="faq">
@@ -354,7 +382,7 @@
   </div>
 </section>
 <!-- KONTAKT -->
-<section id="kontakt">
+<section id="kontakt" class="fade-in">
   <div class="container">
     <h2>Kontakt</h2>
     <form class="form" action="/api/contact" method="POST">
@@ -382,12 +410,29 @@
   </div>
 </section>
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer fade-in">
   <p>© 2025 NCNI — Naukowe Centrum NeuroInnowacji. Wszelkie prawa zastrzeżone.</p>
   <p class="trademark">Design i strategia: Karol Kiszło™ | Stworzone z pasją przez zespół NCNI</p>
   <p><a href="#kontakt">Skontaktuj się z nami</a> | <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
 </footer>
 <script>
+  // Hamburger menu toggle
+  function toggleMenu() {
+    document.querySelector('.menu').classList.toggle('active');
+  }
+  // Fade-in animation on scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+  // Form submission placeholder
   document.querySelector('.form').addEventListener('submit', async (e) => {
     e.preventDefault();
     alert('Wiadomość wysłana! Dziękujemy, skontaktujemy się wkrótce.');
