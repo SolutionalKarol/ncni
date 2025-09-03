@@ -18,6 +18,7 @@
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
     a{color:var(--ctaHi);text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 16px}
+
     /* NAV */
     .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.85);backdrop-filter:saturate(130%) blur(6px);border-bottom:1px solid var(--line)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
@@ -28,38 +29,49 @@
     .menu a:hover,.menu a.active{background:#0f1730;color:#fff}
     .btn{display:inline-block;background:var(--cta);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600}
     .btn:hover{background:#2B4AE0}
+
     /* HERO */
     .hero{padding:88px 0;background:linear-gradient(135deg,#0B1220 0%,#111A2E 100%)}
     .hero h1{font-family:Poppins,sans-serif;font-size:clamp(28px,4.5vw,48px);margin:0 0 12px;text-align:center}
     .hero p{color:var(--muted);font-size:clamp(16px,2.1vw,20px);margin:0 0 24px;text-align:center}
     .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
     /* SECTIONS */
     section{padding:64px 0}
     h2{font-family:Poppins,sans-serif;font-size:clamp(24px,3.2vw,36px);margin:0 0 16px;text-align:center}
     .lead{color:var(--muted);margin:0 0 24px;text-align:center}
     .grid{display:grid;gap:22px}
-    /* CENNIK */
+
+    /* CARDS / PRICING */
     .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .price{background:#0f1730;border:1px solid #203055;border-radius:var(--radius-sm);padding:14px;min-width:260px}
     .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
     .price .item{display:flex;justify-content:space-between;gap:14px;margin:8px 0}
     .caption{color:var(--muted);font-size:13px;margin-top:8px}
     ul.bullets{margin:10px 0 0 18px}
+
     /* HOW IT WORKS */
     .steps{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .step h3{color:var(--ctaHi);margin:0 0 6px}
+
     /* TEAM */
     .team{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
     details summary{cursor:pointer;color:var(--muted);margin-top:8px}
+
     /* FAQ */
     .faq details{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px}
     .faq details+details{margin-top:10px}
     .faq summary{color:var(--ctaHi);font-weight:600}
+
     /* FORM */
     .form{display:grid;gap:12px;max-width:720px;margin:0 auto}
     .input{padding:12px;border:none;border-radius:10px;background:#0f1730;color:#fff}
     textarea.input{min-height:120px}
+
+    /* FOOTER */
     .footer{background:#111A2E;color:var(--muted);text-align:center;padding:22px;border-top:1px solid var(--line)}
+
+    @media (min-width: 900px){ .grid-2{grid-template-columns:1fr 1fr} }
   </style>
 </head>
 <body>
@@ -93,102 +105,40 @@
   </div>
 </header>
 
-<!-- OFERTA -->
+<!-- OFERTA & CENNIK -->
 <section id="oferta">
   <div class="container">
     <h2>Oferta & Cennik</h2>
-    <p class="lead">Wszystkie ceny zawierają podatek (PLN, brutto). Wystawiamy faktury.</p>
+    <p class="lead">Wszystkie ceny PLN brutto. Wystawiamy faktury. Rezerwacje: telefon / e-mail / formularz.</p>
+
     <div class="grid">
+      <!-- Terapia / Konsulting AI -->
       <article class="card">
-        <h3>Terapia AI i automatyzacja procesów</h3>
-        <p class="lead" style="text-align:left">Analiza danych, inteligentne modele predykcyjne, personalizacja procesów.</p>
-        <div class="price">
-          <div class="item"><span>Konsultacja strategiczna</span><strong>500 PLN</strong></div>
-          <div class="item"><span>Projekt wdrożeniowy</span><strong>od 5000 PLN</strong></div>
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Konsulting i wdrożenia AI</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Analiza danych, automatyzacja, modele predykcyjne, personalizacja procesów.</p>
+            <ul class="bullets">
+              <li>audyt dojrzałości cyfrowej + plan wdrożeń</li>
+              <li>PBI/Looker Studio: kokpity i raporty</li>
+              <li>chatboty, asystenci, automatyzacje</li>
+            </ul>
+          </div>
+          <div class="price">
+            <div class="item"><span>Konsultacja strategiczna (90 min)</span><strong>500 PLN</strong></div>
+            <div class="item"><span>Warsztat projektowy (1 dzień)</span><strong>3 900 PLN</strong></div>
+            <div class="item"><span>Projekt wdrożeniowy</span><strong>od 5 000 PLN</strong></div>
+            <p class="caption">Zakres i harmonogram ustalamy po audycie.</p>
+          </div>
         </div>
       </article>
-      <!-- Możesz dodać kolejne karty ofertowe -->
-    </div>
-  </div>
-</section>
 
-<!-- JAK TO DZIAŁA -->
-<section id="jak" style="background:#111A2E">
-  <div class="container">
-    <h2>Jak to działa?</h2>
-    <div class="grid steps">
-      <div class="card step"><h3>1. Diagnoza</h3><p>Wywiad, ankiety, testy przesiewowe, plan indywidualny.</p></div>
-      <div class="card step"><h3>2. Wdrożenie AI</h3><p>Automatyzacja procesów, sztuczna inteligencja, personalizacja.</p></div>
-      <div class="card step"><h3>3. Raport</h3><p>Monitorowanie postępów, korekty strategii, wyniki.</p></div>
-      <div class="card step"><h3>4. Rozwój</h3><p>Mentoring, szkolenia, wdrożenia w szkole/firmie.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ZESPÓŁ -->
-<section id="zespol">
-  <div class="container">
-    <h2>Zespół</h2>
-    <div class="grid team">
+      <!-- Neurofeedback -->
       <article class="card">
-        <h3>dr hab. inż. Sebastian Kraszewski</h3>
-        <p style="color:var(--ctaHi)">AI • neurofeedback • ewaluacja naukowa</p>
-        <details><summary>Pokaż bio</summary>
-          <p class="muted">Profesor uczelni na Politechnice Wrocławskiej, specjalizuje się w neuroinformatyce, bioinformatyce i analizie sygnałów neurofizjologicznych. Autor ponad 40 publikacji naukowych. W NCNI odpowiada za ewaluację naukową i rozwój protokołów.</p>
-        </details>
-      </article>
-
-      <article class="card">
-        <h3>dr inż. Marlena Gąsior-Głogowska</h3>
-        <p style="color:var(--ctaHi)">Bioinżynieria • dydaktyka • neuroróżnorodność</p>
-        <details><summary>Pokaż bio</summary>
-          <p class="muted">Naukowiec i badacz na Politechnice Wrocławskiej, specjalizujący się w bioinżynierii, biomateriałach i spektroskopii Ramana. Autor publikacji naukowych, uczestnik projektów krajowych i europejskich. W NCNI zajmuje się projektowaniem i oceną programów dydaktycznych oraz innowacjami edukacyjnymi.</p>
-        </details>
-      </article>
-
-      <article class="card">
-        <h3>Karol Kiszło</h3>
-        <p style="color:var(--ctaHi)">Strategia • e-commerce • AI & komunikacja</p>
-        <details><summary>Pokaż bio</summary>
-          <p class="muted">Ekspert z ponad 20-letnim doświadczeniem w e-commerce, strategii sprzedażowej i komunikacji. Absolwent Loyola University Chicago (School of Communication, PR & Media) oraz Triton College (Mass Communication/Multimedia). </p>
-          <p class="muted">Specjalizuje się w AI, automatyzacji, PR i marketingu. W NCNI odpowiada za strategię, rozwój biznesowy i komunikację, wspiera zespoły w transformacji cyfrowej i wprowadzaniu inteligentnych rozwiązań AI do edukacji i biznesu.</p>
-        </details>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" style="background:#111A2E">
-  <div class="container">
-    <h2>FAQ</h2>
-    <div class="faq">
-      <details><summary>Czy AI ma przeciwwskazania?</summary><p>AI nie ma przeciwwskazań zdrowotnych, ale każde wdrożenie wymaga analizy kontekstu, bezpieczeństwa danych i etyki.</p></details>
-      <details><summary>Ile trwa wdrożenie?</summary><p>Zwykle kilka tygodni przy małych projektach; w dużych instytucjach harmonogram ustalany indywidualnie.</p></details>
-      <details><summary>Jak się umówić?</summary><p>Przez formularz kontaktowy lub telefon/e-mail.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- KONTAKT -->
-<section id="kontakt">
-  <div class="container">
-    <h2>Kontakt</h2>
-    <form class="form">
-      <input class="input" type="text" placeholder="Imię i nazwisko" required>
-      <input class="input" type="email" placeholder="E-mail" required>
-      <input class="input" type="tel" placeholder="Telefon">
-      <textarea class="input" rows="5" placeholder="Wiadomość"></textarea>
-      <label style="font-size:13px;color:var(--muted)"><input type="checkbox" required> Zgoda RODO</label>
-      <button class="btn" type="submit">Wyślij wiadomość</button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  © 2025 NCNI — Naukowe Centrum NeuroInnowacji. Wszelkie prawa zastrzeżone.
-</footer>
-
-</body>
-</html>
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Neurofeedback (EEG-biofeedback)</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Trening fal mózgowych: koncentracja, sen, regulacja stresu.</p>
+            <ul class="bullets">
+              <li>sesja 55–60 min (kalibracja w cenie)</li>
+              <
