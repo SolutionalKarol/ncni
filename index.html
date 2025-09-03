@@ -38,7 +38,7 @@
     h2{font-family:Poppins,sans-serif;font-size:clamp(24px,3.2vw,36px);margin:0 0 16px;text-align:center}
     .lead{color:var(--muted);margin:0 0 24px;text-align:center}
     .grid{display:grid;gap:22px}
-    /* CENNIK — karty z dwukolumnowym boksem ceny */
+    /* CENNIK */
     .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     .price{background:#0f1730;border:1px solid #203055;border-radius:var(--radius-sm);padding:14px;min-width:260px}
     .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
@@ -60,8 +60,6 @@
     .input{padding:12px;border:none;border-radius:10px;background:#0f1730;color:#fff}
     textarea.input{min-height:120px}
     .footer{background:#111A2E;color:var(--muted);text-align:center;padding:22px;border-top:1px solid var(--line)}
-    /* LAYOUT helpers */
-    @media (min-width: 900px){ .grid-2{grid-template-columns:1fr 1fr} }
   </style>
 </head>
 <body>
@@ -95,71 +93,95 @@
   </div>
 </header>
 
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container">
+    <h2>Oferta & Cennik</h2>
+    <p class="lead">Wszystkie ceny zawierają podatek (PLN, brutto). Wystawiamy faktury.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Terapia AI i automatyzacja procesów</h3>
+        <p class="lead" style="text-align:left">Analiza danych, inteligentne modele predykcyjne, personalizacja procesów.</p>
+        <div class="price">
+          <div class="item"><span>Konsultacja strategiczna</span><strong>500 PLN</strong></div>
+          <div class="item"><span>Projekt wdrożeniowy</span><strong>od 5000 PLN</strong></div>
+        </div>
+      </article>
+      <!-- Możesz dodać kolejne karty ofertowe -->
+    </div>
+  </div>
+</section>
+
+<!-- JAK TO DZIAŁA -->
+<section id="jak" style="background:#111A2E">
+  <div class="container">
+    <h2>Jak to działa?</h2>
+    <div class="grid steps">
+      <div class="card step"><h3>1. Diagnoza</h3><p>Wywiad, ankiety, testy przesiewowe, plan indywidualny.</p></div>
+      <div class="card step"><h3>2. Wdrożenie AI</h3><p>Automatyzacja procesów, sztuczna inteligencja, personalizacja.</p></div>
+      <div class="card step"><h3>3. Raport</h3><p>Monitorowanie postępów, korekty strategii, wyniki.</p></div>
+      <div class="card step"><h3>4. Rozwój</h3><p>Mentoring, szkolenia, wdrożenia w szkole/firmie.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ZESPÓŁ -->
 <section id="zespol">
   <div class="container">
-    <div class="section-head">
-      <h2>Zespół</h2>
-      <p class="muted">Kliknij, aby rozwinąć pełne bio i obszary specjalizacji.</p>
-    </div>
+    <h2>Zespół</h2>
     <div class="grid team">
-
-      <!-- Sebastian -->
       <article class="card">
         <h3>dr hab. inż. Sebastian Kraszewski</h3>
-        <p style="color:var(--ctaHi);margin:0 0 10px">AI • neurofeedback • ewaluacja naukowa</p>
-        <ul class="clean" style="margin:0 0 10px">
-          <li>• Profesor uczelni na Politechnice Wrocławskiej</li>
-          <li>• Autor 40+ publikacji naukowych, 700+ cytowań</li>
-          <li>• Laureat Polskiej Nagrody Inteligentnego Rozwoju (2019)</li>
-        </ul>
+        <p style="color:var(--ctaHi)">AI • neurofeedback • ewaluacja naukowa</p>
         <details><summary>Pokaż bio</summary>
-          <p class="muted">Dr hab. inż. Sebastian Kraszewski, profesor uczelni na Wydziale Podstawowych Problemów Techniki
-          Politechniki Wrocławskiej. Specjalizuje się w neuroinformatyce, bioinformatyce i analizie sygnałów
-          neurofizjologicznych. Prowadzi badania nad wykorzystaniem sztucznej inteligencji i neurofeedbacku.
-          W NCNI odpowiada za ewaluację naukową projektów oraz rozwój i walidację protokołów.</p>
+          <p class="muted">Profesor uczelni na Politechnice Wrocławskiej, specjalizuje się w neuroinformatyce, bioinformatyce i analizie sygnałów neurofizjologicznych. Autor ponad 40 publikacji naukowych. W NCNI odpowiada za ewaluację naukową i rozwój protokołów.</p>
         </details>
       </article>
 
-      <!-- Marlena -->
       <article class="card">
         <h3>dr inż. Marlena Gąsior-Głogowska</h3>
-        <p style="color:var(--ctaHi);margin:0 0 10px">Bioinżynieria • dydaktyka • neuroróżnorodność</p>
-        <ul class="clean" style="margin:0 0 10px">
-          <li>• Naukowiec i badacz na Politechnice Wrocławskiej</li>
-          <li>• Specjalizacja: biomateriały, bioinżynieria, spektroskopia Ramana</li>
-          <li>• Autor publikacji i uczestnik projektów krajowych i europejskich</li>
-        </ul>
+        <p style="color:var(--ctaHi)">Bioinżynieria • dydaktyka • neuroróżnorodność</p>
         <details><summary>Pokaż bio</summary>
-          <p class="muted">Dr inż. Marlena Gąsior-Głogowska, naukowiec i badacz z Politechniki Wrocławskiej.
-          Specjalizuje się w bioinżynierii, biomateriałach i spektroskopii Ramana. Autor licznych publikacji naukowych,
-          uczestnik projektów krajowych i europejskich. W NCNI odpowiada za projektowanie i ocenę programów dydaktycznych,
-          mentoring oraz wspieranie zespołu w zakresie innowacji edukacyjnych i naukowych.</p>
+          <p class="muted">Naukowiec i badacz na Politechnice Wrocławskiej, specjalizujący się w bioinżynierii, biomateriałach i spektroskopii Ramana. Autor publikacji naukowych, uczestnik projektów krajowych i europejskich. W NCNI zajmuje się projektowaniem i oceną programów dydaktycznych oraz innowacjami edukacyjnymi.</p>
         </details>
       </article>
 
-      <!-- Karol -->
       <article class="card">
         <h3>Karol Kiszło</h3>
-        <p style="color:var(--ctaHi);margin:0 0 10px">Strategia • e-commerce • AI & komunikacja</p>
-        <ul class="clean" style="margin:0 0 10px">
-          <li>• Ekspert w e-commerce i sprzedaży online (20+ lat)</li>
-          <li>• Absolwent Loyola University Chicago i Triton College (USA)</li>
-          <li>• Specjalizacja: AI, automatyzacja, PR i marketing</li>
-        </ul>
+        <p style="color:var(--ctaHi)">Strategia • e-commerce • AI & komunikacja</p>
         <details><summary>Pokaż bio</summary>
-          <p class="muted">Karol Kiszło — ekspert z ponad 20-letnim doświadczeniem w e-commerce, strategii sprzedażowej i komunikacji.
-          Absolwent Loyola University Chicago (School of Communication, PR & Media) oraz Triton College (Mass Communication/Multimedia),
-          gdzie zdobywał wiedzę i praktykę w międzynarodowym środowisku.</p>
-          <p class="muted">Łączy wiedzę z zakresu sztucznej inteligencji, automatyzacji i analityki danych z praktyką
-          budowania innowacyjnych projektów edukacyjnych i biznesowych. Specjalizuje się w strategii, PR i marketingu,
-          rozwoju biznesu i wdrażaniu nowych technologii, integrując je z procesami szkoleniowymi i coachingowymi.</p>
-          <p class="muted">W NCNI odpowiada za wizję i strategię rozwoju, budowanie partnerstw instytucjonalnych oraz komunikację zewnętrzną.
-          Wspiera zespoły w transformacji cyfrowej i wprowadzaniu inteligentnych rozwiązań AI do edukacji i biznesu.</p>
+          <p class="muted">Ekspert z ponad 20-letnim doświadczeniem w e-commerce, strategii sprzedażowej i komunikacji. Absolwent Loyola University Chicago (School of Communication, PR & Media) oraz Triton College (Mass Communication/Multimedia). </p>
+          <p class="muted">Specjalizuje się w AI, automatyzacji, PR i marketingu. W NCNI odpowiada za strategię, rozwój biznesowy i komunikację, wspiera zespoły w transformacji cyfrowej i wprowadzaniu inteligentnych rozwiązań AI do edukacji i biznesu.</p>
         </details>
       </article>
-
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#111A2E">
+  <div class="container">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Czy AI ma przeciwwskazania?</summary><p>AI nie ma przeciwwskazań zdrowotnych, ale każde wdrożenie wymaga analizy kontekstu, bezpieczeństwa danych i etyki.</p></details>
+      <details><summary>Ile trwa wdrożenie?</summary><p>Zwykle kilka tygodni przy małych projektach; w dużych instytucjach harmonogram ustalany indywidualnie.</p></details>
+      <details><summary>Jak się umówić?</summary><p>Przez formularz kontaktowy lub telefon/e-mail.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <h2>Kontakt</h2>
+    <form class="form">
+      <input class="input" type="text" placeholder="Imię i nazwisko" required>
+      <input class="input" type="email" placeholder="E-mail" required>
+      <input class="input" type="tel" placeholder="Telefon">
+      <textarea class="input" rows="5" placeholder="Wiadomość"></textarea>
+      <label style="font-size:13px;color:var(--muted)"><input type="checkbox" required> Zgoda RODO</label>
+      <button class="btn" type="submit">Wyślij wiadomość</button>
+    </form>
   </div>
 </section>
 
