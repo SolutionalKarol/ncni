@@ -2,442 +2,254 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności</title>
-  <meta name="description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
-  <meta name="keywords" content="AI, VR, neuroróżnorodność, autyzm, ADHD, neurofeedback, dobrostan psychiczny, technologia, NCNI" />
-  <meta name="author" content="Karol Kiszło" />
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności" />
-  <meta property="og:description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ncni.pl/" />
-  <meta property="og:image" content="https://ncni.pl/og-image.jpg" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności" />
-  <meta name="twitter:description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
-  <meta name="twitter:image" content="https://ncni.pl/og-image.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroInnowacje | Terapie AI i Neurofeedback NCNI</title>
+  <meta name="description" content="NeuroInnowacje – lider w redukcji stresu, bólu i terapii neuroróżnorodności z AI i neurofeedbackiem EEG. Oparte na NCNI, Smolec, Polska." />
+  <meta name="keywords" content="neurofeedback terapia Polska, redukcja stresu, terapia bólu NCNI, ADHD terapia, Smolec" />
+  <meta name="author" content="Karol Kiszło & Elena Cruz Kiszło" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --bg: #0B1220; --panel: #111A2E; --line: #1F2A44;
-      --text: #EEF3FF; --muted: #CDD7F5;
-      --cta: #3559FF; --ctaHi: #55AAFF;
-      --gold: #D4A017; /* Dodany akcent złota dla footera */
-      --radius: 16px; --radius-sm: 12px; --max: 1200px;
-      --shadow: 0 8px 24px rgba(0,0,0,.28);
+      --bg: #1A2E44; /* Lżejszy, futurystyczny odcień */
+      --panel: #233D5A;
+      --line: #3A5578;
+      --text: #E6ECFF;
+      --muted: #B0C0E0;
+      --cta: #5A8AFF;
+      --ctaHi: #7AA9FF;
+      --gold: #D4A017;
+      --radius: 16px;
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
-    a { color: var(--ctaHi); text-decoration: none; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-    /* Animacje */
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
     .fade-in { opacity: 0; animation: fadeIn 0.6s ease-out forwards; }
-    .fade-in:nth-child(1) { animation-delay: 0.1s; }
-    .fade-in:nth-child(2) { animation-delay: 0.2s; }
-    .fade-in:nth-child(3) { animation-delay: 0.3s; }
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,.9); backdrop-filter: saturate(130%) blur(8px); border-bottom: 1px solid var(--line); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
-    .brand { display: flex; gap: 12px; align-items: center; font-family: Poppins, sans-serif; font-weight: 700; font-size: clamp(18px, 3vw, 22px); }
-    .brand-badge { width: 36px; height: 36px; border-radius: 10px; background: var(--cta); display: grid; place-items: center; font-weight: 800; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
-    .menu { display: flex; gap: 24px; align-items: center; }
-    .menu a { padding: 12px 16px; border-radius: 12px; color: var(--text); opacity: .9; font-size: clamp(14px, 2.5vw, 16px); transition: all 0.3s; }
-    .menu a:hover, .menu a.active { background: #0f1730; color: #fff; transform: scale(1.05); }
-    .menu a:focus { outline: 2px solid var(--ctaHi); outline-offset: 2px; }
-    .btn { display: inline-block; background: var(--cta); color: #fff; padding: 14px 24px; border-radius: 12px; font-weight: 600; font-size: clamp(14px, 2.5vw, 16px); touch-action: manipulation; transition: all 0.3s; }
-    .btn:hover { background: #2B4AE0; transform: scale(1.05); }
-    .btn:focus { outline: 2px solid var(--ctaHi); outline-offset: 2px; }
-    .hamburger { display: none; cursor: pointer; font-size: 28px; color: var(--text); }
-    /* HERO */
-    .hero { padding: 80px 0; background: linear-gradient(135deg, rgba(11,18,32,0.85) 0%, rgba(17,26,46,0.85) 100%), url('/images/neural-bg.svg') center/cover no-repeat; }
-    .hero h1 { font-family: Poppins, sans-serif; font-weight: 800; font-size: clamp(28px, 5.5vw, 48px); margin: 0 0 16px; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,.3); }
-    .hero p { color: var(--muted); font-size: clamp(16px, 2.5vw, 20px); margin: 0 0 24px; text-align: center; }
-    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    /* SECTIONS */
-    section { padding: 64px 0; }
-    section.fade-in { animation-delay: 0.2s; }
-    h2 { font-family: Poppins, sans-serif; font-weight: 700; font-size: clamp(24px, 4vw, 36px); margin: 0 0 16px; text-align: center; }
-    .lead { color: var(--muted); margin: 0 0 24px; text-align: center; font-size: clamp(14px, 2.5vw, 18px); }
-    .grid { display: grid; gap: 24px; }
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    /* CARDS / PRICING */
-    .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); transition: all 0.3s; }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
-    .card-content { flex: 1 1 360px; min-width: 260px; }
-    .price { background: #0f1730; border: 1px solid #203055; border-radius: var(--radius-sm); padding: 16px; min-width: 240px; }
-    .price:hover { border-color: var(--ctaHi); }
-    .row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
-    .price .item { display: flex; justify-content: space-between; gap: 16px; margin: 10px 0; font-size: clamp(14px, 2.5vw, 16px); }
-    .caption { color: var(--muted); font-size: clamp(12px, 2vw, 13px); margin-top: 8px; }
-    ul.bullets { margin: 12px 0 0 20px; font-size: clamp(14px, 2.5vw, 16px); }
-    ul.clean { list-style: none; margin: 12px 0; padding: 0; }
-    ul.clean li { padding: .5rem 0; font-size: clamp(14px, 2.5vw, 16px); }
-    /* HOW IT WORKS */
-    .steps { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    .step h3 { color: var(--ctaHi); margin: 0 0 8px; font-size: clamp(16px, 3vw, 18px); }
-    /* TEAM */
-    .team { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    details summary { cursor: pointer; color: var(--muted); margin-top: 8px; font-size: clamp(14px, 2.5vw, 16px); }
-    /* FAQ */
-    .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; transition: all 0.3s; }
-    .faq details:hover { border-color: var(--ctaHi); }
-    .faq details + details { margin-top: 12px; }
-    .faq summary { color: var(--ctaHi); font-weight: 600; font-size: clamp(14px, 2.5vw, 16px); }
-    /* FORM */
-    .form { display: grid; gap: 16px; max-width: 640px; margin: 0 auto; }
-    .input { padding: 16px; border: none; border-radius: 10px; background: #0f1730; color: #fff; font-size: clamp(14px, 2.5vw, 16px); transition: all 0.3s; }
-    .input:focus { outline: none; border: 1px solid var(--ctaHi); box-shadow: 0 0 10px rgba(85, 170, 255, 0.4); }
-    textarea.input { min-height: 140px; }
-    label { font-size: clamp(13px, 2vw, 14px); color: var(--muted); }
-    /* FOOTER */
-    .footer { background: #111A2E; color: var(--muted); text-align: center; padding: 32px; border-top: 1px solid var(--line); }
-    .footer a { color: var(--ctaHi); font-size: clamp(14px, 2.5vw, 16px); transition: color 0.3s; }
-    .footer a:hover { color: var(--gold); }
-    .footer .trademark { font-size: clamp(12px, 2vw, 13px); margin-top: 8px; color: var(--gold); }
-    /* MOBILE NAV */
-    @media (max-width: 600px) {
-      .container { padding: 0 28px; }
-      .nav-inner { flex-wrap: wrap; height: auto; padding: 12px 0; }
-      .menu { display: none; flex-direction: column; width: 100%; background: var(--panel); padding: 20px; position: absolute; top: 80px; left: 0; box-shadow: 0 8px 16px rgba(0,0,0,.3); animation: slideIn 0.3s ease-out; }
-      .menu.active { display: flex; }
-      .hamburger { display: block; }
-      .btn { padding: 12px 20px; min-width: 48px; min-height: 48px; }
-      .hero { padding: 48px 0; }
-      section { padding: 40px 0; }
-      .card-content { flex: 1 1 100%; }
-      .price { min-width: 100%; }
-      .hero h1 { font-size: clamp(24px, 6vw, 36px); }
-      .hero p { font-size: clamp(14px, 3vw, 16px); }
-      h2 { font-size: clamp(20px, 5vw, 28px); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .vr-bg {
+      position: relative;
+      background: linear-gradient(135deg, rgba(26, 46, 68, 0.9) 0%, rgba(35, 61, 90, 0.9) 100%), 
+                  radial-gradient(circle at 70% 30%, rgba(90, 138, 255, 0.2) 0%, rgba(0, 0, 0, 0) 60%); /* Sleek AI gradient */
+      overflow: hidden;
     }
-    @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .vr-bg::before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      right: 10%;
+      width: 250px;
+      height: 150px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 150'%3E%3Cpath d='M40 15 Q70 5 100 15 Q130 25 160 15 Q190 5 220 15 V135 Q190 145 160 135 Q130 125 100 135 Q70 145 40 135 Z' fill='none' stroke='%235A8AFF' stroke-width='3'/%3E%3Ccircle cx='125' cy='75' r='40' fill='none' stroke='%23D4A017' stroke-width='4'/%3E%3Cline x1='40' y1='75' x2='210' y2='75' stroke='%23B0C0E0' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
+      opacity: 0.6;
+      animation: float 12s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-15px, 15px); }
+      100% { transform: translate(0, 0); }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 12px; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.4rem; }
+      nav .hidden { display: none; }
+      nav .md:flex { display: flex; flex-direction: column; padding: 1rem; }
+      .grid { grid-template-columns: 1fr; }
+      .hero-text { padding: 0 1rem; font-size: 0.9rem; }
+      .vr-bg::before { width: 150px; height: 100px; top: 20%; right: 5%; }
+    }
   </style>
 </head>
-<body>
-<!-- NAV -->
-<nav class="nav">
-  <div class="container nav-inner">
-    <div class="brand fade-in">
-      <div class="brand-badge">N</div>
-      <span>Naukowe Centrum NeuroInnowacji</span>
+<body class="min-h-screen">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-gray-900/80 backdrop-blur-md border-b border-gray-700 z-50">
+    <div class="container flex items-center justify-between h-16 md:h-20">
+      <a href="#" class="flex items-center gap-3 text-lg md:text-xl font-bold text-white">
+        <img src="/images/logo-neuroinnowacje.png" alt="NeuroInnowacje Logo" class="w-10 h-10 md:w-12 md:h-12">
+        NeuroInnowacje
+      </a>
+      <div class="hidden md:flex gap-3 md:gap-6">
+        <a href="#oferta" class="text-gray-300 hover:text-white px-3 md:px-5 py-2 rounded-md text-sm md:text-base transition">Oferta</a>
+        <a href="#terapie-ai" class="text-gray-300 hover:text-white px-3 md:px-5 py-2 rounded-md text-sm md:text-base transition">Terapie AI</a>
+        <a href="#biznes" class="text-gray-300 hover:text-white px-3 md:px-5 py-2 rounded-md text-sm md:text-base transition">Dla Biznesu</a>
+        <a href="#blog" class="text-gray-300 hover:text-white px-3 md:px-5 py-2 rounded-md text-sm md:text-base transition">Blog</a>
+        <a href="#kontakt" class="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-md hover:bg-blue-700 text-sm md:text-base transition animate-pulse">Kontakt</a>
+      </div>
+      <button class="md:hidden text-gray-300 text-xl">☰</button>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="menu">
-      <a href="#oferta" class="active" aria-label="Przejdź do sekcji Oferta">Oferta</a>
-      <a href="#vr-ai" aria-label="Przejdź do sekcji VR/AI">VR/AI</a>
-      <a href="#jak" aria-label="Przejdź do sekcji Jak to działa">Jak to działa</a>
-      <a href="#zespol" aria-label="Przejdź do sekcji Zespół">Zespół</a>
-      <a href="#faq" aria-label="Przejdź do sekcji FAQ">FAQ</a>
-      <a href="#kontakt" class="btn" aria-label="Przejdź do sekcji Kontakt">Kontakt</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="min-h-screen vr-bg relative pt-20 md:pt-28">
+    <div class="container flex flex-col items-center justify-center h-full text-center">
+      <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">NeuroInnowacje – Twój Umysł w Rękach Naszych Ekspertów i AI</h1>
+      <p class="text-sm md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 max-w-xs md:max-w-2xl hero-text">NeuroInnowacje to przełomowe centrum terapii oparte na NCNI (Neuro-Cognitive Neural Interface), łączące zaawansowane technologie sztucznej inteligencji z neurofeedbackiem EEG i wiedzą ekspertów z doświadczeniem w bioinżynierii oraz innowacjach AI. Nasze podejście, zainspirowane badaniami z wiodących instytucji USA (np. Child Mind Institute, Neurocore), oferuje redukcję stresu i bólu nawet o 40% w ciągu 8-10 sesji, wspierając osoby z neuroróżnorodnością, stresem pourazowym czy chronicznym bólem. Siedziba w Smolec, Polska, to miejsce, gdzie technologia spotyka się z ludzkim potencjałem. Zarezerwuj darmową konsultację i odkryj przyszłość zdrowia psychicznego.</p>
+      <a href="#kontakt" class="bg-blue-600 text-white px-5 md:px-8 py-3 md:py-4 rounded-lg hover:bg-blue-700 text-sm md:text-base transition animate-pulse">Umów Darmową Konsultację</a>
     </div>
-  </div>
-</nav>
-<!-- HERO -->
-<header class="hero fade-in">
-  <div class="container" style="max-width:960px">
-    <h1>NCNI — Naukowe Centrum NeuroInnowacji</h1>
-    <p>VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju.</p>
-    <div class="hero-cta">
-      <a href="#oferta" class="btn">Zobacz ofertę</a>
-      <a href="#kontakt" class="btn" style="background:#0f1730;border:1px solid var(--line)">Umów rozmowę</a>
-    </div>
-  </div>
-</header>
-<!-- VR/AI SECTION -->
-<section id="vr-ai" class="fade-in">
-  <div class="container">
-    <h2>VR/AI dla Neuroróżnorodności</h2>
-    <p class="lead">Innowacyjne rozwiązania wspierające autyzm, ADHD i dobrostan psychiczny.</p>
-    <div class="grid grid-2">
-      <article class="card fade-in">
-        <h3>VR w terapii</h3>
-        <p>Wirtualna rzeczywistość wspiera trening społeczny i regulację emocji.</p>
-      </article>
-      <article class="card fade-in">
-        <h3>AI w edukacji</h3>
-        <p>Personalizowane algorytmy uczenia dla dzieci i dorosłych.</p>
-      </article>
-    </div>
-  </div>
-</section>
-<!-- OFERTA & CENNIK -->
-<section id="oferta" class="fade-in">
-  <div class="container">
-    <h2>Oferta & Cennik</h2>
-    <p class="lead">Wszystkie ceny PLN brutto. Wystawiamy faktury. Rezerwacje: telefon / e-mail / formularz.</p>
-    <div class="grid">
-      <!-- 1. Konsulting / Wdrożenia AI -->
-      <article class="card fade-in">
-        <div class="row">
-          <div class="card-content">
-            <h3 style="margin:0 0 6px">Konsulting i wdrożenia AI</h3>
-            <p class="lead" style="text-align:left;margin:0 0 8px">Analiza danych, automatyzacja, modele predykcyjne, personalizacja procesów.</p>
-            <ul class="bullets">
-              <li>Audyt dojrzałości cyfrowej + plan wdrożeń</li>
-              <li>Dashboardy PBI/Looker Studio, KPI i alerty</li>
-              <li>Asystenci/Chatboty, automatyzacje i integracje</li>
-            </ul>
-          </div>
-          <div class="price">
-            <div class="item"><span>Konsultacja strategiczna (90 min)</span><strong>500 PLN</strong></div>
-            <div class="item"><span>Warsztat projektowy (1 dzień)</span><strong>3 900 PLN</strong></div>
-            <div class="item"><span>Projekt wdrożeniowy</span><strong>od 5 000 PLN</strong></div>
-            <p class="caption">Szczegóły po audycie i zdefiniowaniu zakresu.</p>
-          </div>
+  </header>
+
+  <!-- Terapie AI Section -->
+  <section id="terapie-ai" class="py-16 md:py-20 bg-gray-900">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-10">Terapie AI</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+        <!-- Neurofeedback EEG -->
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Neurofeedback EEG</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Zaawansowana terapia redukcji stresu i bólu, wykorzystująca neurofeedback EEG do modulacji fal mózgowych (Alpha-Theta, Beta). Bazuje na badaniach z USA (np. Neurocore), gdzie skuteczność w redukcji stresu sięga 30-50%, a bólu migrenowego czy fibromialgii do 40% w ciągu 10 sesji. Sesje: 250 PLN, pakiet 10: 2200 PLN, z indywidualnym planem treningowym.</p>
+          <ul class="text-gray-300 mb-4 text-sm md:text-base">
+            <li>Stres: Trening Alpha-Theta dla relaksu</li>
+            <li>Ból: Redukcja migren, fibromialgii</li>
+            <li>Potwierdzone badaniami US: 30-50% skuteczności</li>
+          </ul>
+          <a href="#kontakt" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Umów się &rarr;</a>
         </div>
-      </article>
-      <!-- 2. Neurofeedback -->
-      <article class="card fade-in">
-        <div class="row">
-          <div class="card-content">
-            <h3 style="margin:0 0 6px">Neurofeedback (EEG-biofeedback)</h3>
-            <p class="lead" style="text-align:left;margin:0 0 8px">Trening fal mózgowych: koncentracja, sen, regulacja stresu.</p>
-            <ul class="bullets">
-              <li>Sesja 55–60 min (z kalibracją)</li>
-              <li>Indywidualny protokół po diagnozie</li>
-            </ul>
-          </div>
-          <div class="price">
-            <div class="item"><span>Sesja jednorazowa</span><strong>260 PLN</strong></div>
-            <div class="item"><span>Pakiet 5 sesji</span><strong>1 200 PLN</strong> <span class="caption">(240/sesja)</span></div>
-            <div class="item"><span>Pakiet 10 sesji</span><strong>2 200 PLN</strong> <span class="caption">(220/sesja)</span></div>
-            <p class="caption">Typowa seria: 10–20 sesji, 1–2 × tydz.</p>
-          </div>
+        <!-- Feedbackiveeg NCNI -->
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Feedbackiveeg NCNI</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Innowacyjna terapia zintegrowana z algorytmami AI NCNI, zaprojektowana dla bólu chronicznego, stresu pourazowego (PTSD) i neuropatii. Wykorzystuje dane EEG w czasie rzeczywistym, personalizując sesje na podstawie unikalnych wzorców mózgowych. Badania z USA wskazują na 45% redukcję objawów po 8 sesjach. Sesje: 300 PLN, pakiet 8: 2200 PLN.</p>
+          <ul class="text-gray-300 mb-4 text-sm md:text-base">
+            <li>Personalizacja z algorytmami NCNI</li>
+            <li>Neuropatia, stres pourazowy</li>
+            <li>Technologia oparta na US research</li>
+          </ul>
+          <a href="#kontakt" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Umów się &rarr;</a>
         </div>
-      </article>
-      <!-- 3. Programy edukacyjne -->
-      <article class="card fade-in">
-        <div class="row">
-          <div class="card-content">
-            <h3 style="margin:0 0 6px">Programy edukacyjne (neuroróżnorodność)</h3>
-            <p class="lead" style="text-align:left;margin:0 0 8px">Koncentracja, uważność, kompetencje społeczne, odporność na stres.</p>
-            <ul class="bullets">
-              <li>Zajęcia grupowe do 6 osób (45 min)</li>
-              <li>Moduły semestralne dla szkół</li>
-            </ul>
-          </div>
-          <div class="price">
-            <div class="item"><span>Zajęcia grupowe</span><strong>150 PLN/os.</strong></div>
-            <div class="item"><span>Cykl 8 zajęć</span><strong>1 050 PLN</strong></div>
-            <div class="item"><span>Program szkolny (semestr)</span><strong>od 4 500 PLN</strong></div>
-          </div>
+        <!-- VR Terapia -->
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">VR Terapia</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Imersyjna terapia z neurofeedbackiem w środowisku wirtualnej rzeczywistości, wspierająca redukcję stresu, lęku i objawy ADHD. Inspiracja z USA (sensory integration studies) pokazuje skuteczność do 35% w relaksacji po 10 sesjach. Dostępna online/offline, z dostosowaniem do indywidualnych potrzeb. Sesje: 180 PLN, pakiet 10: 1500 PLN.</p>
+          <ul class="text-gray-300 mb-4 text-sm md:text-base">
+            <li>Relaks z VR immersją</li>
+            <li>Online/offline dostęp</li>
+            <li>Poparte studiami sensory integration z USA</li>
+          </ul>
+          <a href="#kontakt" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Umów się &rarr;</a>
         </div>
-      </article>
-      <!-- 4. Szkolenia i certyfikacje -->
-      <article class="card fade-in">
-        <div class="row">
-          <div class="card-content">
-            <h3 style="margin:0 0 6px">Szkolenia i certyfikacje</h3>
-            <p class="lead" style="text-align:left;margin:0 0 8px">Dla rodziców, nauczycieli, terapeutów. Strategia, AI, komunikacja.</p>
-            <ul class="bullets">
-              <li>Programy 2h–1 dzień</li>
-              <li>Mentoring indywidualny</li>
-            </ul>
-          </div>
-          <div class="price">
-            <div class="item"><span>Rodzice (2h, online)</span><strong>290 PLN/os.</strong></div>
-            <div class="item"><span>Nauczyciele (4h, certyfikat)</span><strong>590 PLN/os.</strong></div>
-            <div class="item"><span>Mentoring 1:1 (50 min)</span><strong>250 PLN</strong></div>
-            <div class="item"><span>Warsztat dla terapeutów (1 dzień)</span><strong>890 PLN/os.</strong></div>
-          </div>
-        </div>
-      </article>
-      <!-- 5. B2B / Instytucje -->
-      <article class="card fade-in">
-        <div class="row">
-          <div class="card-content">
-            <h3 style="margin:0 0 6px">Programy B2B i instytucje</h3>
-            <p class="lead" style="text-align:left;margin:0 0 8px">Wellbeing, transformacja cyfrowa, strefy technologiczne, wdrożenia.</p>
-            <ul class="bullets">
-              <li>Dla firm, samorządów, szkół i NGO</li>
-            </ul>
-          </div>
-          <div class="price">
-            <div class="item"><span>Warsztat wellbeing (3h, do 20 os.)</span><strong>4 800 PLN</strong></div>
-            <div class="item"><span>Dzień szkoleniowy (6–7h)</span><strong>7 500 PLN</strong></div>
-            <div class="item"><span>Strefa technologiczna na evencie</span><strong>od 4 900 PLN</strong></div>
-            <div class="item"><span>Wdrożenie szkolne</span><strong>od 12 000 PLN</strong></div>
-          </div>
-        </div>
-      </article>
-      <!-- 6. Badania i rozwój -->
-      <article class="card fade-in">
-        <div class="row">
-          <div class="card-content">
-            <h3 style="margin:0 0 6px">Badania i rozwój (R&D)</h3>
-            <p class="lead" style="text-align:left;margin:0 0 8px">Ewaluacje naukowe, publikacje, raporty, projekty grantowe.</p>
-            <ul class="bullets">
-              <li>Analiza skuteczności interwencji</li>
-              <li>Współpraca akademicka</li>
-            </ul>
-          </div>
-          <div class="price">
-            <div class="item"><span>Projekt badawczy (grant/UE)</span><strong>wycena indywidualna</strong></div>
-            <div class="item"><span>Ewaluacja wdrożeń</span><strong>od 9 000 PLN</strong></div>
-            <div class="item"><span>Publikacje / raporty</span><strong>wg zakresu</strong></div>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
-  </div>
-</section>
-<!-- JAK TO DZIAŁA -->
-<section id="jak" style="background: linear-gradient(135deg, var(--panel) 0%, #1a263f 100%);" class="fade-in">
-  <div class="container">
-    <h2>Jak to działa?</h2>
-    <p class="lead">Od diagnozy do wdrożenia i ewaluacji.</p>
-    <div class="grid steps">
-      <div class="card step fade-in"><h3>1. Diagnoza</h3><p>Wywiad, ankiety, testy przesiewowe, plan indywidualny.</p></div>
-      <div class="card step fade-in"><h3>2. Wdrożenie</h3><p>AI, automatyzacja, metody pracy dobrane do celu.</p></div>
-      <div class="card step fade-in"><h3>3. Raport</h3><p>Monitorowanie postępów, korekty, wskaźniki efektywności.</p></div>
-      <div class="card step fade-in"><h3>4. Rozwój</h3><p>Mentoring, szkolenia, skalowanie w szkole/firmie.</p></div>
+  </section>
+
+  <!-- Business Section -->
+  <section id="biznes" class="py-16 md:py-20 bg-gray-950">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-10">Dla Biznesu</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Wellbeing Korporacyjny</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Kompleksowy program redukcji stresu dla firm, oparty na EEG training i AI NCNI. Badania z USA (korporacje tech) wskazują na 20% spadek absencji i 15% wzrost produktywności. Cena: 4500 PLN/15 pracowników, z indywidualnym raportem post-sesyjnym.</p>
+          <ul class="text-gray-300 mb-4 text-sm md:text-base">
+            <li>EEG training dla zespołów</li>
+            <li>Poprawa produktywności</li>
+            <li>Potwierdzone dane z US korpo</li>
+          </ul>
+          <a href="#kontakt" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Zamów Demo &rarr;</a>
+        </div>
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Szkolenia dla Klinik</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Zaawansowane szkolenia z Feedbackiveeg i EEG, certyfikowane przez NCNI. Obejmuje 5 dni teorii i praktyki, z adaptacją standardów US training. Cena: 10k PLN/pakiet, z rocznym wsparciem 1:1 dla klinik.</p>
+          <ul class="text-gray-300 mb-4 text-sm md:text-base">
+            <li>Certyfikat NCNI</li>
+            <li>Support 1:1 dla klinik</li>
+            <li>Standard US training adapted</li>
+          </ul>
+          <a href="#kontakt" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Dowiedz się więcej &rarr;</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<!-- ZESPÓŁ -->
-<section id="zespol" class="fade-in">
-  <div class="container">
-    <h2>Zespół</h2>
-    <div class="grid team">
-      <!-- Sebastian -->
-      <article class="card fade-in">
-        <h3>dr hab. inż. Sebastian Kraszewski</h3>
-        <p style="color:var(--ctaHi);margin:0 0 10px">AI • neurofeedback • ewaluacja naukowa</p>
-        <ul class="clean" style="margin:0 0 10px">
-          <li>• Profesor uczelni na Politechnice Wrocławskiej</li>
-          <li>• Autor 40+ publikacji naukowych, 700+ cytowań</li>
-          <li>• Polska Nagroda Inteligentnego Rozwoju (2019)</li>
-        </ul>
-        <details>
-          <summary>Pokaż bio</summary>
-          <p class="muted" style="margin-top:.6rem">
-            Profesor uczelni na Wydziale Podstawowych Problemów Techniki Politechniki Wrocławskiej.
-            Specjalizacja: neuroinformatyka, bioinformatyka, analiza sygnałów neurofizjologicznych.
-            Prowadzi badania nad wykorzystaniem sztucznej inteligencji i neurofeedbacku.
-            W NCNI odpowiada za ewaluację naukową i rozwój protokołów.
-          </p>
-        </details>
-      </article>
-      <!-- Marlena -->
-      <article class="card fade-in">
-        <h3>dr inż. Marlena Gąsior-Głogowska</h3>
-        <p style="color:var(--ctaHi);margin:0 0 10px">Bioinżynieria • dydaktyka • neuroróżnorodność</p>
-        <ul class="clean" style="margin:0 0 10px">
-          <li>• Naukowiec i badacz na Politechnice Wrocławskiej</li>
-          <li>• Specjalizacja: biomateriały, bioinżynieria, spektroskopia Ramana</li>
-          <li>• Autor publikacji i uczestnik projektów krajowych i europejskich</li>
-        </ul>
-        <details>
-          <summary>Pokaż bio</summary>
-          <p class="muted" style="margin-top:.6rem">
-            Naukowiec i badacz z Wydziału Podstawowych Problemów Techniki Politechniki Wrocławskiej.
-            Specjalizacja obejmuje bioinżynierię, biomateriały i spektroskopię Ramana.
-            Praca koncentruje się na rozwoju i walidacji metod badawczych oraz innowacjach dydaktycznych.
-            W NCNI odpowiada za projektowanie i ocenę programów edukacyjnych oraz mentoring.
-          </p>
-        </details>
-      </article>
-      <!-- Karol -->
-      <article class="card fade-in">
-        <h3>Karol Kiszło</h3>
-        <p style="color:var(--ctaHi);margin:0 0 10px">Strategia • e-commerce • AI & komunikacja</p>
-        <ul class="clean" style="margin:0 0 10px">
-          <li>• Ekspert w e-commerce i sprzedaży online (20+ lat)</li>
-          <li>• Absolwent Loyola University Chicago i Triton College (USA)</li>
-          <li>• Specjalizacja: AI, automatyzacja, PR i marketing</li>
-        </ul>
-        <details>
-          <summary>Pokaż bio</summary>
-          <p class="muted" style="margin-top:.6rem">
-            Ekspert z ponad 20-letnim doświadczeniem w e-commerce, strategii sprzedażowej i komunikacji.
-            Absolwent Loyola University Chicago (School of Communication, PR & Media) oraz Triton College (Mass Communication/Multimedia),
-            gdzie zdobywał wiedzę i praktykę w międzynarodowym środowisku.
-          </p>
-          <p class="muted">
-            Łączy wiedzę z zakresu sztucznej inteligencji, automatyzacji i analityki danych z praktyką budowania innowacyjnych
-            projektów edukacyjnych i biznesowych. Specjalizacja: strategia, PR i marketing, rozwój biznesu, wdrażanie nowych technologii,
-            integracja z procesami szkoleniowymi i coachingowymi.
-          </p>
-          <p class="muted">
-            W NCNI odpowiada za wizję i strategię rozwoju, budowanie partnerstw instytucjonalnych oraz komunikację zewnętrzną.
-            Wspiera zespoły w transformacji cyfrowej i wprowadzaniu inteligentnych rozwiązań AI do edukacji i biznesu.
-          </p>
-        </details>
-      </article>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="py-16 md:py-20 bg-gray-900">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-10">Blog</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Neurofeedback EEG vs Feedbackiveeg – Różnice 2025</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Głęboka analiza porównawcza technologii NCNI z USA i Polski. Neurofeedback EEG koncentruje się na klasycznym treningu fal mózgowych, podczas gdy Feedbackiveeg wykorzystuje AI do personalizacji, osiągając do 40% redukcji stresu w krótszym czasie. Przegląd danych z 2025 roku.</p>
+          <a href="#" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Czytaj więcej &rarr;</a>
+        </div>
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Jak NCNI Redukuje Ból Chroniczny</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Szczegółowe studium przypadków z USA i Polski, gdzie NCNI osiągnęło 50% redukcję bólu chronicznego (migreny, neuropatia) w 8 sesjach. Opisuje mechanizmy AI i EEG w modulacji percepcji bólu, z przykładami klinicznymi.</p>
+          <a href="#" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Czytaj więcej &rarr;</a>
+        </div>
+        <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-3">Trendy w Terapii Neuroróżnorodności</h3>
+          <p class="text-gray-400 mb-4 text-sm md:text-base">Przegląd najnowszych trendów w terapii neuroróżnorodności na 2025 rok, w tym VR, AI i biofeedback. Analiza danych z USA (Autism Speaks, ADD.org) i adaptacja dla polskiego rynku, z naciskiem na wellbeing korporacyjny.</p>
+          <a href="#" class="text-blue-400 hover:text-blue-300 text-sm md:text-base">Czytaj więcej &rarr;</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<!-- FAQ -->
-<section id="faq" style="background: linear-gradient(135deg, var(--panel) 0%, #1a263f 100%);" class="fade-in">
-  <div class="container">
-    <h2>FAQ</h2>
-    <div class="faq">
-      <details><summary>Czy AI ma „przeciwwskazania”?</summary><p>AI nie ma przeciwwskazań zdrowotnych, ale każde wdrożenie wymaga analizy kontekstu, bezpieczeństwa danych i etyki.</p></details>
-      <details><summary>Ile trwa wdrożenie?</summary><p>Małe projekty: zwykle kilka tygodni. W instytucjach — harmonogram ustalany indywidualnie.</p></details>
-      <details><summary>Jak się umówić?</summary><p>Przez formularz kontaktowy lub telefon/e-mail (poniżej).</p></details>
+  </section>
+
+  <!-- Team Section -->
+  <section id="zespol" class="py-16 md:py-20 bg-gray-950">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-10">Nasz Zespół Ekspertów</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+        <div class="text-center">
+          <img src="https://via.placeholder.com/150?text=Sebastian" alt="Sebastian Kraszewski" class="w-24 h-24 md:w-36 md:h-36 rounded-full mx-auto mb-4 md:mb-6 border-2 border-gray-700 hover:border-blue-400 transition">
+          <h3 class="text-lg md:text-xl font-semibold">dr hab. inż. Sebastian Kraszewski</h3>
+          <p class="text-gray-400 text-sm md:text-base">Specjalista AI & Neurofeedback</p>
+        </div>
+        <div class="text-center">
+          <img src="https://via.placeholder.com/150?text=Marlena" alt="Marlena Gąsior-Głogowska" class="w-24 h-24 md:w-36 md:h-36 rounded-full mx-auto mb-4 md:mb-6 border-2 border-gray-700 hover:border-blue-400 transition">
+          <h3 class="text-lg md:text-xl font-semibold">dr inż. Marlena Gąsior-Głogowska</h3>
+          <p class="text-gray-400 text-sm md:text-base">Ekspertka Bioinżynierii</p>
+        </div>
+        <div class="text-center">
+          <img src="/images/team/karol.jpg" alt="Karol Kiszło" class="w-24 h-24 md:w-36 md:h-36 rounded-full mx-auto mb-4 md:mb-6 border-2 border-gray-700 hover:border-blue-400 transition">
+          <h3 class="text-lg md:text-xl font-semibold">Karol Kiszło</h3>
+          <p class="text-gray-400 text-sm md:text-base">Strateg & Innowacje AI</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<!-- KONTAKT -->
-<section id="kontakt" class="fade-in">
-  <div class="container">
-    <h2>Kontakt</h2>
-    <form class="form" action="/api/contact" method="POST">
-      <label for="name">Imię i nazwisko</label>
-      <input id="name" class="input" type="text" placeholder="Imię i nazwisko" required>
-      <label for="email">E-mail</label>
-      <input id="email" class="input" type="email" placeholder="E-mail" required>
-      <label for="phone">Telefon</label>
-      <input id="phone" class="input" type="tel" placeholder="Telefon">
-      <label for="topic">Wybierz temat</label>
-      <select id="topic" class="input" required>
-        <option value="">Wybierz temat</option>
-        <option>AI i automatyzacja</option>
-        <option>Neurofeedback</option>
-        <option>Program edukacyjny</option>
-        <option>Szkolenia / certyfikacje</option>
-        <option>Program B2B / szkoły</option>
-        <option>Projekt badawczy</option>
-      </select>
-      <label for="message">Wiadomość</label>
-      <textarea id="message" class="input" rows="5" placeholder="Wiadomość"></textarea>
-      <label><input type="checkbox" required> Zgoda RODO na kontakt zwrotny</label>
-      <button class="btn" type="submit">Wyślij wiadomość</button>
-    </form>
-  </div>
-</section>
-<!-- FOOTER -->
-<footer class="footer fade-in">
-  <p>© 2025 NCNI — Naukowe Centrum NeuroInnowacji. Wszelkie prawa zastrzeżone.</p>
-  <p class="trademark">Design i strategia: Karol Kiszło™ | Stworzone z pasją przez zespół NCNI</p>
-  <p><a href="#kontakt">Skontaktuj się z nami</a> | <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
-</footer>
-<script>
-  // Hamburger menu toggle
-  function toggleMenu() {
-    document.querySelector('.menu').classList.toggle('active');
-  }
-  // Fade-in animation on scroll
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
-        }
+  </section>
+
+  <!-- Contact Section -->
+  <section id="kontakt" class="py-16 md:py-20 bg-gray-900">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-10">Kontakt</h2>
+      <form class="max-w-md md:max-w-lg mx-auto space-y-4 md:space-y-5">
+        <input type="text" placeholder="Imię i nazwisko" class="w-full p-3 md:p-4 bg-gray-800 rounded-lg text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="email" placeholder="E-mail" class="w-full p-3 md:p-4 bg-gray-800 rounded-lg text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="tel" placeholder="Telefon" class="w-full p-3 md:p-4 bg-gray-800 rounded-lg text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select class="w-full p-3 md:p-4 bg-gray-800 rounded-lg text-white text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Wybierz temat</option>
+          <option>Neurofeedback EEG</option>
+          <option>Feedbackiveeg</option>
+          <option>VR Terapia</option>
+        </select>
+        <textarea placeholder="Wiadomość" class="w-full p-3 md:p-4 bg-gray-800 rounded-lg text-white h-20 md:h-28 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white p-3 md:p-4 rounded-lg hover:bg-blue-700 text-sm md:text-base transition">Wyślij</button>
+      </form>
+      <p class="text-center text-gray-400 mt-4 md:mt-6 text-sm md:text-base">Smolec, Poland | kontakt@neuroinnowacje.pl | +48 123 456 789</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-6 md:py-8 text-center">
+    <p class="text-gray-400 text-sm md:text-base">© 2025 NeuroInnowacje. Wszelkie prawa zastrzeżone.</p>
+    <p class="text-yellow-500 mt-2 md:mt-3 text-sm md:text-base">Design: Karol Kiszło™ | Stworzone z pasją i innowacją</p>
+  </footer>
+
+  <script>
+    // Simple fade-in on scroll
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('section').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight) section.classList.add('fade-in');
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  });
-  // Form submission placeholder
-  document.querySelector('.form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    alert('Wiadomość wysłana! Dziękujemy, skontaktujemy się wkrótce.');
-    e.target.reset();
-  });
-</script>
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('button');
+    const navMenu = document.querySelector('nav .hidden');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('flex');
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
