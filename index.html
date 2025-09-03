@@ -3,81 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Naukowe Centrum NeuroInnowacji (NCNI)</title>
-  <meta name="description" content="AI, neuroróżnorodność i nowe technologie kształtujące przyszłość ludzkości." />
+  <title>Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności</title>
+  <meta name="description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
+  <meta name="keywords" content="AI, VR, neuroróżnorodność, autyzm, ADHD, neurofeedback, dobrostan psychiczny, technologia, NCNI" />
+  <meta name="author" content="Karol Kiszło" />
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności" />
+  <meta property="og:description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ncni.pl/" />
+  <meta property="og:image" content="https://ncni.pl/og-image.jpg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Naukowe Centrum NeuroInnowacji (NCNI) | VR/AI dla Neuroróżnorodności" />
+  <meta name="twitter:description" content="VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju od NCNI." />
+  <meta name="twitter:image" content="https://ncni.pl/og-image.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0B1220; --panel:#111A2E; --line:#1F2A44;
-      --text:#EEF3FF; --muted:#CDD7F5;
-      --cta:#3559FF; --ctaHi:#55AAFF;
-      --radius:16px; --radius-sm:12px; --max:1200px;
-      --shadow:0 8px 24px rgba(0,0,0,.28);
+    :root {
+      --bg: #0B1220; --panel: #111A2E; --line: #1F2A44;
+      --text: #EEF3FF; --muted: #CDD7F5;
+      --cta: #3559FF; --ctaHi: #55AAFF;
+      --radius: 16px; --radius-sm: 12px; --max: 1200px;
+      --shadow: 0 8px 24px rgba(0,0,0,.28);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
-    a{color:var(--ctaHi);text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 16px}
-
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
+    a { color: var(--ctaHi); text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
     /* NAV */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.85);backdrop-filter:saturate(130%) blur(6px);border-bottom:1px solid var(--line)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;gap:10px;align-items:center;font-family:Poppins,sans-serif;font-weight:700}
-    .brand-badge{width:28px;height:28px;border-radius:8px;background:var(--cta);display:grid;place-items:center;font-weight:700;color:#fff}
-    .menu{display:flex;gap:18px}
-    .menu a{padding:8px 10px;border-radius:10px;color:var(--text);opacity:.9}
-    .menu a:hover,.menu a.active{background:#0f1730;color:#fff}
-    .btn{display:inline-block;background:var(--cta);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600}
-    .btn:hover{background:#2B4AE0}
-
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,.85); backdrop-filter: saturate(130%) blur(6px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; gap: 10px; align-items: center; font-family: Poppins, sans-serif; font-weight: 700; }
+    .brand-badge { width: 28px; height: 28px; border-radius: 8px; background: var(--cta); display: grid; place-items: center; font-weight: 700; color: #fff; }
+    .menu { display: flex; gap: 18px; }
+    .menu a { padding: 8px 10px; border-radius: 10px; color: var(--text); opacity: .9; }
+    .menu a:hover, .menu a.active { background: #0f1730; color: #fff; }
+    .menu a:focus { outline: 2px solid var(--ctaHi); outline-offset: 2px; }
+    .btn { display: inline-block; background: var(--cta); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; }
+    .btn:hover { background: #2B4AE0; }
+    .btn:focus { outline: 2px solid var(--ctaHi); outline-offset: 2px; }
     /* HERO */
-    .hero{padding:88px 0;background:linear-gradient(135deg,#0B1220 0%,#111A2E 100%)}
-    .hero h1{font-family:Poppins,sans-serif;font-size:clamp(28px,4.5vw,48px);margin:0 0 12px;text-align:center}
-    .hero p{color:var(--muted);font-size:clamp(16px,2.1vw,20px);margin:0 0 24px;text-align:center}
-    .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
+    .hero { padding: 88px 0; background: linear-gradient(135deg, rgba(11,18,32,0.8) 0%, rgba(17,26,46,0.8) 100%), url('/images/neural-bg.svg') center/cover no-repeat; }
+    .hero h1 { font-family: Poppins, sans-serif; font-size: clamp(28px, 4.5vw, 48px); margin: 0 0 12px; text-align: center; }
+    .hero p { color: var(--muted); font-size: clamp(16px, 2.1vw, 20px); margin: 0 0 24px; text-align: center; }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     /* SECTIONS */
-    section{padding:64px 0}
-    h2{font-family:Poppins,sans-serif;font-size:clamp(24px,3.2vw,36px);margin:0 0 16px;text-align:center}
-    .lead{color:var(--muted);margin:0 0 24px;text-align:center}
-    .grid{display:grid;gap:22px}
-
+    section { padding: 64px 0; }
+    h2 { font-family: Poppins, sans-serif; font-size: clamp(24px, 3.2vw, 36px); margin: 0 0 16px; text-align: center; }
+    .lead { color: var(--muted); margin: 0 0 24px; text-align: center; }
+    .grid { display: grid; gap: 22px; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     /* CARDS / PRICING */
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .price{background:#0f1730;border:1px solid #203055;border-radius:var(--radius-sm);padding:14px;min-width:260px}
-    .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
-    .price .item{display:flex;justify-content:space-between;gap:14px;margin:8px 0}
-    .caption{color:var(--muted);font-size:13px;margin-top:8px}
-    ul.bullets{margin:10px 0 0 18px}
-    ul.clean{list-style:none;margin:12px 0;padding:0}
-    ul.clean li{padding:.25rem 0}
-
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.32); transition: transform 0.2s, box-shadow 0.2s; }
+    .card-content { flex: 1 1 420px; min-width: 280px; }
+    .price { background: #0f1730; border: 1px solid #203055; border-radius: var(--radius-sm); padding: 14px; min-width: 260px; }
+    .row { display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
+    .price .item { display: flex; justify-content: space-between; gap: 14px; margin: 8px 0; }
+    .caption { color: var(--muted); font-size: 13px; margin-top: 8px; }
+    ul.bullets { margin: 10px 0 0 18px; }
+    ul.clean { list-style: none; margin: 12px 0; padding: 0; }
+    ul.clean li { padding: .25rem 0; }
     /* HOW IT WORKS */
-    .steps{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .step h3{color:var(--ctaHi);margin:0 0 6px}
-
+    .steps { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .step h3 { color: var(--ctaHi); margin: 0 0 6px; }
     /* TEAM */
-    .team{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    details summary{cursor:pointer;color:var(--muted);margin-top:8px}
-
+    .team { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    details summary { cursor: pointer; color: var(--muted); margin-top: 8px; }
     /* FAQ */
-    .faq details{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px}
-    .faq details+details{margin-top:10px}
-    .faq summary{color:var(--ctaHi);font-weight:600}
-
+    .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px; }
+    .faq details + details { margin-top: 10px; }
+    .faq summary { color: var(--ctaHi); font-weight: 600; }
     /* FORM */
-    .form{display:grid;gap:12px;max-width:720px;margin:0 auto}
-    .input{padding:12px;border:none;border-radius:10px;background:#0f1730;color:#fff}
-    textarea.input{min-height:120px}
-
+    .form { display: grid; gap: 12px; max-width: 720px; margin: 0 auto; }
+    .input { padding: 12px; border: none; border-radius: 10px; background: #0f1730; color: #fff; }
+    .input:focus { outline: none; border: 1px solid var(--ctaHi); box-shadow: 0 0 8px rgba(85, 170, 255, 0.3); }
+    textarea.input { min-height: 120px; }
+    label { font-size: 13px; color: var(--muted); }
     /* FOOTER */
-    .footer{background:#111A2E;color:var(--muted);text-align:center;padding:22px;border-top:1px solid var(--line)}
-
-    @media (min-width: 900px){ .grid-2{grid-template-columns:1fr 1fr} }
+    .footer { background: #111A2E; color: var(--muted); text-align: center; padding: 22px; border-top: 1px solid var(--line); }
+    .footer a { color: var(--ctaHi); }
+    .footer .trademark { font-size: 12px; margin-top: 8px; }
+    @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .container { padding: 0 24px; } }
   </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav class="nav">
   <div class="container nav-inner">
@@ -86,38 +98,53 @@
       <span>Naukowe Centrum NeuroInnowacji</span>
     </div>
     <div class="menu">
-      <a href="#oferta" class="active">Oferta</a>
-      <a href="#jak">Jak to działa</a>
-      <a href="#zespol">Zespół</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt" class="btn">Kontakt</a>
+      <a href="#oferta" class="active" aria-label="Przejdź do sekcji Oferta">Oferta</a>
+      <a href="#vr-ai" aria-label="Przejdź do sekcji VR/AI">VR/AI</a>
+      <a href="#jak" aria-label="Przejdź do sekcji Jak to działa">Jak to działa</a>
+      <a href="#zespol" aria-label="Przejdź do sekcji Zespół">Zespół</a>
+      <a href="#faq" aria-label="Przejdź do sekcji FAQ">FAQ</a>
+      <a href="#kontakt" class="btn" aria-label="Przejdź do sekcji Kontakt">Kontakt</a>
     </div>
   </div>
 </nav>
-
 <!-- HERO -->
 <header class="hero">
   <div class="container" style="max-width:960px">
     <h1>NCNI — Naukowe Centrum NeuroInnowacji</h1>
-    <p>AI, neuroróżnorodność i nowe technologie kształtujące przyszłość ludzkości.</p>
+    <p>VR/AI dla neuroróżnorodności: autyzm, ADHD, dobrostan psychiczny. Nauka, terapia i narzędzia rozwoju.</p>
     <div class="hero-cta">
       <a href="#oferta" class="btn">Zobacz ofertę</a>
       <a href="#kontakt" class="btn" style="background:#0f1730;border:1px solid var(--line)">Umów rozmowę</a>
     </div>
   </div>
 </header>
-
+<!-- VR/AI SECTION -->
+<section id="vr-ai">
+  <div class="container">
+    <h2>VR/AI dla Neuroróżnorodności</h2>
+    <p class="lead">Innowacyjne rozwiązania wspierające autyzm, ADHD i dobrostan psychiczny.</p>
+    <div class="grid grid-2">
+      <article class="card">
+        <h3>VR w terapii</h3>
+        <p>Wirtualna rzeczywistość wspiera trening społeczny i regulację emocji.</p>
+      </article>
+      <article class="card">
+        <h3>AI w edukacji</h3>
+        <p>Personalizowane algorytmy uczenia dla dzieci i dorosłych.</p>
+      </article>
+    </div>
+  </div>
+</section>
 <!-- OFERTA & CENNIK -->
 <section id="oferta">
   <div class="container">
     <h2>Oferta & Cennik</h2>
     <p class="lead">Wszystkie ceny PLN brutto. Wystawiamy faktury. Rezerwacje: telefon / e-mail / formularz.</p>
-
     <div class="grid">
       <!-- 1. Konsulting / Wdrożenia AI -->
       <article class="card">
         <div class="row">
-          <div style="flex:1 1 420px;min-width:280px">
+          <div class="card-content">
             <h3 style="margin:0 0 6px">Konsulting i wdrożenia AI</h3>
             <p class="lead" style="text-align:left;margin:0 0 8px">Analiza danych, automatyzacja, modele predykcyjne, personalizacja procesów.</p>
             <ul class="bullets">
@@ -134,11 +161,10 @@
           </div>
         </div>
       </article>
-
       <!-- 2. Neurofeedback -->
       <article class="card">
         <div class="row">
-          <div style="flex:1 1 420px;min-width:280px">
+          <div class="card-content">
             <h3 style="margin:0 0 6px">Neurofeedback (EEG-biofeedback)</h3>
             <p class="lead" style="text-align:left;margin:0 0 8px">Trening fal mózgowych: koncentracja, sen, regulacja stresu.</p>
             <ul class="bullets">
@@ -154,11 +180,10 @@
           </div>
         </div>
       </article>
-
       <!-- 3. Programy edukacyjne -->
       <article class="card">
         <div class="row">
-          <div style="flex:1 1 420px;min-width:280px">
+          <div class="card-content">
             <h3 style="margin:0 0 6px">Programy edukacyjne (neuroróżnorodność)</h3>
             <p class="lead" style="text-align:left;margin:0 0 8px">Koncentracja, uważność, kompetencje społeczne, odporność na stres.</p>
             <ul class="bullets">
@@ -173,11 +198,10 @@
           </div>
         </div>
       </article>
-
       <!-- 4. Szkolenia i certyfikacje -->
       <article class="card">
         <div class="row">
-          <div style="flex:1 1 420px;min-width:280px">
+          <div class="card-content">
             <h3 style="margin:0 0 6px">Szkolenia i certyfikacje</h3>
             <p class="lead" style="text-align:left;margin:0 0 8px">Dla rodziców, nauczycieli, terapeutów. Strategia, AI, komunikacja.</p>
             <ul class="bullets">
@@ -193,11 +217,10 @@
           </div>
         </div>
       </article>
-
       <!-- 5. B2B / Instytucje -->
       <article class="card">
         <div class="row">
-          <div style="flex:1 1 420px;min-width:280px">
+          <div class="card-content">
             <h3 style="margin:0 0 6px">Programy B2B i instytucje</h3>
             <p class="lead" style="text-align:left;margin:0 0 8px">Wellbeing, transformacja cyfrowa, strefy technologiczne, wdrożenia.</p>
             <ul class="bullets">
@@ -212,11 +235,10 @@
           </div>
         </div>
       </article>
-
       <!-- 6. Badania i rozwój -->
       <article class="card">
         <div class="row">
-          <div style="flex:1 1 420px;min-width:280px">
+          <div class="card-content">
             <h3 style="margin:0 0 6px">Badania i rozwój (R&D)</h3>
             <p class="lead" style="text-align:left;margin:0 0 8px">Ewaluacje naukowe, publikacje, raporty, projekty grantowe.</p>
             <ul class="bullets">
@@ -234,7 +256,6 @@
     </div>
   </div>
 </section>
-
 <!-- JAK TO DZIAŁA -->
 <section id="jak" style="background:#111A2E">
   <div class="container">
@@ -248,13 +269,11 @@
     </div>
   </div>
 </section>
-
 <!-- ZESPÓŁ -->
 <section id="zespol">
   <div class="container">
     <h2>Zespół</h2>
     <div class="grid team">
-
       <!-- Sebastian -->
       <article class="card">
         <h3>dr hab. inż. Sebastian Kraszewski</h3>
@@ -274,7 +293,6 @@
           </p>
         </details>
       </article>
-
       <!-- Marlena -->
       <article class="card">
         <h3>dr inż. Marlena Gąsior-Głogowska</h3>
@@ -294,7 +312,6 @@
           </p>
         </details>
       </article>
-
       <!-- Karol -->
       <article class="card">
         <h3>Karol Kiszło</h3>
@@ -322,11 +339,9 @@
           </p>
         </details>
       </article>
-
     </div>
   </div>
 </section>
-
 <!-- FAQ -->
 <section id="faq" style="background:#111A2E">
   <div class="container">
@@ -338,17 +353,20 @@
     </div>
   </div>
 </section>
-
 <!-- KONTAKT -->
 <section id="kontakt">
   <div class="container">
     <h2>Kontakt</h2>
-    <form class="form">
-      <input class="input" type="text" placeholder="Imię i nazwisko" required>
-      <input class="input" type="email" placeholder="E-mail" required>
-      <input class="input" type="tel" placeholder="Telefon">
-      <select class="input">
-        <option>Wybierz temat</option>
+    <form class="form" action="/api/contact" method="POST">
+      <label for="name">Imię i nazwisko</label>
+      <input id="name" class="input" type="text" placeholder="Imię i nazwisko" required>
+      <label for="email">E-mail</label>
+      <input id="email" class="input" type="email" placeholder="E-mail" required>
+      <label for="phone">Telefon</label>
+      <input id="phone" class="input" type="tel" placeholder="Telefon">
+      <label for="topic">Wybierz temat</label>
+      <select id="topic" class="input" required>
+        <option value="">Wybierz temat</option>
         <option>AI i automatyzacja</option>
         <option>Neurofeedback</option>
         <option>Program edukacyjny</option>
@@ -356,17 +374,25 @@
         <option>Program B2B / szkoły</option>
         <option>Projekt badawczy</option>
       </select>
-      <textarea class="input" rows="5" placeholder="Wiadomość"></textarea>
-      <label style="font-size:13px;color:var(--muted)"><input type="checkbox" required> Zgoda RODO na kontakt zwrotny</label>
+      <label for="message">Wiadomość</label>
+      <textarea id="message" class="input" rows="5" placeholder="Wiadomość"></textarea>
+      <label><input type="checkbox" required> Zgoda RODO na kontakt zwrotny</label>
       <button class="btn" type="submit">Wyślij wiadomość</button>
     </form>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer class="footer">
-  © 2025 NCNI — Naukowe Centrum NeuroInnowacji. Wszelkie prawa zastrzeżone.
+  <p>© 2025 NCNI — Naukowe Centrum NeuroInnowacji. Wszelkie prawa zastrzeżone.</p>
+  <p class="trademark">Design i strategia: Karol Kiszło™ | Stworzone z pasją przez zespół NCNI</p>
+  <p><a href="#kontakt">Skontaktuj się z nami</a> | <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
 </footer>
-
+<script>
+  document.querySelector('.form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    alert('Wiadomość wysłana! Dziękujemy, skontaktujemy się wkrótce.');
+    e.target.reset();
+  });
+</script>
 </body>
 </html>
