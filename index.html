@@ -4,398 +4,369 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Naukowe Centrum NeuroInnowacji (NCNI)</title>
-
-  <!-- Fonts -->
+  <meta name="description" content="AI, neuroróżnorodność i nowe technologie kształtujące przyszłość ludzkości." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --bg:#0B1220;
-      --card:#111A2E;
-      --line:#1F2A44;
-      --text:#EEF3FF;
-      --muted:#CDD7F5;
-      --accent:#3559FF;
-      --accent-2:#55AAFF;
-      --radius:16px;
+      --bg:#0B1220; --panel:#111A2E; --line:#1F2A44;
+      --text:#EEF3FF; --muted:#CDD7F5;
+      --cta:#3559FF; --ctaHi:#55AAFF;
+      --radius:16px; --radius-sm:12px; --max:1200px;
       --shadow:0 8px 24px rgba(0,0,0,.28);
-      --max:1200px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.5;
-    }
-    a{color:var(--accent-2); text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 16px}
-    h1,h2,h3{font-family:Poppins,Inter,system-ui,sans-serif; margin:0 0 .6rem}
-    h1{font-size:clamp(32px,4vw,48px)}
-    h2{font-size:clamp(26px,3vw,36px)}
-    h3{font-size:clamp(18px,2vw,22px)}
-    p{margin:.5rem 0}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:var(--ctaHi);text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 16px}
+
     /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(1.2) blur(6px);
-      background:rgba(11,18,32,.75); border-bottom:1px solid var(--line);
-    }
-    .nav-wrap{display:flex; align-items:center; gap:20px; height:64px}
-    .brand{font-family:Poppins; font-weight:700; letter-spacing:.2px}
-    .nav-links{margin-left:auto; display:flex; gap:18px; align-items:center}
-    .nav a{color:var(--text); opacity:.9}
-    .nav a:hover{color:var(--accent-2)}
-    .btn{
-      display:inline-block; padding:12px 18px; border-radius:12px; font-weight:600;
-      background:var(--accent); color:#fff;
-    }
-    .btn:hover{filter:brightness(.95)}
-    .btn-ghost{
-      display:inline-block; padding:10px 16px; border-radius:12px; font-weight:600;
-      border:1px solid var(--line); color:var(--text);
-    }
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.85);backdrop-filter:saturate(130%) blur(6px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:10px;align-items:center;font-family:Poppins,sans-serif;font-weight:700}
+    .brand-badge{width:28px;height:28px;border-radius:8px;background:var(--cta);display:grid;place-items:center;font-weight:700;color:#fff}
+    .menu{display:flex;gap:18px}
+    .menu a{padding:8px 10px;border-radius:10px;color:var(--text);opacity:.9}
+    .menu a:hover,.menu a.active{background:#0f1730;color:#fff}
+    .btn{display:inline-block;background:var(--cta);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600}
+    .btn:hover{background:#2B4AE0}
+
     /* HERO */
-    .hero{
-      padding:90px 0 72px;
-      background:linear-gradient(135deg, var(--bg) 0%, #101a30 100%);
-      text-align:center;
-    }
-    .hero p{color:var(--muted); font-size:clamp(16px,2.2vw,20px)}
-    .hero-cta{margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    .hero{padding:88px 0;background:linear-gradient(135deg,#0B1220 0%,#111A2E 100%)}
+    .hero h1{font-family:Poppins,sans-serif;font-size:clamp(28px,4.5vw,48px);margin:0 0 12px;text-align:center}
+    .hero p{color:var(--muted);font-size:clamp(16px,2.1vw,20px);margin:0 0 24px;text-align:center}
+    .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
     /* SECTIONS */
     section{padding:64px 0}
-    .section-head{text-align:center; margin-bottom:36px}
-    .grid{display:grid; gap:24px}
-    .grid-auto{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-    .card{
-      background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:24px;
-      box-shadow:var(--shadow);
-    }
-    .card h3{color:var(--accent-2)}
-    .muted{color:var(--muted)}
-    ul.clean{list-style:none; padding:0; margin:12px 0}
+    h2{font-family:Poppins,sans-serif;font-size:clamp(24px,3.2vw,36px);margin:0 0 16px;text-align:center}
+    .lead{color:var(--muted);margin:0 0 24px;text-align:center}
+    .grid{display:grid;gap:22px}
+
+    /* CARDS / PRICING */
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .price{background:#0f1730;border:1px solid #203055;border-radius:var(--radius-sm);padding:14px;min-width:260px}
+    .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    .price .item{display:flex;justify-content:space-between;gap:14px;margin:8px 0}
+    .caption{color:var(--muted);font-size:13px;margin-top:8px}
+    ul.bullets{margin:10px 0 0 18px}
+    ul.clean{list-style:none;margin:12px 0;padding:0}
     ul.clean li{padding:.25rem 0}
+
     /* HOW IT WORKS */
     .steps{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .steps h3{color:var(--accent-2); margin-bottom:.25rem}
+    .step h3{color:var(--ctaHi);margin:0 0 6px}
+
+    /* TEAM */
+    .team{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    details summary{cursor:pointer;color:var(--muted);margin-top:8px}
+
     /* FAQ */
-    .faq details{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px}
-    .faq summary{font-weight:600; color:var(--accent-2)}
-    .faq p{margin-top:8px}
+    .faq details{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px}
+    .faq details+details{margin-top:10px}
+    .faq summary{color:var(--ctaHi);font-weight:600}
+
     /* FORM */
-    .form{display:grid; gap:14px; max-width:720px; margin:0 auto}
-    .input, .textarea, .select{
-      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#0f1730; color:var(--text)
-    }
-    .textarea{min-height:120px; resize:vertical}
-    .checkbox{display:flex; gap:8px; align-items:flex-start; color:var(--muted); font-size:14px}
+    .form{display:grid;gap:12px;max-width:720px;margin:0 auto}
+    .input{padding:12px;border:none;border-radius:10px;background:#0f1730;color:#fff}
+    textarea.input{min-height:120px}
+
     /* FOOTER */
-    footer{background:#101a30; border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:24px}
+    .footer{background:#111A2E;color:var(--muted);text-align:center;padding:22px;border-top:1px solid var(--line)}
+
+    @media (min-width: 900px){ .grid-2{grid-template-columns:1fr 1fr} }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" aria-label="Główna nawigacja">
-    <div class="container nav-wrap">
-      <div class="brand">NCNI</div>
-      <div class="nav-links">
-        <a href="#oferta">Oferta</a>
-        <a href="#jak">Jak to działa</a>
-        <a href="#zespol">Zespół</a>
-        <a href="#faq">FAQ</a>
-        <a href="#kontakt" class="btn-ghost">Kontakt</a>
-      </div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="brand-badge">N</div>
+      <span>Naukowe Centrum NeuroInnowacji</span>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <h1>Naukowe Centrum NeuroInnowacji (NCNI)</h1>
-      <p>VR/AI dla neuroróżnorodności: nauka, terapia i narzędzia rozwoju</p>
-      <div class="hero-cta">
-        <a class="btn" href="#oferta">Zobacz ofertę</a>
-        <a class="btn-ghost" href="#kontakt">Umów rozmowę</a>
-      </div>
+    <div class="menu">
+      <a href="#oferta" class="active">Oferta</a>
+      <a href="#jak">Jak to działa</a>
+      <a href="#zespol">Zespół</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="btn">Kontakt</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <!-- OFERTA & CENNIK -->
-  <section id="oferta">
-    <div class="container">
-      <div class="section-head">
-        <h2>Oferta & Cennik</h2>
-        <p class="muted">Wszystkie ceny zawierają podatek (PLN, brutto). Wystawiamy faktury. Rezerwacje: telefon / e-mail / formularz online.</p>
-      </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="container" style="max-width:960px">
+    <h1>NCNI — Naukowe Centrum NeuroInnowacji</h1>
+    <p>AI, neuroróżnorodność i nowe technologie kształtujące przyszłość ludzkości.</p>
+    <div class="hero-cta">
+      <a href="#oferta" class="btn">Zobacz ofertę</a>
+      <a href="#kontakt" class="btn" style="background:#0f1730;border:1px solid var(--line)">Umów rozmowę</a>
+    </div>
+  </div>
+</header>
 
-      <div class="grid grid-auto">
-        <!-- Terapia VR -->
-        <article class="card">
-          <h3>Terapia VR (ból, stres, lęk, bezsenność)</h3>
-          <p class="muted">Sesje prowadzone w klinice z protokołami redukcji bólu i stresu, treningiem oddechu i immersyjną relaksacją.</p>
-          <ul class="clean">
-            <li>• czas trwania: 45–55 min</li>
-            <li>• indywidualny dobór scenariuszy VR</li>
-            <li>• raport postępów co 5 sesji</li>
-          </ul>
-          <div class="card" style="background:#0f1730; border-color:#203055; box-shadow:none; margin-top:10px">
-            <ul class="clean">
-              <li>Sesja jednorazowa — <strong>230 PLN</strong></li>
-              <li>Pakiet 5 sesji — <strong>1 050 PLN</strong> <span class="muted">(210/sesja)</span></li>
-              <li>Pakiet 10 sesji — <strong>1 950 PLN</strong> <span class="muted">(195/sesja)</span></li>
-              <li>Sesja próbna (30 min) — <strong>120 PLN</strong></li>
+<!-- OFERTA & CENNIK -->
+<section id="oferta">
+  <div class="container">
+    <h2>Oferta & Cennik</h2>
+    <p class="lead">Wszystkie ceny PLN brutto. Wystawiamy faktury. Rezerwacje: telefon / e-mail / formularz.</p>
+
+    <div class="grid">
+      <!-- 1. Konsulting / Wdrożenia AI -->
+      <article class="card">
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Konsulting i wdrożenia AI</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Analiza danych, automatyzacja, modele predykcyjne, personalizacja procesów.</p>
+            <ul class="bullets">
+              <li>Audyt dojrzałości cyfrowej + plan wdrożeń</li>
+              <li>Dashboardy PBI/Looker Studio, KPI i alerty</li>
+              <li>Asystenci/Chatboty, automatyzacje i integracje</li>
             </ul>
           </div>
-          <p class="muted" style="font-size:13px; margin-top:6px">Rekomendujemy 1–2 sesje tygodniowo przez 4–6 tygodni.</p>
-        </article>
+          <div class="price">
+            <div class="item"><span>Konsultacja strategiczna (90 min)</span><strong>500 PLN</strong></div>
+            <div class="item"><span>Warsztat projektowy (1 dzień)</span><strong>3 900 PLN</strong></div>
+            <div class="item"><span>Projekt wdrożeniowy</span><strong>od 5 000 PLN</strong></div>
+            <p class="caption">Szczegóły po audycie i zdefiniowaniu zakresu.</p>
+          </div>
+        </div>
+      </article>
 
-        <!-- Konsultacje -->
-        <article class="card">
-          <h3>Konsultacje specjalistyczne</h3>
-          <p class="muted">Psychologia/psychoedukacja, stres, wypalenie, sen, koncentracja. Online lub stacjonarnie.</p>
-          <ul class="clean">
-            <li>• pierwsza konsultacja: wywiad + plan działania</li>
-          </ul>
-          <div class="card" style="background:#0f1730; border-color:#203055; box-shadow:none; margin-top:10px">
-            <ul class="clean">
-              <li>Pierwsza konsultacja (50 min) — <strong>199 PLN</strong></li>
-              <li>Kolejna konsultacja (50 min) — <strong>220 PLN</strong></li>
-              <li>Pakiet 4 konsultacji — <strong>820 PLN</strong> <span class="muted">(205/sesja)</span></li>
+      <!-- 2. Neurofeedback -->
+      <article class="card">
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Neurofeedback (EEG-biofeedback)</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Trening fal mózgowych: koncentracja, sen, regulacja stresu.</p>
+            <ul class="bullets">
+              <li>Sesja 55–60 min (z kalibracją)</li>
+              <li>Indywidualny protokół po diagnozie</li>
             </ul>
           </div>
-          <p class="muted" style="font-size:13px; margin-top:6px">Pakiet ważny 90 dni.</p>
-        </article>
+          <div class="price">
+            <div class="item"><span>Sesja jednorazowa</span><strong>260 PLN</strong></div>
+            <div class="item"><span>Pakiet 5 sesji</span><strong>1 200 PLN</strong> <span class="caption">(240/sesja)</span></div>
+            <div class="item"><span>Pakiet 10 sesji</span><strong>2 200 PLN</strong> <span class="caption">(220/sesja)</span></div>
+            <p class="caption">Typowa seria: 10–20 sesji, 1–2 × tydz.</p>
+          </div>
+        </div>
+      </article>
 
-        <!-- Neurofeedback -->
-        <article class="card">
-          <h3>Neurofeedback (EEG-biofeedback)</h3>
-          <p class="muted">Trening fal mózgowych poprawiający koncentrację, sen i regulację stresu.</p>
-          <ul class="clean">
-            <li>• sesja 55–60 min (w tym kalibracja)</li>
-            <li>• protokół dopasowany do wyniku wstępnej diagnostyki</li>
-          </ul>
-          <div class="card" style="background:#0f1730; border-color:#203055; box-shadow:none; margin-top:10px">
-            <ul class="clean">
-              <li>Sesja jednorazowa — <strong>260 PLN</strong></li>
-              <li>Pakiet 5 sesji — <strong>1 200 PLN</strong> <span class="muted">(240/sesja)</span></li>
-              <li>Pakiet 10 sesji — <strong>2 200 PLN</strong> <span class="muted">(220/sesja)</span></li>
+      <!-- 3. Programy edukacyjne -->
+      <article class="card">
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Programy edukacyjne (neuroróżnorodność)</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Koncentracja, uważność, kompetencje społeczne, odporność na stres.</p>
+            <ul class="bullets">
+              <li>Zajęcia grupowe do 6 osób (45 min)</li>
+              <li>Moduły semestralne dla szkół</li>
             </ul>
           </div>
-          <p class="muted" style="font-size:13px; margin-top:6px">Typowa seria: 10–20 sesji, 1–2 razy/tydz.</p>
-        </article>
-
-        <!-- Edukacja -->
-        <article class="card">
-          <h3>Programy edukacyjne (dzieci i młodzież)</h3>
-          <p class="muted">VR dla neuroróżnorodności: uważność, koncentracja, odporność na stres, umiejętności społeczne.</p>
-          <ul class="clean">
-            <li>Zajęcia grupowe (45 min) — <strong>150 PLN/os.</strong></li>
-            <li>Cykl 8 zajęć — <strong>1 050 PLN</strong></li>
-            <li>Program szkolny (semestr) — od <strong>4 500 PLN</strong></li>
-            <li>Wypożyczenie zestawu VR (1 mies.) — <strong>690 PLN</strong></li>
-          </ul>
-        </article>
-
-        <!-- Szkolenia -->
-        <article class="card">
-          <h3>Szkolenia i certyfikacje</h3>
-          <p class="muted">Nauczyciele, terapeuci, rodzice — kursy, warsztaty i mentoring.</p>
-          <ul class="clean">
-            <li>Szkolenie dla rodziców (2h, online) — <strong>290 PLN/os.</strong></li>
-            <li>Szkolenie dla nauczycieli (4h, certyfikat) — <strong>590 PLN/os.</strong></li>
-            <li>Mentoring indywidualny (50 min) — <strong>250 PLN</strong></li>
-            <li>Warsztat dla terapeutów (1 dzień) — <strong>890 PLN/os.</strong></li>
-          </ul>
-        </article>
-
-        <!-- B2B -->
-        <article class="card">
-          <h3>Programy B2B i instytucje</h3>
-          <p class="muted">Wellbeing, VR w edukacji, strefy VR oraz wdrożenia do szkół i uczelni.</p>
-          <ul class="clean">
-            <li>Warsztat wellbeing (3h, do 20 osób) — <strong>4 800 PLN</strong></li>
-            <li>Dzień szkoleniowy (6–7h) — <strong>7 500 PLN</strong></li>
-            <li>Strefa VR na evencie/konferencji — od <strong>4 900 PLN</strong></li>
-            <li>Program wdrożeniowy dla szkół — od <strong>12 000 PLN</strong></li>
-            <li><strong>Audyty e-commerce/PR</strong> (strategia, oferta, lejki, analityka; 2–4 tyg.) — od <strong>7 900 PLN</strong></li>
-            <li><strong>Coaching zespołu sprzedaży/komunikacji</strong> (pakiet 6 sesji) — <strong>5 400 PLN</strong></li>
-          </ul>
-        </article>
-
-        <!-- Badania -->
-        <article class="card">
-          <h3>Badania i rozwój (R&D)</h3>
-          <p class="muted">Projekty grantowe, ewaluacje naukowe, publikacje i raporty.</p>
-          <ul class="clean">
-            <li>Projekt badawczy (grant/UE) — <strong>wycena indywidualna</strong></li>
-            <li>Ewaluacja naukowa wdrożeń — od <strong>9 000 PLN</strong></li>
-            <li>Publikacje / raporty — wg zakresu projektu</li>
-            <li>Współpraca akademicka — indywidualna umowa</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- JAK TO DZIAŁA -->
-  <section id="jak" style="background:#101a30">
-    <div class="container">
-      <div class="section-head">
-        <h2>Jak to działa?</h2>
-        <p class="muted">Prosty proces — od diagnozy do wdrożenia i ewaluacji.</p>
-      </div>
-
-      <div class="grid steps">
-        <div class="card">
-          <h3>1. Diagnoza</h3>
-          <p>Wywiad, ankiety, testy przesiewowe. Ustalenie celów i planu.</p>
+          <div class="price">
+            <div class="item"><span>Zajęcia grupowe</span><strong>150 PLN/os.</strong></div>
+            <div class="item"><span>Cykl 8 zajęć</span><strong>1 050 PLN</strong></div>
+            <div class="item"><span>Program szkolny (semestr)</span><strong>od 4 500 PLN</strong></div>
+          </div>
         </div>
-        <div class="card">
-          <h3>2. Terapia VR/AI</h3>
-          <p>Immersyjne scenariusze i trening neurofeedback.</p>
-        </div>
-        <div class="card">
-          <h3>3. Raport</h3>
-          <p>Monitorowanie efektów, protokoły modyfikowane na bieżąco.</p>
-        </div>
-        <div class="card">
-          <h3>4. Rozwój</h3>
-          <p>Szkolenia, mentoring i programy grupowe (szkoły, instytucje, firmy).</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- ZESPÓŁ -->
-  <section id="zespol">
-    <div class="container">
-      <div class="section-head">
-        <h2>Zespół</h2>
-        <p class="muted">Interdyscyplinarny zespół łączący VR/AI, dydaktykę i rozwój biznesu. Kliknij, aby rozwinąć bio.</p>
-      </div>
-
-      <div class="grid grid-auto">
-        <!-- Marlena -->
-        <article class="card">
-          <h3>dr Marlena Gąsior-Głogowska</h3>
-          <p style="color:var(--accent-2)">Psychologia kliniczna/edukacyjna • VR w terapii i szkole • Walidacja dydaktyczna</p>
-          <details>
-            <summary>Pokaż bio</summary>
-            <p class="muted" style="margin-top:.5rem">
-              Psycholożka z doświadczeniem klinicznym i akademickim. Autorka publikacji nt. wykorzystania
-              <strong>VR</strong> w redukcji lęku i pracy z PTSD. W NCNI odpowiada za <strong>weryfikację merytoryczną</strong> programów,
-              projektowanie <strong>scenariuszy VR</strong> dla dzieci i dorosłych oraz <strong>mentoring nauczycieli</strong>
-              i terapeutów. Prowadzi ewaluacje efektów i szkoli zespoły w bezpiecznym wdrażaniu technologii do praktyki.
-            </p>
-          </details>
-        </article>
-
-        <!-- Sebastian -->
-        <article class="card">
-          <h3>dr Sebastian Kraszewski</h3>
-          <p style="color:var(--accent-2)">AI & neurofeedback • Metodologia badań • Ewaluacje naukowe</p>
-          <details>
-            <summary>Pokaż bio</summary>
-            <p class="muted" style="margin-top:.5rem">
-              Badacz i praktyk z obszaru <strong>AI</strong> i <strong>EEG-biofeedbacku</strong>; autor 40+ publikacji i 700+ cytowań,
-              laureat Polskiej Nagrody Inteligentnego Rozwoju (2019). W NCNI prowadzi <strong>R&amp;D</strong>, nadzoruje
-              <strong>metodologię</strong> i <strong>ewaluacje</strong> wdrożeń VR/AI, dba o jakość danych i standardy etyczne.
-              Projektuje protokoły treningowe oraz raporty dla szkół, klinik i partnerów B2B.
-            </p>
-          </details>
-        </article>
-
-        <!-- Karol -->
-        <article class="card">
-          <h3>mgr Karol Kiszło</h3>
-          <p style="color:var(--accent-2)">Strategia • PR/marketing • E-commerce & marketplace • Audyty & coaching</p>
-          <details>
-            <summary>Pokaż bio</summary>
-            <p class="muted" style="margin-top:.5rem">
-              Strateg biznesowy z 20+ latami doświadczenia w Polsce, Wielkiej Brytanii i USA. Absolwent
-              <strong>Loyola University Chicago (PR & Advertising)</strong>. Specjalizuje się w <strong>audytach sprzedażowych</strong>,
-              <strong>strategiach PR/marketingowych</strong> oraz <strong>rozwoju e-commerce i marketplace’ów</strong>
-              (Amazon, Allegro, Shopify, WooCommerce). Pracował m.in. dla <strong>Pearson.com (Londyn)</strong>
-              przy analizie i optymalizacji treści edukacyjnych oraz wdrażaniu narzędzi <strong>AI</strong> i automatyzacji.
-              W NCNI odpowiada za <strong>strategię rozwoju</strong>, <strong>partnerstwa</strong>, komunikację marki i procesy komercjalizacji.
-            </p>
-            <ul class="clean muted" style="margin-top:.5rem">
-              <li>• Audyty e-commerce / marketingowe (strategia, oferta, lejki, analityka)</li>
-              <li>• PR & komunikacja (pozycjonowanie eksperckie, media, narracje edukacyjne)</li>
-              <li>• Coaching/mentoring dla zespołów sprzedaży i edukacji (standardy, KPI, narzędzia AI)</li>
+      <!-- 4. Szkolenia i certyfikacje -->
+      <article class="card">
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Szkolenia i certyfikacje</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Dla rodziców, nauczycieli, terapeutów. Strategia, AI, komunikacja.</p>
+            <ul class="bullets">
+              <li>Programy 2h–1 dzień</li>
+              <li>Mentoring indywidualny</li>
             </ul>
-          </details>
-        </article>
-      </div>
-    </div>
-  </section>
+          </div>
+          <div class="price">
+            <div class="item"><span>Rodzice (2h, online)</span><strong>290 PLN/os.</strong></div>
+            <div class="item"><span>Nauczyciele (4h, certyfikat)</span><strong>590 PLN/os.</strong></div>
+            <div class="item"><span>Mentoring 1:1 (50 min)</span><strong>250 PLN</strong></div>
+            <div class="item"><span>Warsztat dla terapeutów (1 dzień)</span><strong>890 PLN/os.</strong></div>
+          </div>
+        </div>
+      </article>
 
-  <!-- FAQ -->
-  <section id="faq" class="faq" style="background:#101a30">
-    <div class="container">
-      <div class="section-head">
-        <h2>FAQ</h2>
-      </div>
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px">
-        <details>
-          <summary>Czy VR ma przeciwwskazania?</summary>
-          <p>Tak: padaczka fotogenna, ostre urazy neurologiczne, intensywne zawroty głowy — wymagają zgody lekarza.</p>
-        </details>
-        <details>
-          <summary>Ile sesji potrzeba?</summary>
-          <p>VR: typowo 6–10 sesji; neurofeedback: 10–20 sesji. Plan ustalamy indywidualnie po diagnozie.</p>
-        </details>
-        <details>
-          <summary>Czy można łączyć VR i neurofeedback?</summary>
-          <p>Tak — często łączymy oba podejścia, rotując protokoły dla najlepszych efektów.</p>
-        </details>
-        <details>
-          <summary>Jak się umówić?</summary>
-          <p>Przez formularz poniżej lub telefon/e-mail. Dla klientów indywidualnych dostępny szybki landing neuroinnowacje.pl.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+      <!-- 5. B2B / Instytucje -->
+      <article class="card">
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Programy B2B i instytucje</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Wellbeing, transformacja cyfrowa, strefy technologiczne, wdrożenia.</p>
+            <ul class="bullets">
+              <li>Dla firm, samorządów, szkół i NGO</li>
+            </ul>
+          </div>
+          <div class="price">
+            <div class="item"><span>Warsztat wellbeing (3h, do 20 os.)</span><strong>4 800 PLN</strong></div>
+            <div class="item"><span>Dzień szkoleniowy (6–7h)</span><strong>7 500 PLN</strong></div>
+            <div class="item"><span>Strefa technologiczna na evencie</span><strong>od 4 900 PLN</strong></div>
+            <div class="item"><span>Wdrożenie szkolne</span><strong>od 12 000 PLN</strong></div>
+          </div>
+        </div>
+      </article>
 
-  <!-- KONTAKT -->
-  <section id="kontakt">
-    <div class="container">
-      <div class="section-head">
-        <h2>Kontakt</h2>
-        <p class="muted">Napisz do nas — dobierzemy program pod Twój cel.</p>
-      </div>
-
-      <form class="form">
-        <input class="input" type="text" placeholder="Imię i nazwisko" required />
-        <input class="input" type="email" placeholder="E-mail" required />
-        <input class="input" type="tel" placeholder="Telefon (opcjonalnie)" />
-        <select class="select" aria-label="Wybierz temat">
-          <option>Temat: Terapia VR</option>
-          <option>Temat: Neurofeedback</option>
-          <option>Temat: Program edukacyjny</option>
-          <option>Temat: Szkolenia / certyfikacje</option>
-          <option>Temat: B2B / instytucje</option>
-          <option>Inny temat</option>
-        </select>
-        <textarea class="textarea" placeholder="Twoja wiadomość..." rows="5"></textarea>
-        <label class="checkbox">
-          <input type="checkbox" required />
-          <span>Wyrażam zgodę na przetwarzanie danych zgodnie z RODO w celu kontaktu zwrotnego.</span>
-        </label>
-        <button class="btn" type="submit">Wyślij wiadomość</button>
-      </form>
+      <!-- 6. Badania i rozwój -->
+      <article class="card">
+        <div class="row">
+          <div style="flex:1 1 420px;min-width:280px">
+            <h3 style="margin:0 0 6px">Badania i rozwój (R&D)</h3>
+            <p class="lead" style="text-align:left;margin:0 0 8px">Ewaluacje naukowe, publikacje, raporty, projekty grantowe.</p>
+            <ul class="bullets">
+              <li>Analiza skuteczności interwencji</li>
+              <li>Współpraca akademicka</li>
+            </ul>
+          </div>
+          <div class="price">
+            <div class="item"><span>Projekt badawczy (grant/UE)</span><strong>wycena indywidualna</strong></div>
+            <div class="item"><span>Ewaluacja wdrożeń</span><strong>od 9 000 PLN</strong></div>
+            <div class="item"><span>Publikacje / raporty</span><strong>wg zakresu</strong></div>
+          </div>
+        </div>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Naukowe Centrum NeuroInnowacji (NCNI). Wszystkie prawa zastrzeżone.</p>
-      <p><a href="https://neuroinnowacje.pl">neuroinnowacje.pl</a></p>
+<!-- JAK TO DZIAŁA -->
+<section id="jak" style="background:#111A2E">
+  <div class="container">
+    <h2>Jak to działa?</h2>
+    <p class="lead">Od diagnozy do wdrożenia i ewaluacji.</p>
+    <div class="grid steps">
+      <div class="card step"><h3>1. Diagnoza</h3><p>Wywiad, ankiety, testy przesiewowe, plan indywidualny.</p></div>
+      <div class="card step"><h3>2. Wdrożenie</h3><p>AI, automatyzacja, metody pracy dobrane do celu.</p></div>
+      <div class="card step"><h3>3. Raport</h3><p>Monitorowanie postępów, korekty, wskaźniki efektywności.</p></div>
+      <div class="card step"><h3>4. Rozwój</h3><p>Mentoring, szkolenia, skalowanie w szkole/firmie.</p></div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- ZESPÓŁ -->
+<section id="zespol">
+  <div class="container">
+    <h2>Zespół</h2>
+    <div class="grid team">
+
+      <!-- Sebastian -->
+      <article class="card">
+        <h3>dr hab. inż. Sebastian Kraszewski</h3>
+        <p style="color:var(--ctaHi);margin:0 0 10px">AI • neurofeedback • ewaluacja naukowa</p>
+        <ul class="clean" style="margin:0 0 10px">
+          <li>• Profesor uczelni na Politechnice Wrocławskiej</li>
+          <li>• Autor 40+ publikacji naukowych, 700+ cytowań</li>
+          <li>• Polska Nagroda Inteligentnego Rozwoju (2019)</li>
+        </ul>
+        <details>
+          <summary>Pokaż bio</summary>
+          <p class="muted" style="margin-top:.6rem">
+            Profesor uczelni na Wydziale Podstawowych Problemów Techniki Politechniki Wrocławskiej.
+            Specjalizacja: neuroinformatyka, bioinformatyka, analiza sygnałów neurofizjologicznych.
+            Prowadzi badania nad wykorzystaniem sztucznej inteligencji i neurofeedbacku.
+            W NCNI odpowiada za ewaluację naukową i rozwój protokołów.
+          </p>
+        </details>
+      </article>
+
+      <!-- Marlena -->
+      <article class="card">
+        <h3>dr inż. Marlena Gąsior-Głogowska</h3>
+        <p style="color:var(--ctaHi);margin:0 0 10px">Bioinżynieria • dydaktyka • neuroróżnorodność</p>
+        <ul class="clean" style="margin:0 0 10px">
+          <li>• Naukowiec i badacz na Politechnice Wrocławskiej</li>
+          <li>• Specjalizacja: biomateriały, bioinżynieria, spektroskopia Ramana</li>
+          <li>• Autor publikacji i uczestnik projektów krajowych i europejskich</li>
+        </ul>
+        <details>
+          <summary>Pokaż bio</summary>
+          <p class="muted" style="margin-top:.6rem">
+            Naukowiec i badacz z Wydziału Podstawowych Problemów Techniki Politechniki Wrocławskiej.
+            Specjalizacja obejmuje bioinżynierię, biomateriały i spektroskopię Ramana.
+            Praca koncentruje się na rozwoju i walidacji metod badawczych oraz innowacjach dydaktycznych.
+            W NCNI odpowiada za projektowanie i ocenę programów edukacyjnych oraz mentoring.
+          </p>
+        </details>
+      </article>
+
+      <!-- Karol -->
+      <article class="card">
+        <h3>Karol Kiszło</h3>
+        <p style="color:var(--ctaHi);margin:0 0 10px">Strategia • e-commerce • AI & komunikacja</p>
+        <ul class="clean" style="margin:0 0 10px">
+          <li>• Ekspert w e-commerce i sprzedaży online (20+ lat)</li>
+          <li>• Absolwent Loyola University Chicago i Triton College (USA)</li>
+          <li>• Specjalizacja: AI, automatyzacja, PR i marketing</li>
+        </ul>
+        <details>
+          <summary>Pokaż bio</summary>
+          <p class="muted" style="margin-top:.6rem">
+            Ekspert z ponad 20-letnim doświadczeniem w e-commerce, strategii sprzedażowej i komunikacji.
+            Absolwent Loyola University Chicago (School of Communication, PR & Media) oraz Triton College (Mass Communication/Multimedia),
+            gdzie zdobywał wiedzę i praktykę w międzynarodowym środowisku.
+          </p>
+          <p class="muted">
+            Łączy wiedzę z zakresu sztucznej inteligencji, automatyzacji i analityki danych z praktyką budowania innowacyjnych
+            projektów edukacyjnych i biznesowych. Specjalizacja: strategia, PR i marketing, rozwój biznesu, wdrażanie nowych technologii,
+            integracja z procesami szkoleniowymi i coachingowymi.
+          </p>
+          <p class="muted">
+            W NCNI odpowiada za wizję i strategię rozwoju, budowanie partnerstw instytucjonalnych oraz komunikację zewnętrzną.
+            Wspiera zespoły w transformacji cyfrowej i wprowadzaniu inteligentnych rozwiązań AI do edukacji i biznesu.
+          </p>
+        </details>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#111A2E">
+  <div class="container">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Czy AI ma „przeciwwskazania”?</summary><p>AI nie ma przeciwwskazań zdrowotnych, ale każde wdrożenie wymaga analizy kontekstu, bezpieczeństwa danych i etyki.</p></details>
+      <details><summary>Ile trwa wdrożenie?</summary><p>Małe projekty: zwykle kilka tygodni. W instytucjach — harmonogram ustalany indywidualnie.</p></details>
+      <details><summary>Jak się umówić?</summary><p>Przez formularz kontaktowy lub telefon/e-mail (poniżej).</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <h2>Kontakt</h2>
+    <form class="form">
+      <input class="input" type="text" placeholder="Imię i nazwisko" required>
+      <input class="input" type="email" placeholder="E-mail" required>
+      <input class="input" type="tel" placeholder="Telefon">
+      <select class="input">
+        <option>Wybierz temat</option>
+        <option>AI i automatyzacja</option>
+        <option>Neurofeedback</option>
+        <option>Program edukacyjny</option>
+        <option>Szkolenia / certyfikacje</option>
+        <option>Program B2B / szkoły</option>
+        <option>Projekt badawczy</option>
+      </select>
+      <textarea class="input" rows="5" placeholder="Wiadomość"></textarea>
+      <label style="font-size:13px;color:var(--muted)"><input type="checkbox" required> Zgoda RODO na kontakt zwrotny</label>
+      <button class="btn" type="submit">Wyślij wiadomość</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 NCNI — Naukowe Centrum NeuroInnowacji. Wszelkie prawa zastrzeżone.
+</footer>
 
 </body>
 </html>
