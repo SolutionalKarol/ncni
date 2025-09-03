@@ -1,154 +1,186 @@
-<!-- ZESPÓŁ (NOWA WERSJA) -->
-<section id="team" class="section-muted">
-  <div class="container">
-    <h2>Nasz zespół</h2>
-    <p class="muted">Struktura i odpowiedzialności w NCNI. Kliknij osobę, aby zobaczyć rozszerzony profil.</p>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NCNI — Naukowe Centrum Neuro-Innowacji</title>
+  <meta name="description" content="Naukowe Centrum Neuro-Innowacji: projekty badawcze, VR & AI, neuroróżnorodność, etyka i partnerstwa. Wrocław + online." />
 
-    <div class="grid cards-3" style="margin-top:16px">
-      <!-- SEBASTIAN -->
-      <article class="card team-card"
-               data-name="dr inż. Sebastian Kraszewski"
-               data-role="Dyrektor Naukowy • R&D, Metodologia, Neurofeedback/VR/AI"
-               data-bio="
-               Odpowiada za kierunek merytoryczny NCNI: projektowanie protokołów (EEG/HRV, VR),
-               walidację metod, wskaźniki efektów i ewaluację. Łączy laboratoria akademickie z wdrożeniami
-               dla szkół i firm. W NCNI prowadzi: architekturę programów, przeglądy merytoryczne, superwizję
-               trenerów i mentoring dla praktyków. Obszary: regulacja uwagi i stresu, fokus, ekspozycja VR,
-               etyka i bezpieczeństwo w użyciu bio-tech.
-               "
-               data-tags="R&D, metodologia, biofeedback, VR, AI">
-        <div class="card-head">
-          <div class="avatar">SK</div>
-          <div>
-            <h3 class="team-name">dr inż. Sebastian Kraszewski</h3>
-            <div class="team-role muted">Dyrektor Naukowy • R&D, Metodologia, Neurofeedback/VR/AI</div>
-          </div>
-        </div>
-        <p class="muted">Projektuje i nadzoruje merytorykę NCNI: protokoły, metryki i jakość wdrożeń.</p>
-        <button class="btn ghost team-more">Pokaż profil</button>
-      </article>
-
-      <!-- MARLENA -->
-      <article class="card team-card"
-               data-name="dr inż. Marlena Gąsior-Głogowska"
-               data-role="Dyrektor Edukacji i Etyki • Programy szkoleniowe, ND w edukacji/HR"
-               data-bio="
-               Prowadzi dydaktykę i rozwój programów dla szkół, samorządów i firm. Specjalizacja:
-               neuroróżnorodność w praktyce (ND-affirming), komunikacja i adaptacje, bezpieczeństwo i etyka AI.
-               W NCNI odpowiada za design kursów (on-site/online/VR), przygotowanie trenerów, hospitacje zajęć,
-               ewaluację rezultatów i materiały wdrożeniowe (toolkity, checklisty).
-               "
-               data-tags="edukacja, etyka AI, ND-affirming, wdrożenia">
-        <div class="card-head">
-          <div class="avatar">MG</div>
-          <div>
-            <h3 class="team-name">dr inż. Marlena Gąsior-Głogowska</h3>
-            <div class="team-role muted">Dyrektor Edukacji i Etyki • Programy szkoleniowe, ND w edukacji/HR</div>
-          </div>
-        </div>
-        <p class="muted">Projektuje i wdraża programy szkoleniowe, dba o etykę i bezpieczeństwo.</p>
-        <button class="btn ghost team-more">Pokaż profil</button>
-      </article>
-
-      <!-- KAROL -->
-      <article class="card team-card"
-               data-name="Karol Kiszło"
-               data-role="Strategia, PR & Partnerstwa • E-commerce/AI, komunikacja, rozwój produktu"
-               data-bio="
-               20+ lat w e-commerce i marketingu (USA/UE). Absolwent Loyola University Chicago (PR & Advertising)
-               i Triton College (Mass Communication). Łączy innowacje (AI/automatyzacja) z rynkiem i sprzedażą.
-               W NCNI odpowiada za: strategię PR/marketing, ofertę produktową, partnerstwa i coaching sprzedażowy.
-               Doświadczenie eventowo-marketingowe w USA (m.in. projekty związane z WWE — World Wrestling
-               Entertainment) oraz moderacja treści/strategii edukacyjnych (Pearson).
-               "
-               data-tags="strategia, PR/marketing, e-commerce, partnerstwa">
-        <div class="card-head">
-          <div class="avatar">KK</div>
-          <div>
-            <h3 class="team-name">Karol Kiszło</h3>
-            <div class="team-role muted">Strategia, PR & Partnerstwa • E-commerce/AI, komunikacja, rozwój produktu</div>
-          </div>
-        </div>
-        <p class="muted">Spina naukę z rynkiem: produkt, komunikacja i partnerstwa. Coaching sprzedażowy.</p>
-        <button class="btn ghost team-more">Pokaż profil</button>
-      </article>
-    </div>
+  <style>
+    :root{
+      --ink:#0f172a;--muted:#475569;--line:#e5e7eb;--brand:#0f172a;
+      --bg:#fff;--bg-sub:#f8fafc;--accent:#06b6d4
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    a{color:inherit;text-decoration:none}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand b{letter-spacing:.3px}
+    .menu{display:flex;gap:16px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line)}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.ghost{background:#fff}
+    .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    .cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .section-muted{background:var(--bg-sub);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    h1{font-size:40px;margin:0 0 12px}
+    h2{margin:0 0 10px} section{padding:48px 0}
+    .avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0f172a,#06b6d4);color:#fff;display:grid;place-items:center;font-weight:700}
+    .team-modal{position:fixed;inset:0;display:none}
+    .team-modal.is-open{display:block}
+    .team-modal__backdrop{position:absolute;inset:0;background:rgba(15,23,42,.55)}
+    .team-modal__dialog{position:relative;z-index:2;max-width:720px;margin:8vh auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px rgba(2,6,23,.25);padding:20px}
+    .team-modal__close{position:absolute;top:8px;right:10px;border:0;background:transparent;font-size:28px;cursor:pointer}
+    @media (max-width:639px){.cards-2,.cards-3{grid-template-columns:1fr}h1{font-size:28px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#"><b>NCNI</b><br><small class="muted">Naukowe Centrum Neuro-Innowacji</small></a>
+    <nav class="menu">
+      <a href="#research">Projekty</a>
+      <a href="#partners">Partnerstwa</a>
+      <a href="#ethics">Standardy</a>
+      <a href="#team">Zespół</a>
+      <a href="#neuro">Neuroinnowacje</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
   </div>
+</header>
 
-  <!-- MODAL: EXTENDED BIO -->
-  <div id="team-modal" class="team-modal" aria-hidden="true">
-    <div class="team-modal__backdrop"></div>
-    <div class="team-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="team-modal-title">
-      <button class="team-modal__close" aria-label="Zamknij">&times;</button>
-      <h3 id="team-modal-title"></h3>
-      <div class="muted" id="team-modal-role" style="margin-top:-4px"></div>
-      <p id="team-modal-bio" style="margin-top:10px"></p>
-      <div id="team-modal-tags" class="team-tags"></div>
+<main>
+  <!-- HERO -->
+  <section class="hero section-muted">
+    <div class="container">
+      <h1>Naukowe Centrum Neuro-Innowacji (NCNI)</h1>
+      <p class="muted">AI • VR • Neuroróżnorodność • Badania stosowane i ewaluacje. Wrocław + online.</p>
+      <a class="btn primary" href="#research">Zobacz nasze projekty</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-  /* delikatne dopalenie wyglądu kart i modala */
-  .team-card .card-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-  .team-name{margin:0}
-  .team-role{font-size:14px}
-  .team-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .team-tags .chip{font-size:12px;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:#fff;color:var(--muted)}
+  <!-- PROJEKTY -->
+  <section id="research">
+    <div class="container">
+      <h2>Projekty badawcze i obszary</h2>
+      <div class="grid cards-3" style="margin-top:12px">
+        <article class="card">
+          <h3>Neurodiversity@Work</h3>
+          <p class="muted">Badania nad skutecznością rozwiązań pro-ND w HR i edukacji. Ewaluacje polityk i adaptacji stanowisk pracy.</p>
+        </article>
+        <article class="card">
+          <h3>VR & Biofeedback</h3>
+          <p class="muted">Projektowanie i testowanie protokołów EEG/HRV oraz scenariuszy VR (fokus, relaks, ekspozycja).</p>
+        </article>
+        <article class="card">
+          <h3>ASD/ND</h3>
+          <p class="muted">Badania nad VR w komunikacji i treningu umiejętności społecznych w szkołach i poradniach.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  .team-modal{position:fixed;inset:0;display:none}
-  .team-modal.is-open{display:block}
-  .team-modal__backdrop{position:absolute;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(2px)}
-  .team-modal__dialog{
-    position:relative;z-index:2;max-width:720px;margin:8vh auto;background:#fff;
-    border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px rgba(2,6,23,.25);
-    padding:20px
-  }
-  .team-modal__close{
-    position:absolute;top:8px;right:10px;border:0;background:transparent;font-size:28px;line-height:1;cursor:pointer
-  }
-  @media (max-width:639px){ .team-modal__dialog{margin:4vh 12px;padding:16px} }
-</style>
+  <!-- PARTNERSTWA -->
+  <section id="partners" class="section-muted">
+    <div class="container">
+      <h2>Partnerstwa i współpraca</h2>
+      <p class="muted">Współpracujemy z uczelniami, szkołami i firmami technologicznymi. Szukasz partnera B+R lub ewaluacji projektu?</p>
+      <div class="grid cards-3" style="margin-top:12px">
+        <article class="card"><h3>B+R i granty</h3><p class="muted">Konsorcja, metodologia, raporty i replikowalność.</p></article>
+        <article class="card"><h3>Pilotaże</h3><p class="muted">Pilotaże w szkołach i firmach, analiza danych i rekomendacje.</p></article>
+        <article class="card"><h3>Lab</h3><p class="muted">Zaplecze sprzętowe (VR, biofeedback), prototypowanie scenariuszy.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDARDY -->
+  <section id="ethics">
+    <div class="container">
+      <h2>Standardy i etyka</h2>
+      <ul>
+        <li>Bezpieczeństwo uczestników i transparentność metod</li>
+        <li>RODO i privacy-by-design</li>
+        <li>Prawo do rezygnacji i minimalizacja ryzyka</li>
+        <li>Replikowalność i otwarta sprawozdawczość</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ZESPÓŁ -->
+  <section id="team" class="section-muted">
+    <div class="container">
+      <h2>Nasz zespół</h2>
+      <div class="grid cards-3" style="margin-top:12px">
+        <article class="card team-card" data-name="dr inż. Sebastian Kraszewski" data-role="Dyrektor Naukowy" data-bio="Odpowiada za metodologię, R&D i ewaluacje. Łączy laboratoria akademickie z praktyką.">
+          <div class="avatar">SK</div><b>Sebastian Kraszewski</b><p class="muted">Dyrektor Naukowy • R&D, metodologia</p><button class="btn ghost team-more">Profil</button>
+        </article>
+        <article class="card team-card" data-name="dr inż. Marlena Gąsior-Głogowska" data-role="Dyrektor Edukacji i Etyki" data-bio="Prowadzi dydaktykę i rozwój programów. Specjalizacja: neuroróżnorodność, etyka AI.">
+          <div class="avatar">MG</div><b>Marlena Gąsior-Głogowska</b><p class="muted">Dyrektor Edukacji i Etyki</p><button class="btn ghost team-more">Profil</button>
+        </article>
+        <article class="card team-card" data-name="Karol Kiszło" data-role="Strategia i PR" data-bio="Strateg, PR & marketing, partnerstwa. Absolwent Loyola University Chicago i Triton College, doświadczenie e-commerce i eventy (m.in. WWE, Pearson).">
+          <div class="avatar">KK</div><b>Karol Kiszło</b><p class="muted">Strategia • PR & Partnerstwa</p><button class="btn ghost team-more">Profil</button>
+        </article>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="team-modal" class="team-modal" aria-hidden="true">
+      <div class="team-modal__backdrop"></div>
+      <div class="team-modal__dialog">
+        <button class="team-modal__close" aria-label="Zamknij">&times;</button>
+        <h3 id="team-modal-title"></h3>
+        <div class="muted" id="team-modal-role"></div>
+        <p id="team-modal-bio" style="margin-top:10px"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEUROINNOWACJE -->
+  <section id="neuro">
+    <div class="container">
+      <h2>Neuroinnowacje.pl</h2>
+      <p class="muted">Oferta kursów, coachingów i programów VR znajdziesz na naszej stronie komercyjnej:</p>
+      <a class="btn primary" href="https://neuroinnowacje.pl" target="_blank">Przejdź do Neuroinnowacje.pl</a>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="contact" class="section-muted">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <p class="muted">E-mail: <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="section-muted" style="padding:18px 0">
+  <div class="container">© <span id="y"></span> NCNI — Naukowe Centrum Neuro-Innowacji</div>
+</footer>
 
 <script>
-  // modal open/close + dynamic fill
-  (function(){
-    const modal = document.getElementById('team-modal');
-    const title = document.getElementById('team-modal-title');
-    const role  = document.getElementById('team-modal-role');
-    const bio   = document.getElementById('team-modal-bio');
-    const tags  = document.getElementById('team-modal-tags');
-
-    function openModal(card){
-      title.textContent = card.dataset.name || '';
-      role.textContent  = card.dataset.role || '';
-      bio.textContent   = (card.dataset.bio || '').replace(/\s+/g,' ').trim();
-      tags.innerHTML    = '';
-      (card.dataset.tags || '').split(',').map(t => t.trim()).filter(Boolean).forEach(t=>{
-        const span = document.createElement('span');
-        span.className = 'chip';
-        span.textContent = t;
-        tags.appendChild(span);
-      });
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal(){
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.team-card .team-more').forEach(btn=>{
-      btn.addEventListener('click', e=>{
-        const card = e.currentTarget.closest('.team-card');
-        openModal(card);
-      });
-    });
-
-    modal.querySelector('.team-modal__backdrop').addEventListener('click', closeModal);
-    modal.querySelector('.team-modal__close').addEventListener('click', closeModal);
-    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
-  })();
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const modal=document.getElementById('team-modal');
+  const title=document.getElementById('team-modal-title');
+  const role=document.getElementById('team-modal-role');
+  const bio=document.getElementById('team-modal-bio');
+  function openModal(card){
+    title.textContent=card.dataset.name;
+    role.textContent=card.dataset.role;
+    bio.textContent=card.dataset.bio;
+    modal.classList.add('is-open');
+  }
+  function closeModal(){modal.classList.remove('is-open')}
+  document.querySelectorAll('.team-card .team-more').forEach(btn=>{
+    btn.addEventListener('click',e=>openModal(e.currentTarget.closest('.team-card')))
+  });
+  modal.querySelector('.team-modal__backdrop').addEventListener('click',closeModal);
+  modal.querySelector('.team-modal__close').addEventListener('click',closeModal);
 </script>
+</body>
+</html>
