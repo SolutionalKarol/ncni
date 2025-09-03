@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NCNI — Makieta podglądowa</title>
+<style>
+  :root{--ink:#0f172a;--muted:#475569;--line:#e5e7eb;--bg:#fff;--sub:#f8fafc;--accent:#06b6d4}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  .container{max-width:1100px;margin:0 auto;padding:0 16px}
+  a{color:inherit;text-decoration:none}
+  /* nav */
+  header{position:sticky;top:0;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);backdrop-filter:saturate(180%) blur(8px);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+  .brand{display:flex;gap:10px;align-items:center}
+  .brand b{letter-spacing:.3px}
+  .menu{display:flex;gap:14px;font-size:14px}
+  /* ui */
+  h1{margin:0 0 10px;line-height:1.15;font-size:40px}
+  h2{margin:0 0 8px} section{padding:44px 0}
+  p.lead{color:var(--muted);max-width:760px}
+  .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#fff}
+  .btn.primary{background:var(--ink);color:#fff;border:0}
+  .btn.accent{background:var(--accent);color:#001018;border:0}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .badge{border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted);background:#fff}
+  .grid{display:grid;gap:14px}
+  .cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}
+  .muted{color:var(--muted)}
+  .section-muted{background:var(--sub);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .hero{position:relative;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;opacity:.35;background:
+    radial-gradient(40rem 40rem at 120% -10%, #a7f3d0 0%, transparent 60%),
+    radial-gradient(40rem 40rem at -10% 10%, #93c5fd 0%, transparent 60%)}
+  .hero .inner{padding:56px 0}
+  /* team */
+  .avatar{width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,#0f172a,#06b6d4);color:#fff;
+    display:grid;place-items:center;font-weight:700}
+  /* responsive */
+  @media (max-width:799px){
+    h1{font-size:30px}
+    .menu{display:none}
+    .cards-2{grid-template-columns:1fr}
+    .cards-3{grid-template-columns:1fr}
+    section{padding:36px 0}
+    .hero .inner{padding:40px 0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <!-- mała ikonka mózgu -->
+      <svg width="28" height="28" viewBox="0 0 48 48" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0f172a"/></linearGradient></defs>
+        <circle cx="24" cy="24" r="22" fill="url(#g)" stroke="#0f172a" stroke-width="2"/>
+        <circle cx="17" cy="20" r="2.2" fill="#fff"/><circle cx="31" cy="20" r="2.2" fill="#fff"/><circle cx="24" cy="28" r="2.2" fill="#fff"/>
+        <path d="M17 20 L24 28 L31 20" stroke="#fff" stroke-width="1.8" fill="none"/>
+      </svg>
+      <span><b>NCNI</b><br><small class="muted">Naukowe Centrum Neuro-Innowacji</small></span>
+    </a>
+    <nav class="menu">
+      <a href="#offer">Oferta</a><a href="#courses">Kursy</a><a href="#coaching">Coaching</a>
+      <a href="#institutions">Instytucje</a><a href="#team">Zespół</a><a href="#contact">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg"></div>
+    <div class="container inner">
+      <h1>Neuro-Innowacje, AI & VR dla rozwoju ludzi i organizacji</h1>
+      <p class="lead">Szkolenia i kursy (PL), coaching 1:1 oraz programy dla firm i szkół. Wrocław + online. Kolory i vibe jak w NeuroAcademy.</p>
+      <div class="grid cards-2" style="margin-top:14px">
+        <a class="btn primary">Zapisz się na kurs</a>
+        <a class="btn">Oferta dla firm / szkół</a>
+      </div>
+      <div class="badges">
+        <span class="badge">AI & VR</span><span class="badge">Neurodiversity</span>
+        <span class="badge">PL/EN</span><span class="badge">Wrocław + online</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="offer">
+    <div class="container grid cards-3">
+      <div class="card"><div class="muted" style="font-size:12px;text-transform:uppercase">Filary</div><h3>Nauka</h3>
+        <p class="muted">Metodologia, wskaźniki, ewaluacja. Współpraca z uczelniami.</p></div>
+      <div class="card"><div class="muted" style="font-size:12px;text-transform:uppercase">Filary</div><h3>Technologia</h3>
+        <p class="muted">AI, VR, EEG/HRV — praktyczne wdrożenia w edukacji, HR i wellbeing.</p></div>
+      <div class="card"><div class="muted" style="font-size:12px;text-transform:uppercase">Filary</div><h3>Praktyka</h3>
+        <p class="muted">Kursy, szkolenia, coaching 1:1 i dla zespołów. Toolkit’y i materiały.</p></div>
+    </div>
+  </section>
+
+  <!-- KURSY -->
+  <section id="courses" class="section-muted">
+    <div class="container">
+      <h2>Kursy i szkolenia (PL)</h2>
+      <div class="grid cards-3" style="margin-top:10px">
+        <div class="card">
+          <h3>Wprowadzenie do neuroróżnorodności</h3>
+          <p class="muted">1 dzień • HR / liderzy / nauczyciele</p>
+          <ul><li>Podstawy ADHD/ASD/LD</li><li>Komunikacja i adaptacje</li><li>Checklisty</li></ul>
+          <b>790 zł / osoba</b><br><a class="btn" style="margin-top:8px">Zapisz się</a>
+        </div>
+        <div class="card">
+          <h3>Neurofeedback i VR w praktyce</h3>
+          <p class="muted">5 spotkań online + materiały</p>
+          <ul><li>EEG/HRV protokoły</li><li>VR fokus/relaks</li><li>Ewaluacja efektów</li></ul>
+          <b>1 500 zł / osoba</b><br><a class="btn" style="margin-top:8px">Zapisz się</a>
+        </div>
+        <div class="card">
+          <h3>AI w edukacji i coachingu</h3>
+          <p class="muted">Warsztat 4h (online / on-site)</p>
+          <ul><li>Asystent AI</li><li>Scenariusze & feedback</li><li>Etyka i bezpieczeństwo</li></ul>
+          <b>450 zł / osoba</b><br><a class="btn" style="margin-top:8px">Zapisz się</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="muted" style="font-size:12px;text-transform:uppercase">Program zawodowy</div>
+        <h3>Coach Neuroróżnorodności (6 tyg.)</h3>
+        <ul><li>ND + praktyka wdrożeń</li><li>VR & biofeedback</li><li>Mentoring + certyfikat</li></ul>
+        <b>2 500 zł / osoba</b> — <a class="btn">Zgłoś uczestnictwo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACHING -->
+  <section id="coaching">
+    <div class="container">
+      <h2>Coaching i mentoring</h2>
+      <div class="grid cards-3" style="margin-top:10px">
+        <div class="card"><h3>Mentoring 1:1</h3><p class="muted">60–75 min • plan pracy</p><b>300 zł</b></div>
+        <div class="card"><h3>Pakiet 5 sesji</h3><p class="muted">follow-up + materiały</p><b>1 350 zł</b></div>
+        <div class="card"><h3>Coaching zespołowy</h3><p class="muted">do 8 osób</p><b>180 zł / os.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTYTUCJE -->
+  <section id="institutions" class="section-muted">
+    <div class="container">
+      <h2>Dla firm i szkół</h2>
+      <div class="grid cards-3" style="margin-top:10px">
+        <div class="card"><h3>Neurodiversity@Work</h3><ul><li>Audyt + szkolenia</li><li>Toolkit & polityki</li></ul><b>od 8 000 zł</b></div>
+        <div class="card"><h3>VR & Biofeedback Pilotaż</h3><ul><li>Scenariusze VR</li><li>EEG/HRV</li></ul><b>od 12 000 zł</b></div>
+        <div class="card"><h3>Szkoła przyjazna ND</h3><ul><li>Szkolenia + warsztaty</li><li>Wsparcie wdrożeń</li></ul><b>program 6 000 zł</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZESPÓŁ -->
+  <section id="team">
+    <div class="container">
+      <h2>Nasz zespół</h2>
+      <p class="muted">Nauka • Technologia • Praktyka biznesowa</p>
+      <div class="grid cards-3" style="margin-top:10px">
+        <div class="card">
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="avatar">SK</div><div><b>dr inż. Sebastian Kraszewski</b><br><span class="muted" style="font-size:13px">Badania • Neurofeedback • AI</span></div>
+          </div>
+          <p class="muted" style="margin-top:6px">Politechnika Wrocławska. 43+ publikacje (700+ cytowań). R&D, metodologia, VR/AI.</p>
+        </div>
+        <div class="card">
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="avatar">MG</div><div><b>dr inż. Marlena Gąsior-Głogowska</b><br><span class="muted" style="font-size:13px">Edukacja • Etyka AI • Wdrożenia</span></div>
+          </div>
+          <p class="muted" style="margin-top:6px">Dydaktyka, neuroróżnorodność w edukacji i HR, programy szkoleniowe.</p>
+        </div>
+        <div class="card">
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="avatar">KK</div><div><b>Karol Kiszło</b><br><span class="muted" style="font-size:13px">Strategia • PR/Marketing • E-commerce</span></div>
+          </div>
+          <p class="muted" style="margin-top:6px">Loyola University Chicago, Triton College. 20+ lat e-commerce (USA/EU), coaching sprzedaży; epizod event/marketing (WWE).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="section-muted">
+    <div class="container">
+      <h2>Blog / Knowledge Hub</h2>
+      <div class="grid cards-3" style="margin-top:10px">
+        <div class="card"><div style="height:120px;border:1px solid var(--line);border-radius:12px;background:#fff;display:grid;place-items:center;color:#94a3b8">miniatura</div><h3>AI i VR w edukacji dorosłych</h3><p class="muted">Co działa naprawdę?</p></div>
+        <div class="card"><div style="height:120px;border:1px solid var(--line);border-radius:12px;background:#fff;display:grid;place-items:center;color:#94a3b8">miniatura</div><h3>Toolkit dla HR</h3><p class="muted">Neuroróżnorodność w pracy.</p></div>
+        <div class="card"><div style="height:120px;border:1px solid var(--line);border-radius:12px;background:#fff;display:grid;place-items:center;color:#94a3b8">miniatura</div><h3>EEG/HRV bez tajemnic</h3><p class="muted">Biofeedback w praktyce.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="contact">
+    <div class="container grid cards-2">
+      <div class="card">
+        <h2>Kontakt</h2>
+        <p class="muted">E-mail: kontakt@ncni.pl • WhatsApp dostępny po wdrożeniu.</p>
+        <div class="grid cards-2" style="margin-top:8px">
+          <a class="btn accent">WhatsApp</a>
+          <a class="btn primary">Wyślij e-mail</a>
+        </div>
+        <p class="muted" style="font-size:12px;margin-top:8px">PL/EN • Wrocław + online</p>
+      </div>
+      <form class="card" onsubmit="event.preventDefault();alert('Dziękujemy!');">
+        <label>Imię i nazwisko<br><input required style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;margin-top:6px"></label><br>
+        <label>E-mail<br><input type="email" required style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;margin-top:6px"></label><br>
+        <label>Wiadomość<br><textarea rows="4" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;margin-top:6px"></textarea></label><br>
+        <button class="btn primary">Wyślij</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="section-muted" style="padding:18px 0">
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div>© <span id="y"></span> NCNI — Naukowe Centrum Neuro-Innowacji</div>
+    <div class="muted"><a href="#">Regulamin</a> • <a href="#">Prywatność</a> • <a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
