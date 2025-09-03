@@ -79,9 +79,6 @@
     /* HOW IT WORKS */
     .steps{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .steps h3{color:var(--accent-2); margin-bottom:.25rem}
-    /* TEAM */
-    details summary{cursor:pointer; color:var(--muted)}
-    details summary::marker{color:var(--accent-2)}
     /* FAQ */
     .faq details{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px}
     .faq summary{font-weight:600; color:var(--accent-2)}
@@ -100,7 +97,7 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav" aria-label="Główna nawigacja">
     <div class="container nav-wrap">
       <div class="brand">NCNI</div>
       <div class="nav-links">
@@ -117,7 +114,7 @@
   <header class="hero">
     <div class="container">
       <h1>Naukowe Centrum NeuroInnowacji (NCNI)</h1>
-      <p>VR/AI, neuroróżnorodność i nowe technologie kształtujące przyszłość ludzkości</p>
+      <p>VR/AI dla neuroróżnorodności: nauka, terapia i narzędzia rozwoju</p>
       <div class="hero-cta">
         <a class="btn" href="#oferta">Zobacz ofertę</a>
         <a class="btn-ghost" href="#kontakt">Umów rozmowę</a>
@@ -222,6 +219,8 @@
             <li>Dzień szkoleniowy (6–7h) — <strong>7 500 PLN</strong></li>
             <li>Strefa VR na evencie/konferencji — od <strong>4 900 PLN</strong></li>
             <li>Program wdrożeniowy dla szkół — od <strong>12 000 PLN</strong></li>
+            <li><strong>Audyty e-commerce/PR</strong> (strategia, oferta, lejki, analityka; 2–4 tyg.) — od <strong>7 900 PLN</strong></li>
+            <li><strong>Coaching zespołu sprzedaży/komunikacji</strong> (pakiet 6 sesji) — <strong>5 400 PLN</strong></li>
           </ul>
         </article>
 
@@ -274,43 +273,59 @@
     <div class="container">
       <div class="section-head">
         <h2>Zespół</h2>
-        <p class="muted">Krótkie wizytówki na start. Kliknij, by rozwinąć bio.</p>
+        <p class="muted">Interdyscyplinarny zespół łączący VR/AI, dydaktykę i rozwój biznesu. Kliknij, aby rozwinąć bio.</p>
       </div>
 
       <div class="grid grid-auto">
+        <!-- Marlena -->
         <article class="card">
           <h3>dr Marlena Gąsior-Głogowska</h3>
-          <p style="color:var(--accent-2)">VR/AI • dydaktyka • scenariusze wdrożeń</p>
+          <p style="color:var(--accent-2)">Psychologia kliniczna/edukacyjna • VR w terapii i szkole • Walidacja dydaktyczna</p>
           <details>
             <summary>Pokaż bio</summary>
             <p class="muted" style="margin-top:.5rem">
-              Doktorka psychologii (kliniczna i edukacyjna). Publikacje nt. VR w terapii zaburzeń lękowych i PTSD.
-              W NCNI odpowiada za walidację dydaktyczną, projekt scenariuszy VR i mentoring nauczycieli.
+              Psycholożka z doświadczeniem klinicznym i akademickim. Autorka publikacji nt. wykorzystania
+              <strong>VR</strong> w redukcji lęku i pracy z PTSD. W NCNI odpowiada za <strong>weryfikację merytoryczną</strong> programów,
+              projektowanie <strong>scenariuszy VR</strong> dla dzieci i dorosłych oraz <strong>mentoring nauczycieli</strong>
+              i terapeutów. Prowadzi ewaluacje efektów i szkoli zespoły w bezpiecznym wdrażaniu technologii do praktyki.
             </p>
           </details>
         </article>
 
+        <!-- Sebastian -->
         <article class="card">
           <h3>dr Sebastian Kraszewski</h3>
-          <p style="color:var(--accent-2)">AI • neurofeedback • ewaluacja naukowa</p>
+          <p style="color:var(--accent-2)">AI & neurofeedback • Metodologia badań • Ewaluacje naukowe</p>
           <details>
             <summary>Pokaż bio</summary>
             <p class="muted" style="margin-top:.5rem">
-              Autor 40+ publikacji, 700+ cytowań; Polska Nagroda Inteligentnego Rozwoju (2019).
-              W NCNI prowadzi ewaluacje naukowe programów VR/AI oraz projekty badawcze z neurofeedbackiem.
+              Badacz i praktyk z obszaru <strong>AI</strong> i <strong>EEG-biofeedbacku</strong>; autor 40+ publikacji i 700+ cytowań,
+              laureat Polskiej Nagrody Inteligentnego Rozwoju (2019). W NCNI prowadzi <strong>R&amp;D</strong>, nadzoruje
+              <strong>metodologię</strong> i <strong>ewaluacje</strong> wdrożeń VR/AI, dba o jakość danych i standardy etyczne.
+              Projektuje protokoły treningowe oraz raporty dla szkół, klinik i partnerów B2B.
             </p>
           </details>
         </article>
 
+        <!-- Karol -->
         <article class="card">
           <h3>mgr Karol Kiszło</h3>
-          <p style="color:var(--accent-2)">Strategia • PR/marketing • rozwój biznesowy</p>
+          <p style="color:var(--accent-2)">Strategia • PR/marketing • E-commerce & marketplace • Audyty & coaching</p>
           <details>
             <summary>Pokaż bio</summary>
             <p class="muted" style="margin-top:.5rem">
-              20+ lat w e-commerce i strategiach wzrostu. Projekty AI i automatyzacje.
-              W NCNI odpowiada za rozwój, partnerstwa i spójność komunikacji.
+              Strateg biznesowy z 20+ latami doświadczenia w Polsce, Wielkiej Brytanii i USA. Absolwent
+              <strong>Loyola University Chicago (PR & Advertising)</strong>. Specjalizuje się w <strong>audytach sprzedażowych</strong>,
+              <strong>strategiach PR/marketingowych</strong> oraz <strong>rozwoju e-commerce i marketplace’ów</strong>
+              (Amazon, Allegro, Shopify, WooCommerce). Pracował m.in. dla <strong>Pearson.com (Londyn)</strong>
+              przy analizie i optymalizacji treści edukacyjnych oraz wdrażaniu narzędzi <strong>AI</strong> i automatyzacji.
+              W NCNI odpowiada za <strong>strategię rozwoju</strong>, <strong>partnerstwa</strong>, komunikację marki i procesy komercjalizacji.
             </p>
+            <ul class="clean muted" style="margin-top:.5rem">
+              <li>• Audyty e-commerce / marketingowe (strategia, oferta, lejki, analityka)</li>
+              <li>• PR & komunikacja (pozycjonowanie eksperckie, media, narracje edukacyjne)</li>
+              <li>• Coaching/mentoring dla zespołów sprzedaży i edukacji (standardy, KPI, narzędzia AI)</li>
+            </ul>
           </details>
         </article>
       </div>
@@ -356,7 +371,7 @@
         <input class="input" type="text" placeholder="Imię i nazwisko" required />
         <input class="input" type="email" placeholder="E-mail" required />
         <input class="input" type="tel" placeholder="Telefon (opcjonalnie)" />
-        <select class="select">
+        <select class="select" aria-label="Wybierz temat">
           <option>Temat: Terapia VR</option>
           <option>Temat: Neurofeedback</option>
           <option>Temat: Program edukacyjny</option>
