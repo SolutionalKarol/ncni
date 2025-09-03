@@ -20,7 +20,7 @@
     .brand{display:flex;align-items:center;gap:10px}
     .brand b{letter-spacing:.3px}
     .menu{display:flex;gap:16px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--line);font-size:14px;cursor:pointer}
     .btn.primary{background:var(--brand);color:#fff}
     .btn.ghost{background:#fff}
     .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}
@@ -31,12 +31,38 @@
     .section-muted{background:var(--bg-sub);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     h1{font-size:40px;margin:0 0 12px}
     h2{margin:0 0 10px} section{padding:48px 0}
-    .avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0f172a,#06b6d4);color:#fff;display:grid;place-items:center;font-weight:700}
+    .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0f172a,#06b6d4);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;margin-bottom:8px}
+    /* TEAM STYLING */
+    .team-card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .team-card b{font-size:16px}
+    .team-card p{font-size:14px;margin:6px 0 10px}
+    .team-card .btn{align-self:flex-start}
+    /* Modal */
     .team-modal{position:fixed;inset:0;display:none}
     .team-modal.is-open{display:block}
-    .team-modal__backdrop{position:absolute;inset:0;background:rgba(15,23,42,.55)}
-    .team-modal__dialog{position:relative;z-index:2;max-width:720px;margin:8vh auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px rgba(2,6,23,.25);padding:20px}
-    .team-modal__close{position:absolute;top:8px;right:10px;border:0;background:transparent;font-size:28px;cursor:pointer}
+    .team-modal__backdrop{
+      position:absolute;inset:0;
+      background:rgba(15,23,42,.55);backdrop-filter:blur(2px)
+    }
+    .team-modal__dialog{
+      position:relative;z-index:2;
+      max-width:720px;margin:8vh auto;
+      background:#fff;padding:20px;
+      border-radius:16px;box-shadow:0 20px 60px rgba(2,6,23,.25)
+    }
+    .team-modal__close{
+      position:absolute;top:8px;right:10px;
+      background:transparent;border:0;
+      font-size:28px;cursor:pointer
+    }
     @media (max-width:639px){.cards-2,.cards-3{grid-template-columns:1fr}h1{font-size:28px}}
   </style>
 </head>
@@ -116,15 +142,34 @@
   <section id="team" class="section-muted">
     <div class="container">
       <h2>Nasz zespół</h2>
-      <div class="grid cards-3" style="margin-top:12px">
-        <article class="card team-card" data-name="dr inż. Sebastian Kraszewski" data-role="Dyrektor Naukowy" data-bio="Odpowiada za metodologię, R&D i ewaluacje. Łączy laboratoria akademickie z praktyką.">
-          <div class="avatar">SK</div><b>Sebastian Kraszewski</b><p class="muted">Dyrektor Naukowy • R&D, metodologia</p><button class="btn ghost team-more">Profil</button>
+      <p class="muted">Kliknij profil, aby zobaczyć rozszerzony opis.</p>
+
+      <div class="grid cards-3" style="margin-top:16px">
+        <article class="team-card" data-name="dr inż. Sebastian Kraszewski"
+          data-role="Dyrektor Naukowy"
+          data-bio="Odpowiada za kierunek merytoryczny NCNI: projektowanie protokołów EEG/HRV i VR, ewaluację i metodologię. Łączy laboratoria akademickie z wdrożeniami.">
+          <div class="avatar">SK</div>
+          <b>dr inż. Sebastian Kraszewski</b>
+          <p class="muted">Dyrektor Naukowy • R&D, metodologia, VR/AI</p>
+          <button class="btn ghost team-more">Pokaż profil</button>
         </article>
-        <article class="card team-card" data-name="dr inż. Marlena Gąsior-Głogowska" data-role="Dyrektor Edukacji i Etyki" data-bio="Prowadzi dydaktykę i rozwój programów. Specjalizacja: neuroróżnorodność, etyka AI.">
-          <div class="avatar">MG</div><b>Marlena Gąsior-Głogowska</b><p class="muted">Dyrektor Edukacji i Etyki</p><button class="btn ghost team-more">Profil</button>
+
+        <article class="team-card" data-name="dr inż. Marlena Gąsior-Głogowska"
+          data-role="Dyrektor Edukacji i Etyki"
+          data-bio="Projektuje programy szkoleniowe i wellbeing, prowadzi warsztaty i sesje VR. Odpowiada za etykę AI i wdrożenia edukacyjne.">
+          <div class="avatar">MG</div>
+          <b>dr inż. Marlena Gąsior-Głogowska</b>
+          <p class="muted">Dyrektor Edukacji i Etyki • Edukacja, etyka AI, wdrożenia</p>
+          <button class="btn ghost team-more">Pokaż profil</button>
         </article>
-        <article class="card team-card" data-name="Karol Kiszło" data-role="Strategia i PR" data-bio="Strateg, PR & marketing, partnerstwa. Absolwent Loyola University Chicago i Triton College, doświadczenie e-commerce i eventy (m.in. WWE, Pearson).">
-          <div class="avatar">KK</div><b>Karol Kiszło</b><p class="muted">Strategia • PR & Partnerstwa</p><button class="btn ghost team-more">Profil</button>
+
+        <article class="team-card" data-name="Karol Kiszło"
+          data-role="Strategia i PR"
+          data-bio="Absolwent Loyola University Chicago i Triton College. 20+ lat w e-commerce i marketingu. Odpowiada za PR, partnerstwa i strategię NCNI. Doświadczenie eventowe (WWE) i moderacja treści edukacyjnych (Pearson).">
+          <div class="avatar">KK</div>
+          <b>Karol Kiszło</b>
+          <p class="muted">Strategia • PR & Partnerstwa • E-commerce</p>
+          <button class="btn ghost team-more">Pokaż profil</button>
         </article>
       </div>
     </div>
@@ -169,6 +214,7 @@
   const title=document.getElementById('team-modal-title');
   const role=document.getElementById('team-modal-role');
   const bio=document.getElementById('team-modal-bio');
+
   function openModal(card){
     title.textContent=card.dataset.name;
     role.textContent=card.dataset.role;
@@ -176,6 +222,7 @@
     modal.classList.add('is-open');
   }
   function closeModal(){modal.classList.remove('is-open')}
+
   document.querySelectorAll('.team-card .team-more').forEach(btn=>{
     btn.addEventListener('click',e=>openModal(e.currentTarget.closest('.team-card')))
   });
