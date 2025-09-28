@@ -20,10 +20,13 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; color:var(--clr-text); font-family:Manrope,system-ui,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
-      background: url('data:image/jpeg;base64,{{TU JEST DŁUGI CIĄG — JUŻ WSTAWIONY W PLIKU DO POBRANIA}}') center/cover fixed no-repeat, linear-gradient(180deg,#0b0f2a,#0e1339 60%, #0b0f2a);
-      min-height:100vh; position:relative;
-    }
+    body{
+body{
+  background: url('assets/bg.jpg') center/cover fixed no-repeat,
+              linear-gradient(180deg,#0b0f2a,#0e1339 60%, #0b0f2a);
+}
+
+
     body::before{content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
       background:linear-gradient(180deg,rgba(11,15,42,.28),rgba(11,15,42,.68) 82%);}
     .wrap{width:var(--container); margin-inline:auto}
