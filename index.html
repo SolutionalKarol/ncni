@@ -8,8 +8,8 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%231a2b3c'/><text x='50' y='60' text-anchor='middle' font-size='56' fill='white' font-family='Arial'>N</text></svg>">
   <style>
     :root{
-      --bg1:#0f172a; --bg2:#1e293b;
-      --sand:#e6dfd3; --coffee:#8b7355; --muted:#94a3b8; --accent:#88b6ff;
+      --bg1:#0b1120; --bg2:#111827;
+      --muted:#94a3b8; --accent:#88b6ff;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.18);
     }
     *{box-sizing:border-box}
@@ -19,70 +19,76 @@
       background:linear-gradient(180deg, var(--bg1), var(--bg2));
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Inter","SF Pro","Helvetica Neue", Arial, "Noto Sans", sans-serif;
       line-height:1.6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     a{color:#dbe4ff; text-decoration:none}
-    a:hover{opacity:.9}
+    a:hover{opacity:.92}
     .wrap{width:min(1100px, 92%); margin-inline:auto}
 
-    /* Topbar */
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(10px);
-      background:rgba(11,18,32,.5); border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; gap:12px; align-items:center}
-    .logo{width:38px; height:38px; border-radius:10px; background:linear-gradient(145deg, var(--sand), #cbbda7);
-      color:#1b1b1b; display:grid; place-items:center; font-weight:800; box-shadow:var(--shadow)}
-    .brand h1{margin:0; font-size:1.05rem; letter-spacing:.3px; color:#f7f7f9}
-    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
-    nav a{color:#dbe4ff; font-weight:500; opacity:.95}
-    .cta{display:flex; gap:10px; align-items:center}
+    /* Header */
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(10px);
+      background:rgba(11,18,32,.6); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{width:36px; height:36px; border-radius:10px; background:#cfd6e3; color:#0b1120; display:grid; place-items:center; font-weight:800; box-shadow:var(--shadow)}
+    .brand h1{margin:0; font-size:1rem; letter-spacing:.3px}
+    nav ul{display:flex; gap:16px; list-style:none; margin:0; padding:0}
+    nav a{font-weight:600; opacity:.95}
     .btn{padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.15);
-      background:rgba(255,255,255,.04); color:#eaf1ff; font-weight:600; cursor:pointer;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease}
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08)}
+      background:rgba(255,255,255,.05); color:#eaf1ff; font-weight:700; cursor:pointer}
     .btn.primary{background:linear-gradient(180deg, var(--accent), #6ea6ff); color:#0b1220; border-color:transparent}
 
-    /* HERO z Twoim tłem */
+    /* HERO — UŻYWA TWOJEGO TŁA */
     .hero{
-      position:relative; min-height:64vh; display:grid; align-items:center;
-      padding:72px 0 36px;
-      background-image: url('images/hero-ncni.png'); /* ← wrzuć plik: images/hero-ncni.png */
-      background-size: cover; background-position: center; background-repeat:no-repeat;
+      position:relative;
+      min-height:70vh; display:grid; align-items:center;
+      padding:80px 0 40px;
+      background-image:url('images/hero-ncni.png'); /* ← NAZWA PLIKU MUSI SIĘ ZGADZAĆ */
+      background-size:cover; background-position:center; background-repeat:no-repeat;
     }
-    .hero::after{ /* delikatna winieta dla czytelności tekstu */
+    .hero::after{ /* winieta dla czytelności na każdym ekranie */
       content:""; position:absolute; inset:0;
-      background: radial-gradient(60% 70% at 25% 30%, rgba(2,6,23,.0), rgba(2,6,23,.55) 60%) ,
-                  linear-gradient(180deg, rgba(2,6,23,.25), rgba(2,6,23,.55));
+      background: radial-gradient(70% 70% at 28% 32%, rgba(2,6,23,.0), rgba(2,6,23,.55) 60%),
+                  linear-gradient(180deg, rgba(2,6,23,.25), rgba(2,6,23,.6));
       pointer-events:none;
     }
     .hero > .wrap{position:relative; z-index:1}
     .tag{display:inline-flex; gap:8px; align-items:center; font-size:.85rem; color:#c7d2fe; background:rgba(136,182,255,.12);
       border:1px solid rgba(136,182,255,.25); padding:6px 10px; border-radius:999px}
-    .h-xl{font-size: clamp(28px, 4.2vw, 56px); line-height:1.05; margin:14px 0 10px; letter-spacing:.2px}
+    .h-xl{font-size:clamp(28px,5.2vw,58px); line-height:1.05; margin:14px 0 10px}
     .lead{color:#dbe7ff; font-size:1.08rem; max-width:60ch; text-shadow:0 2px 14px rgba(0,0,0,.45)}
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
     /* Sekcje / karty / tabele */
-    section{padding:54px 0}
-    h2{font-size:clamp(22px,3vw,34px); margin:0 0 14px}
-    .kicker{font-weight:700; color:#cbd5e1; text-transform:uppercase; letter-spacing:.12em; font-size:.8rem}
+    section{padding:50px 0}
+    h2{font-size:clamp(22px,3.2vw,34px); margin:0 0 12px}
+    .kicker{font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:.12em; font-size:.8rem}
     .muted{color:var(--muted)}
     .card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
       border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px}
-    .col-4{grid-column: span 4} .col-6{grid-column: span 6} .col-12{grid-column: span 12}
-    .table{width:100%; border-collapse:separate; border-spacing:0; overflow:auto}
-    .table th, .table td{padding:12px 10px; border-bottom:1px solid rgba(255,255,255,.06)}
-    .table th{color:#cbd5e1; text-align:left; font-weight:700}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .col-4{grid-column:span 4} .col-6{grid-column:span 6} .col-12{grid-column:span 12}
+    .table{width:100%; border-collapse:separate; border-spacing:0}
+    .table th,.table td{padding:12px 10px; border-bottom:1px solid rgba(255,255,255,.07)}
+    .table th{color:#cbd5e1; text-align:left; font-weight:800}
     .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
       border:1px solid rgba(255,255,255,.14); border-radius:999px; background:rgba(255,255,255,.03); color:#eaf1ff}
 
     /* Kontakt */
     .contact{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 
-    /* Mobile */
-    @media (max-width: 900px){
+    /* MOBILE FIXES */
+    @media (max-width: 940px){
       nav ul{display:none}
-      .contact{grid-template-columns: 1fr}
-      .hero{min-height:52vh}
+      .hero{min-height:58vh; padding:66px 0 28px}
+      .cta-row .btn{width:100%; text-align:center}
+    }
+    @media (max-width: 720px){
+      .contact{grid-template-columns:1fr}
+      .table thead{display:none}
+      .table tr{display:block; margin:10px 0; border:1px solid rgba(255,255,255,.08); border-radius:12px}
+      .table td{display:flex; justify-content:space-between; gap:12px; border:0; padding:10px 12px}
+      .table td::before{content:attr(data-label); color:#bcd0ff; font-weight:700}
     }
   </style>
 </head>
@@ -102,7 +108,7 @@
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
-      <div class="cta">
+      <div class="cta-row">
         <a class="btn" href="#kontakt">Kontakt</a>
         <a class="btn primary" id="btn-book" href="#" rel="nofollow">Rezerwuj</a>
       </div>
@@ -110,20 +116,20 @@
   </header>
 
   <main>
-    <!-- HERO Z DOKŁADNIE TYM TŁEM -->
-    <section class="hero">
+    <!-- HERO Z TWOIM TŁEM -->
+    <section class="hero" role="img" aria-label="NCNI — fala dźwięku i logo">
       <div class="wrap">
         <span class="tag">NCNI • Wrocław & Online</span>
         <h2 class="h-xl">Głęboka Neuroregeneracja.<br/>Luksus dla Twojego Umysłu.</h2>
-        <p class="lead">Łączymy VR, Zero-Gravity i neuroaromaterapię z mądrym dotykiem. Programy Focus, Sleep, Detox.</p>
-        <div style="display:flex; gap:10px; margin-top:12px;">
+        <p class="lead">VR, Zero-Gravity, neuroaromaterapia + mądry dotyk. Programy Focus, Sleep, Detox.</p>
+        <div class="cta-row">
           <a class="btn primary" href="#oferta">Zobacz sesje</a>
-          <a class="btn" href="#tele">Tele-porady / Online</a>
+          <a class="btn" href="#tele">Tele-porady online</a>
         </div>
       </div>
     </section>
 
-    <!-- 1) FLAGOWE SESJE NEURO (wcześniej) -->
+    <!-- 1) FLAGOWE SESJE (NA GÓRZE) -->
     <section id="oferta">
       <div class="wrap">
         <div class="kicker">Flagowe sesje</div>
@@ -132,13 +138,55 @@
           <table class="table">
             <thead><tr><th>Nazwa</th><th>Czas</th><th>Cena</th><th>Opis</th><th></th></tr></thead>
             <tbody>
-              <tr><td>NeuroStart (Intro)</td><td>30 min</td><td>190 PLN</td><td>VR + Zero-Gravity + neuroaromaterapia.</td><td><a class="btn primary" data-book="start" href="#">Rezerwuj</a></td></tr>
-              <tr><td>NeuroSanctum 360° – Pakiet Immersyjny</td><td>60 min</td><td>450 PLN</td><td>Pełna immersja i wyciszenie (VR, Zero-Gravity, aroma).</td><td><a class="btn primary" data-book="sanctum" href="#">Rezerwuj</a></td></tr>
-              <tr><td>Głębia Spokoju – NeuroMedytacja + Masaż</td><td>90 min</td><td>640 PLN</td><td>Sesja kontemplacyjna: neurorelaks + praca manualna.</td><td><a class="btn primary" data-book="glebia" href="#">Rezerwuj</a></td></tr>
-              <tr><td>NeuroDetox Cyfrowy – Reset Ekranowy</td><td>60 min</td><td>390 PLN</td><td>Ukojenie przebodźcowania po ekranach.</td><td><a class="btn primary" data-book="detox" href="#">Rezerwuj</a></td></tr>
-              <tr><td>Focus & Flow (ADHD/WWO) – NeuroTrening</td><td>50 min</td><td>360 PLN</td><td>VR TRIPP Focus, neuroaromaty, masaż pro-koncentracja.</td><td><a class="btn primary" data-book="focus" href="#">Rezerwuj</a></td></tr>
-              <tr><td>Ulga Napięciowa – Głowa/Kark</td><td>45 min</td><td>340 PLN</td><td>Praca z napięciami szyi i barków, mięta pieprzowa.</td><td><a class="btn primary" data-book="ulga" href="#">Rezerwuj</a></td></tr>
-              <tr><td>Regeneracja & Odporność – Lymph Boost</td><td>60 min</td><td>420 PLN</td><td>Drenaż limfatyczny + VR relaks.</td><td><a class="btn primary" data-book="lymph" href="#">Rezerwuj</a></td></tr>
+              <tr>
+                <td data-label="Nazwa">NeuroStart (Intro)</td>
+                <td data-label="Czas">30 min</td>
+                <td data-label="Cena">190 PLN</td>
+                <td data-label="Opis">VR + Zero-Gravity + neuroaromaterapia.</td>
+                <td data-label=""><a class="btn primary" data-book="start" href="#">Rezerwuj</a></td>
+              </tr>
+              <tr>
+                <td data-label="Nazwa">NeuroSanctum 360° – Pakiet Immersyjny</td>
+                <td data-label="Czas">60 min</td>
+                <td data-label="Cena">450 PLN</td>
+                <td data-label="Opis">Pełna immersja i wyciszenie (VR, Zero-Gravity, aroma).</td>
+                <td data-label=""><a class="btn primary" data-book="sanctum" href="#">Rezerwuj</a></td>
+              </tr>
+              <tr>
+                <td data-label="Nazwa">Głębia Spokoju – NeuroMedytacja + Masaż</td>
+                <td data-label="Czas">90 min</td>
+                <td data-label="Cena">640 PLN</td>
+                <td data-label="Opis">Neurorelaks + praca manualna.</td>
+                <td data-label=""><a class="btn primary" data-book="glebia" href="#">Rezerwuj</a></td>
+              </tr>
+              <tr>
+                <td data-label="Nazwa">NeuroDetox Cyfrowy – Reset Ekranowy</td>
+                <td data-label="Czas">60 min</td>
+                <td data-label="Cena">390 PLN</td>
+                <td data-label="Opis">Ukojenie przebodźcowania po ekranach.</td>
+                <td data-label=""><a class="btn primary" data-book="detox" href="#">Rezerwuj</a></td>
+              </tr>
+              <tr>
+                <td data-label="Nazwa">Focus & Flow (ADHD/WWO) – NeuroTrening</td>
+                <td data-label="Czas">50 min</td>
+                <td data-label="Cena">360 PLN</td>
+                <td data-label="Opis">VR TRIPP Focus + aroma + manual.</td>
+                <td data-label=""><a class="btn primary" data-book="focus" href="#">Rezerwuj</a></td>
+              </tr>
+              <tr>
+                <td data-label="Nazwa">Ulga Napięciowa – Głowa/Kark</td>
+                <td data-label="Czas">45 min</td>
+                <td data-label="Cena">340 PLN</td>
+                <td data-label="Opis">Napięcia szyi i barków (mięta pieprzowa).</td>
+                <td data-label=""><a class="btn primary" data-book="ulga" href="#">Rezerwuj</a></td>
+              </tr>
+              <tr>
+                <td data-label="Nazwa">Regeneracja & Odporność – Lymph Boost</td>
+                <td data-label="Czas">60 min</td>
+                <td data-label="Cena">420 PLN</td>
+                <td data-label="Opis">Drenaż limfatyczny + VR relaks.</td>
+                <td data-label=""><a class="btn primary" data-book="lymph" href="#">Rezerwuj</a></td>
+              </tr>
             </tbody>
           </table>
           <div style="display:flex; gap:12px; flex-wrap:wrap; padding:10px 0">
@@ -147,18 +195,17 @@
             <span class="pill">Hands-on 15’ +79 PLN</span>
             <span class="pill">Pakiety: 4× −8% • 8× −15% • NeuroClub 299 PLN/mies.</span>
           </div>
-          <p class="muted" style="margin:8px 0 0">Uwaga: usługi wellbeing/edukacyjne, nie są świadczeniem zdrowotnym. Efekty są indywidualne.</p>
+          <p class="muted" style="margin:8px 0 0">Usługi wellbeing/edukacyjne, nie są świadczeniem zdrowotnym. Efekty są indywidualne.</p>
         </div>
       </div>
     </section>
 
-    <!-- 2) TELE-PORADY (pod ofertą) -->
+    <!-- 2) TELE-PORADY (POD OFERTĄ) -->
     <section id="tele">
       <div class="wrap">
         <div class="kicker">Tele-porady / Online</div>
         <h2>Wideo-konsultacje i płatności online</h2>
-        <p class="muted">Po podpięciu Booksy/Calendly/Stripe przyciski poniżej otworzą Twoje linki.</p>
-
+        <p class="muted">Po podpięciu Booksy/Calendly/Stripe przyciski otworzą Twoje linki.</p>
         <div class="grid" style="margin-top:10px">
           <div class="col-4">
             <div class="card">
@@ -197,40 +244,37 @@
     <!-- ZESPÓŁ -->
     <section id="zespol">
       <div class="wrap">
-        <div class="kicker">Nasz zespół</div>
+        <div class="kicker">Zespół</div>
         <h2>Specjaliści NCNI</h2>
         <div class="grid">
           <div class="col-6">
             <div class="card">
               <h3>dr inż. Marlena Gąsior-Głogowska</h3>
-              <p class="muted">Architekt sensorycznej przestrzeni • Specjalista neuroestetyki</p>
+              <p class="muted">Architekt sensorycznej przestrzeni • Neuroestetyka</p>
               <ul>
                 <li>Mapowanie bodźców i redukcja przebodźcowania</li>
-                <li>Dobór oświetlenia i dźwięku pod relaks/koncentrację</li>
-                <li>Wytyczne zapachów i materiałów przyjaznych sensorycznie</li>
-                <li>Audyty przestrzeni i szybkie prototypowanie</li>
+                <li>Światło i dźwięk pod relaks/koncentrację</li>
+                <li>Aromaty i materiały przyjazne sensorycznie</li>
               </ul>
             </div>
           </div>
           <div class="col-6">
             <div class="card">
               <h3>dr hab. inż. Sebastian Kraszewski</h3>
-              <p class="muted">Ekspert neurobiochemii i żywienia mózgu</p>
+              <p class="muted">Neurobiochemia i żywienie mózgu</p>
               <ul>
                 <li>Protokoły koncentracji i odporności na stres</li>
-                <li>Standaryzacja suplementacji i żywienia (evidence-based)</li>
-                <li>Konsultacje i korekty indywidualne</li>
+                <li>Standaryzacja suplementacji i żywienia</li>
               </ul>
             </div>
           </div>
           <div class="col-12">
             <div class="card">
               <h3>Karol Kiszło</h3>
-              <p class="muted">Head of NeuroPerformance & Corporate Programs • NeuroWellbeing Coach</p>
+              <p class="muted">Head of NeuroPerformance • NeuroWellbeing Coach</p>
               <ul>
                 <li>Programy Focus & Flow (B2B), Executive NeuroCoaching</li>
-                <li>Standardy higieny bodźców i pracy głębokiej</li>
-                <li>Warsztaty i mentoring dla HR/Wellbeing</li>
+                <li>Higiena bodźców i standardy pracy głębokiej</li>
               </ul>
             </div>
           </div>
@@ -238,18 +282,18 @@
       </div>
     </section>
 
-    <!-- KONSULTACJE PREMIUM -->
+    <!-- KONSULTACJE -->
     <section id="konsultacje">
       <div class="wrap">
         <div class="kicker">Konsultacje Premium</div>
         <h2>Głębokie wsparcie poznawcze i sensoryczne</h2>
-        <div class="card" style="overflow:auto">
+        <div class="card">
           <table class="table">
             <thead><tr><th>Nazwa</th><th>Czas</th><th>Cena</th><th>Opis</th></tr></thead>
             <tbody>
-              <tr><td>NeuroMapowanie + Plan Indywidualny</td><td>60 min</td><td>490 PLN</td><td>Wywiad, testy, PDF + 7-dniowe zalecenia.</td></tr>
-              <tr><td>Neurodietetyka + Protokół Żywieniowy</td><td>60 min</td><td>450 PLN</td><td>Indywidualny protokół, opcj. suplementacja.</td></tr>
-              <tr><td>Sesja Integracyjna + Biofeedback</td><td>50 min</td><td>360 PLN</td><td>Integracja wniosków + trening; pakiet 3× biofeedback 750 PLN.</td></tr>
+              <tr><td data-label="Nazwa">NeuroMapowanie + Plan Indywidualny</td><td data-label="Czas">60 min</td><td data-label="Cena">490 PLN</td><td data-label="Opis">Wywiad, testy, PDF + 7-dniowe zalecenia.</td></tr>
+              <tr><td data-label="Nazwa">Neurodietetyka + Protokół Żywieniowy</td><td data-label="Czas">60 min</td><td data-label="Cena">450 PLN</td><td data-label="Opis">Indywidualny protokół, opcj. suplementacja.</td></tr>
+              <tr><td data-label="Nazwa">Sesja Integracyjna + Biofeedback</td><td data-label="Czas">50 min</td><td data-label="Cena">360 PLN</td><td data-label="Opis">Integracja wniosków + trening; pakiet 3× biofeedback 750 PLN.</td></tr>
             </tbody>
           </table>
         </div>
@@ -308,8 +352,8 @@
 
     // 🔗 PODMIEŃ NA SWOJE LINKI
     const LINKS = {
-      booksy: "https://booksy.com/pl-pl/your-ncni",     // ← wklej swój adres Booksy
-      calendly: "https://calendly.com/twoj-kalendarz",  // ← wklej swój adres Calendly
+      booksy: "https://booksy.com/pl-pl/your-ncni",     // ← wklej swój Booksy
+      calendly: "https://calendly.com/twoj-kalendarz",  // ← wklej swój Calendly
       stripe: {
         start:   "https://buy.stripe.com/test_xxx_start",
         premium: "https://buy.stripe.com/test_xxx_premium",
@@ -317,7 +361,7 @@
       }
     };
 
-    // Wstaw do UI
+    // UI linki
     const booksyA = document.getElementById('booksy-link');
     const calA = document.getElementById('calendly-link');
     if(LINKS.booksy && booksyA){ booksyA.href = LINKS.booksy; booksyA.textContent = LINKS.booksy; }
@@ -328,14 +372,12 @@
       if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
     });
 
-    // Rezerwacje z tabeli/oferty
+    // Rezerwacje z oferty/tele
     document.querySelectorAll('[data-book]').forEach(b=>{
       b.addEventListener('click', e=>{
         if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
       });
     });
-
-    // Stripe (tele-porady)
     document.querySelectorAll('[data-pay]').forEach(b=>{
       b.addEventListener('click', e=>{
         e.preventDefault();
