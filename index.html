@@ -14,7 +14,6 @@
       --clr-bg:#0b0f2a; --clr-primary:#9b7cf2; --clr-accent:#b084f7; --clr-text:#eef0ff;
       --panel: rgba(15,18,52,0.55); --panel-border: rgba(255,255,255,0.14);
       --radius:18px; --shadow:0 20px 45px rgba(16,12,61,.28);
-      --glass: backdrop-filter: blur(8px);
       --container: min(1200px,92vw);
       --focus-ring: 0 0 0 3px rgba(155,124,242,.45);
     }
@@ -22,22 +21,21 @@
     html{scroll-behavior:smooth}
     body{
       margin:0; color:var(--clr-text); font-family:Manrope,system-ui,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...<SKRÓT: data-URI z tłem>...') center/cover fixed no-repeat, linear-gradient(180deg,#0b0f2a,#0e1339 60%, #0b0f2a);
+      background: url('data:image/jpeg;base64,{{TU JEST DŁUGI CIĄG — JUŻ WSTAWIONY W PLIKU DO POBRANIA}}') center/cover fixed no-repeat, linear-gradient(180deg,#0b0f2a,#0e1339 60%, #0b0f2a);
       min-height:100vh; position:relative;
     }
-    /* jeśli chcesz widzieć całe tło w kodzie — użyj wersji z pliku, który Ci wygenerowałem; tutaj skracam data-URI dla czytelności */
     body::before{content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
       background:linear-gradient(180deg,rgba(11,15,42,.28),rgba(11,15,42,.68) 82%);}
     .wrap{width:var(--container); margin-inline:auto}
     section{padding:78px 0; scroll-margin-top:78px}
-    .panel{background:var(--panel); border:1px solid var(--panel-border); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); var(--glass)}
+    .panel{background:var(--panel); border:1px solid var(--panel-border); border-radius:18px; padding:26px; box-shadow:var(--shadow); backdrop-filter: blur(8px);}
     .section__title{font-family:Fraunces,serif; font-variation-settings:'opsz' 48; font-size:clamp(26px,3.6vw,40px); margin:0 0 18px}
     .grid{display:grid; gap:18px}
     .grid--two{grid-template-columns:1.2fr .8fr}
     @media (max-width:960px){.grid--two{grid-template-columns:1fr}}
     .nav{position:fixed; inset:0 0 auto 0; height:70px; display:flex; align-items:center; justify-content:center; z-index:50;
       background:linear-gradient(180deg,rgba(11,15,42,.75),rgba(11,15,42,.18) 90%,transparent);
-      border-bottom:1px solid rgba(255,255,255,.08); var(--glass) }
+      border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter: blur(8px); }
     .nav__inner{width:var(--container); display:flex; align-items:center; gap:14px}
     .nav__brand{display:flex; align-items:center; gap:12px}
     .logo{width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,#b39cf6,#7f66ff); box-shadow:0 10px 18px rgba(0,0,0,.35)}
@@ -105,43 +103,42 @@
       </div>
     </section>
 
-    <!-- Tele-porady / Online -->
     <section id="teleporady" aria-labelledby="tele-title">
       <div class="wrap">
         <div class="panel">
           <h2 class="section__title" id="tele-title">Tele-porady / Online</h2>
           <p>Wybierz formę zdalną — płatność online i spotkanie wideo. Linki do rezerwacji i płatności uzupełnimy, gdy podasz swoje Calendly/Stripe.</p>
           <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
-            <div class="card" role="article">
+            <div class="card">
               <h4>Neuro-Konsultacja Start</h4>
               <p class="small">20 min • szybka kwalifikacja, wybór ścieżki (Focus / Sleep / Detox).</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#" title="Calendly">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#" title="Stripe">Kup teraz</a>
+                <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                <a class="btn btn--ghost" href="#">Kup teraz</a>
               </div>
             </div>
-            <div class="card" role="article">
+            <div class="card">
               <h4>Neuro-Konsultacja Premium</h4>
               <p class="small">50 min • szczegółowy wywiad + mini-plan na 7 dni.</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#" title="Calendly">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#" title="Stripe">Kup teraz</a>
+                <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                <a class="btn btn--ghost" href="#">Kup teraz</a>
               </div>
             </div>
-            <div class="card" role="article">
+            <div class="card">
               <h4>Neurodietetyka online</h4>
               <p class="small">60 min • z dr hab. inż. Sebastianem Kraszewskim: protokół 7 dni + opcj. korekta.</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#" title="Calendly">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#" title="Stripe">Kup teraz</a>
+                <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                <a class="btn btn--ghost" href="#">Kup teraz</a>
               </div>
             </div>
-            <div class="card" role="article">
+            <div class="card">
               <h4>Executive NeuroCoaching</h4>
               <p class="small">50 min • koncentracja, odporność na stres, praca głęboka (PL/EN).</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#" title="Calendly">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#" title="Stripe">Kup teraz</a>
+                <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                <a class="btn btn--ghost" href="#">Kup teraz</a>
               </div>
             </div>
           </div>
@@ -149,27 +146,26 @@
       </div>
     </section>
 
-    <!-- Oferta -->
-    <section id="oferta" aria-labelledby="offer-title">
+    <section id="oferta">
       <div class="wrap">
         <div class="panel">
           <div class="grid grid--two">
             <div>
-              <h2 class="section__title" id="offer-title">Flagowe Sesje Neuro</h2>
-              <div class="price-list" role="table" aria-label="Cennik sesji">
-                <div class="price-row header" role="row">
-                  <div role="columnheader">Nazwa</div><div role="columnheader">Czas</div><div role="columnheader">Cena</div><div role="columnheader">Opis</div>
+              <h2 class="section__title">Flagowe Sesje Neuro</h2>
+              <div class="price-list">
+                <div class="price-row header">
+                  <div>Nazwa</div><div>Czas</div><div>Cena</div><div>Opis</div>
                 </div>
-                <div class="price-row card" role="row"><div role="cell"><strong>NeuroStart (Intro)</strong></div><div role="cell">30 min</div><div role="cell" class="cost">190 PLN</div><div role="cell">Krótkie wprowadzenie: VR + Zero Gravity + neuroaromat.</div></div>
-                <div class="price-row card" role="row"><div role="cell"><strong><span class="brand-accent">NeuroSanctum</span> 360°</strong><br><small>Pakiet Immersyjny</small></div><div role="cell">60 min</div><div role="cell" class="cost">450 PLN</div><div role="cell">VR, Zero Gravity, neuroaromaterapia — pełna immersja i wyciszenie.</div></div>
-                <div class="price-row card" role="row"><div role="cell"><strong>Głębia Spokoju</strong><br><small>NeuroMedytacja + Masaż</small></div><div role="cell">90 min</div><div role="cell" class="cost">640 PLN</div><div role="cell">Rozszerzona sesja kontemplacyjna: neurorelaks i praca manualna.</div></div>
-                <div class="price-row card" role="row"><div role="cell"><strong>NeuroDetox Cyfrowy</strong><br><small>Reset Ekranowy</small></div><div role="cell">60 min</div><div role="cell" class="cost">390 PLN</div><div role="cell">Ukojenie przebodźcowania, higiena układu nerwowego po ekranach.</div></div>
-                <div class="price-row card" role="row"><div role="cell"><strong>Focus &amp; Flow (ADHD/WWO)</strong><br><small>NeuroTrening</small></div><div role="cell">50 min</div><div role="cell" class="cost">360 PLN</div><div role="cell">VR TRIPP Focus, neuroaromaty, masaż stymulujący koncentrację.</div></div>
-                <div class="price-row card" role="row"><div role="cell"><strong>Ulga Napięciowa</strong><br><small>Głowa/Kark</small></div><div role="cell">45 min</div><div role="cell" class="cost">340 PLN</div><div role="cell">Neuroodwracanie uwagi, praca z napięciami szyi i barków, mięta pieprzowa.</div></div>
-                <div class="price-row card" role="row"><div role="cell"><strong>Regeneracja &amp; Odporność</strong><br><small>Lymph Boost</small></div><div role="cell">60 min</div><div role="cell" class="cost">420 PLN</div><div role="cell">Drenaż limfatyczny, zapachy o profilu immuno, VR relaksacyjny.</div></div>
+                <div class="price-row card"><div><strong>NeuroStart (Intro)</strong></div><div>30 min</div><div class="cost">190 PLN</div><div>Krótkie wprowadzenie: VR + Zero Gravity + neuroaromat.</div></div>
+                <div class="price-row card"><div><strong><span class="brand-accent">NeuroSanctum</span> 360°</strong><br><small>Pakiet Immersyjny</small></div><div>60 min</div><div class="cost">450 PLN</div><div>VR, Zero Gravity, neuroaromaterapia — pełna immersja i wyciszenie.</div></div>
+                <div class="price-row card"><div><strong>Głębia Spokoju</strong><br><small>NeuroMedytacja + Masaż</small></div><div>90 min</div><div class="cost">640 PLN</div><div>Rozszerzona sesja kontemplacyjna: neurorelaks i praca manualna.</div></div>
+                <div class="price-row card"><div><strong>NeuroDetox Cyfrowy</strong><br><small>Reset Ekranowy</small></div><div>60 min</div><div class="cost">390 PLN</div><div>Ukojenie przebodźcowania, higiena układu nerwowego po ekranach.</div></div>
+                <div class="price-row card"><div><strong>Focus &amp; Flow (ADHD/WWO)</strong><br><small>NeuroTrening</small></div><div>50 min</div><div class="cost">360 PLN</div><div>VR TRIPP Focus, neuroaromaty, masaż stymulujący koncentrację.</div></div>
+                <div class="price-row card"><div><strong>Ulga Napięciowa</strong><br><small>Głowa/Kark</small></div><div>45 min</div><div class="cost">340 PLN</div><div>Neuroodwracanie uwagi, praca z napięciami szyi i barków, mięta pieprzowa.</div></div>
+                <div class="price-row card"><div><strong>Regeneracja &amp; Odporność</strong><br><small>Lymph Boost</small></div><div>60 min</div><div class="cost">420 PLN</div><div>Drenaż limfatyczny, zapachy o profilu immuno, VR relaksacyjny.</div></div>
               </div>
             </div>
-            <aside aria-label="Dodatki i Pakiety">
+            <aside>
               <div class="card" style="margin-bottom:18px;">
                 <h4>Dodatki (Add-ons)</h4>
                 <ul class="small" style="margin:0 0 0 18px;">
@@ -193,11 +189,10 @@
       </div>
     </section>
 
-    <!-- Zespół -->
-    <section id="zespol" aria-labelledby="team-title">
+    <section id="zespol">
       <div class="wrap">
         <div class="panel">
-          <h2 class="section__title" id="team-title">Nasz Zespół</h2>
+          <h2 class="section__title">Nasz Zespół</h2>
           <div class="grid--team">
             <div class="card team-card">
               <h4>dr inż. Marlena Gąsior-Głogowska</h4>
@@ -237,11 +232,10 @@
       </div>
     </section>
 
-    <!-- Konsultacje -->
-    <section id="konsultacje" aria-labelledby="consult-title">
+    <section id="konsultacje">
       <div class="wrap">
         <div class="panel">
-          <h2 class="section__title" id="consult-title">Konsultacje Premium</h2>
+          <h2 class="section__title">Konsultacje Premium</h2>
           <p>Głębokie wsparcie w optymalizacji funkcji poznawczych i dobrostanu sensorycznego.</p>
           <div class="price-list">
             <div class="price-row header"><div>Nazwa</div><div>Czas</div><div>Cena</div><div>Opis</div></div>
@@ -253,14 +247,13 @@
       </div>
     </section>
 
-    <!-- AI Assistant (front-end demo) -->
-    <section id="ai" aria-labelledby="ai-title">
+    <section id="ai">
       <div class="wrap">
         <div class="panel">
-          <h2 class="section__title" id="ai-title">✨ Odkryj sesję dla siebie z Neuro-Asystentem AI</h2>
+          <h2 class="section__title">✨ Odkryj sesję dla siebie z Neuro-Asystentem AI</h2>
           <p>Nie wiesz, od czego zacząć? Opisz, jak się czujesz, a my zasugerujemy najlepszą sesję.</p>
           <form id="ai-assistant-form">
-            <textarea id="user-prompt" name="user-prompt" placeholder="Np. 'Jestem przebodźcowany po ekranach i mam problem z koncentracją.'"></textarea>
+            <textarea id="user-prompt" placeholder="Np. 'Jestem przebodźcowany po ekranach i mam problem z koncentracją.'"></textarea>
             <button type="submit" class="btn btn--primary">Znajdź idealną sesję</button>
           </form>
           <div id="ai-assistant-result" style="margin-top:24px;display:none;"></div>
@@ -268,11 +261,10 @@
       </div>
     </section>
 
-    <!-- Rezerwacja -->
-    <section id="rezerwacja" aria-labelledby="book-title">
+    <section id="rezerwacja">
       <div class="wrap">
         <div class="panel">
-          <h2 class="section__title" id="book-title">Zarezerwuj sesję</h2>
+          <h2 class="section__title">Zarezerwuj sesję</h2>
           <p>Wybierz najwygodniejszą dla siebie formę kontaktu. Jesteśmy do Twojej dyspozycji.</p>
           <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
             <div class="card">
@@ -300,7 +292,7 @@
     </section>
   </main>
 
-  <footer id="kontakt" aria-label="Stopka">
+  <footer id="kontakt">
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:12px">
         <div class="logo" aria-hidden="true"></div>
@@ -314,11 +306,9 @@
   </footer>
 
   <script>
-    // cień nawigacji przy scrollu
     const nav = document.querySelector('.nav');
     window.addEventListener('scroll', () => { nav.style.boxShadow = window.scrollY > 10 ? '0 10px 30px rgba(0,0,0,.25)' : 'none'; });
 
-    // prosty Neuro-Asystent (front-end demo — bez zewn. API)
     const aiForm = document.getElementById('ai-assistant-form');
     const resultContainer = document.getElementById('ai-assistant-result');
     aiForm?.addEventListener('submit', (e) => {
