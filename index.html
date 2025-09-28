@@ -14,69 +14,88 @@
       --clr-bg:#0b0f2a; --clr-primary:#9b7cf2; --clr-accent:#b084f7; --clr-text:#eef0ff;
       --panel: rgba(15,18,52,0.55); --panel-border: rgba(255,255,255,0.14);
       --radius:18px; --shadow:0 20px 45px rgba(16,12,61,.28);
-      --container: min(1200px,92vw);
+      --container: min(1200px, 92vw);
       --focus-ring: 0 0 0 3px rgba(155,124,242,.45);
     }
-    *{box-sizing:border-box}
+    *, *::before, *::after {box-sizing:border-box; margin:0; padding:0;}
     html{scroll-behavior:smooth}
-  body{
-  background: url('assets/bg.jpg') center/cover fixed no-repeat,
-              linear-gradient(180deg,#0b0f2a,#0e1339 60%, #0b0f2a);
-}
-body::before{content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-      background:linear-gradient(180deg,rgba(11,15,42,.28),rgba(11,15,42,.68) 82%);}
+    body{
+      background: url('assets/bg.jpg') center/cover fixed no-repeat,
+                  linear-gradient(180deg, #0b0f2a, #0e1339 60%, #0b0f2a);
+      font-family: 'Manrope', sans-serif;
+      color: var(--clr-text);
+      line-height: 1.6;
+    }
+    body::before{
+      content:''; position:fixed; inset:0; pointer-events:none; z-index:-1;
+      background:linear-gradient(180deg,rgba(11,15,42,.28),rgba(11,15,42,.68) 82%);
+    }
     .wrap{width:var(--container); margin-inline:auto}
     section{padding:78px 0; scroll-margin-top:78px}
+    h1, h2, h3, h4 { line-height: 1.2; font-family: 'Fraunces', serif; }
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--clr-accent); text-decoration: none; }
+    ul { list-style-position: inside; }
+
     .panel{background:var(--panel); border:1px solid var(--panel-border); border-radius:18px; padding:26px; box-shadow:var(--shadow); backdrop-filter: blur(8px);}
-    .section__title{font-family:Fraunces,serif; font-variation-settings:'opsz' 48; font-size:clamp(26px,3.6vw,40px); margin:0 0 18px}
+    .section__title{font-variation-settings:'opsz' 48; font-size:clamp(26px,3.6vw,40px); margin-bottom:18px}
     .grid{display:grid; gap:18px}
     .grid--two{grid-template-columns:1.2fr .8fr}
     @media (max-width:960px){.grid--two{grid-template-columns:1fr}}
+    
     .nav{position:fixed; inset:0 0 auto 0; height:70px; display:flex; align-items:center; justify-content:center; z-index:50;
       background:linear-gradient(180deg,rgba(11,15,42,.75),rgba(11,15,42,.18) 90%,transparent);
-      border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter: blur(8px); }
+      border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter: blur(8px); transition: box-shadow 0.3s ease; }
     .nav__inner{width:var(--container); display:flex; align-items:center; gap:14px}
-    .nav__brand{display:flex; align-items:center; gap:12px}
+    .nav__brand{display:flex; align-items:center; gap:12px; margin-right: auto;}
     .logo{width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,#b39cf6,#7f66ff); box-shadow:0 10px 18px rgba(0,0,0,.35)}
     .nav__brand-text{white-space:nowrap; text-transform:uppercase; letter-spacing:.08em; font-weight:800; font-size:13px}
-    .nav__links{margin-left:auto; display:flex; gap:20px}
+    .nav__links{display:flex; gap:20px}
     .nav__links a{color:#eae9ff; text-decoration:none; font-weight:700; font-size:14px; opacity:.92}
-    .nav__links a:focus-visible, .btn:focus-visible{outline:none; box-shadow: var(--focus-ring)}
+    .nav__links a:focus-visible, .btn:focus-visible{outline:none; box-shadow: var(--focus-ring); border-radius: 14px;}
     .nav__cta a{margin-left:12px; padding:10px 16px; border-radius:14px; background:linear-gradient(135deg,var(--clr-primary),var(--clr-accent));
       color:#0b0f2a; font-weight:900; text-decoration:none; box-shadow:0 12px 28px rgba(155,124,242,.35)}
+    
     .hero{min-height:92vh; display:grid; place-items:center; padding:110px 0 56px; position:relative; z-index:1}
     .kicker{letter-spacing:.18em; text-transform:uppercase; font-weight:800; font-size:12px; color:#cfcaff; opacity:.92}
-    h1{font-family:Fraunces,serif; font-variation-settings:'opsz' 72; font-size:clamp(36px,6vw,64px); line-height:1.06; margin:.3rem 0 1rem}
-    .brand-accent{font-family:Fraunces,serif; font-weight:700; font-variation-settings:'opsz' 64}
-    .hero__actions{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:14px; text-decoration:none; font-weight:900; border:1px solid rgba(255,255,255,.2)}
+    h1{font-variation-settings:'opsz' 72; font-size:clamp(36px,6vw,64px); line-height:1.06; margin:.3rem 0 1rem}
+    .brand-accent{font-family:inherit; font-weight:700; font-variation-settings:'opsz' 64}
+    .hero__actions{display:flex; gap:12px; flex-wrap:wrap; margin-top: 1.5rem;}
+    .btn{display:inline-flex; align-items:center; justify-content: center; gap:10px; padding:12px 18px; border-radius:14px; text-decoration:none; font-weight:900; border:1px solid rgba(255,255,255,.2)}
     .btn--primary{background:linear-gradient(135deg,var(--clr-primary),var(--clr-accent)); color:#0b0f2a; border:none}
     .btn--ghost{color:#fff; background:transparent}
     .small{opacity:.9; font-size:13px}
+    
     .price-list{display:grid; gap:12px}
     .price-row{display:grid; grid-template-columns:1.1fr .4fr .4fr 1.6fr; gap:10px; align-items:start}
     .price-row.header{font-weight:800; color:#cfcaff; font-size:14px; opacity:.9; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.18)}
     .price-row.card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:18px}
     .price-row .cost{font-weight:900; color:var(--clr-accent)}
     @media (max-width:720px){.price-row{grid-template-columns:1fr} .price-row.header{display:none}}
+    
     .grid--team{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px}
-    .team-card ul{padding-left:18px; margin:10px 0 0; font-size:14px; color:#cfcaff}
+    .team-card ul{padding-left:18px; margin-top:10px; font-size:14px; color:#cfcaff}
     .team-card li{margin-bottom:6px}
-    #ai-assistant-result .card{border-left:4px solid var(--clr-primary)}
+    
+    #ai-assistant-form label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
     #ai-assistant-form textarea{width:100%; min-height:110px; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.2);
-      background:rgba(0,0,0,.22); color:#fff; font-family:Manrope,sans-serif; font-size:16px; margin-bottom:14px}
+      background:rgba(0,0,0,.22); color:#fff; font-family:inherit; font-size:16px; margin-bottom:14px; resize: vertical;}
+    #ai-assistant-result .card{border-left:4px solid var(--clr-primary); padding: 20px;}
+    
     .loader{width:48px; height:48px; border:5px solid var(--clr-primary); border-bottom-color:transparent; border-radius:50%; display:block; animation:rotation 1s linear infinite; margin:20px auto}
     @keyframes rotation{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
     footer{padding:60px 0; border-top:1px solid rgba(255,255,255,.08)}
   </style>
 </head>
 <body>
+
   <header class="nav" role="navigation" aria-label="Główna nawigacja">
     <div class="nav__inner">
-      <div class="nav__brand">
+      <a href="#" class="nav__brand" aria-label="Strona główna">
         <div class="logo" aria-hidden="true"></div>
-        <span class="nav__brand-text">NAUKOWE CENTRUM NEUROINNOWACJI</span>
-      </div>
+        <span class="nav__brand-text">Naukowe Centrum Neuroinnowacji</span>
+      </a>
       <nav class="nav__links" aria-label="Linki sekcji">
         <a href="#teleporady">Tele-porady</a>
         <a href="#oferta">Oferta</a>
@@ -84,7 +103,7 @@ body::before{content:''; position:fixed; inset:0; pointer-events:none; z-index:0
         <a href="#konsultacje">Konsultacje</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-      <div class="nav__cta"><a href="#rezerwacja" aria-label="Przejdź do rezerwacji">Rezerwuj</a></div>
+      <div class="nav__cta"><a href="#rezerwacja" class="btn btn--primary">Rezerwuj</a></div>
     </div>
   </header>
 
@@ -103,191 +122,192 @@ body::before{content:''; position:fixed; inset:0; pointer-events:none; z-index:0
     </section>
 
     <section id="teleporady" aria-labelledby="tele-title">
-      <div class="wrap">
-        <div class="panel">
-          <h2 class="section__title" id="tele-title">Tele-porady / Online</h2>
-          <p>Wybierz formę zdalną — płatność online i spotkanie wideo. Linki do rezerwacji i płatności uzupełnimy, gdy podasz swoje Calendly/Stripe.</p>
-          <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
-            <div class="card">
-              <h4>Neuro-Konsultacja Start</h4>
-              <p class="small">20 min • szybka kwalifikacja, wybór ścieżki (Focus / Sleep / Detox).</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#">Kup teraz</a>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Neuro-Konsultacja Premium</h4>
-              <p class="small">50 min • szczegółowy wywiad + mini-plan na 7 dni.</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#">Kup teraz</a>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Neurodietetyka online</h4>
-              <p class="small">60 min • z dr hab. inż. Sebastianem Kraszewskim: protokół 7 dni + opcj. korekta.</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#">Kup teraz</a>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Executive NeuroCoaching</h4>
-              <p class="small">50 min • koncentracja, odporność na stres, praca głęboka (PL/EN).</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <a class="btn btn--primary" href="#">Zarezerwuj</a>
-                <a class="btn btn--ghost" href="#">Kup teraz</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="oferta">
-      <div class="wrap">
-        <div class="panel">
-          <div class="grid grid--two">
-            <div>
-              <h2 class="section__title">Flagowe Sesje Neuro</h2>
-              <div class="price-list">
-                <div class="price-row header">
-                  <div>Nazwa</div><div>Czas</div><div>Cena</div><div>Opis</div>
+        <div class="wrap">
+            <div class="panel">
+                <h2 class="section__title" id="tele-title">Tele-porady / Online</h2>
+                <p>Wybierz formę zdalną — płatność online i spotkanie wideo. Linki do rezerwacji i płatności uzupełnimy, gdy podasz swoje Calendly/Stripe.</p>
+                <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+                    <div class="card">
+                        <h4>Neuro-Konsultacja Start</h4>
+                        <p class="small">20 min • szybka kwalifikacja, wybór ścieżki (Focus / Sleep / Detox).</p>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap; margin-top: 1rem;">
+                            <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                            <a class="btn btn--ghost" href="#">Kup teraz</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>Neuro-Konsultacja Premium</h4>
+                        <p class="small">50 min • szczegółowy wywiad + mini-plan na 7 dni.</p>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap; margin-top: 1rem;">
+                            <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                            <a class="btn btn--ghost" href="#">Kup teraz</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>Neurodietetyka online</h4>
+                        <p class="small">60 min • z dr hab. inż. Sebastianem Kraszewskim: protokół 7 dni + opcj. korekta.</p>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap; margin-top: 1rem;">
+                            <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                            <a class="btn btn--ghost" href="#">Kup teraz</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>Executive NeuroCoaching</h4>
+                        <p class="small">50 min • koncentracja, odporność na stres, praca głęboka (PL/EN).</p>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap; margin-top: 1rem;">
+                            <a class="btn btn--primary" href="#">Zarezerwuj</a>
+                            <a class="btn btn--ghost" href="#">Kup teraz</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="price-row card"><div><strong>NeuroStart (Intro)</strong></div><div>30 min</div><div class="cost">190 PLN</div><div>Krótkie wprowadzenie: VR + Zero Gravity + neuroaromat.</div></div>
-                <div class="price-row card"><div><strong><span class="brand-accent">NeuroSanctum</span> 360°</strong><br><small>Pakiet Immersyjny</small></div><div>60 min</div><div class="cost">450 PLN</div><div>VR, Zero Gravity, neuroaromaterapia — pełna immersja i wyciszenie.</div></div>
-                <div class="price-row card"><div><strong>Głębia Spokoju</strong><br><small>NeuroMedytacja + Masaż</small></div><div>90 min</div><div class="cost">640 PLN</div><div>Rozszerzona sesja kontemplacyjna: neurorelaks i praca manualna.</div></div>
-                <div class="price-row card"><div><strong>NeuroDetox Cyfrowy</strong><br><small>Reset Ekranowy</small></div><div>60 min</div><div class="cost">390 PLN</div><div>Ukojenie przebodźcowania, higiena układu nerwowego po ekranach.</div></div>
-                <div class="price-row card"><div><strong>Focus &amp; Flow (ADHD/WWO)</strong><br><small>NeuroTrening</small></div><div>50 min</div><div class="cost">360 PLN</div><div>VR TRIPP Focus, neuroaromaty, masaż stymulujący koncentrację.</div></div>
-                <div class="price-row card"><div><strong>Ulga Napięciowa</strong><br><small>Głowa/Kark</small></div><div>45 min</div><div class="cost">340 PLN</div><div>Neuroodwracanie uwagi, praca z napięciami szyi i barków, mięta pieprzowa.</div></div>
-                <div class="price-row card"><div><strong>Regeneracja &amp; Odporność</strong><br><small>Lymph Boost</small></div><div>60 min</div><div class="cost">420 PLN</div><div>Drenaż limfatyczny, zapachy o profilu immuno, VR relaksacyjny.</div></div>
-              </div>
             </div>
-            <aside>
-              <div class="card" style="margin-bottom:18px;">
-                <h4>Dodatki (Add-ons)</h4>
-                <ul class="small" style="margin:0 0 0 18px;">
-                  <li>VR „Deep Focus” lub „Forest Bathing” — <strong>+49 PLN</strong></li>
-                  <li>Aroma Upgrade (signature blend) — <strong>+29 PLN</strong></li>
-                  <li>Hands-on upgrade (15 min pracy manualnej) — <strong>+79 PLN</strong></li>
-                </ul>
-              </div>
-              <div class="card">
-                <h4>Pakiety</h4>
-                <ul class="small" style="margin:0 0 0 18px;">
-                  <li>Pakiet 4 sesji — <strong>−8%</strong></li>
-                  <li>Pakiet 8 sesji — <strong>−15%</strong></li>
-                  <li><strong>NeuroClub 299 PLN/mies.</strong> → 1× NeuroStart 30’ + stała zniżka −15%</li>
-                </ul>
-              </div>
-              <p class="small" style="margin-top:14px;color:#cfcaff">Uwaga: sesje mają charakter wellbeing/edukacyjny i nie stanowią świadczenia zdrowotnego. Efekty są indywidualne.</p>
-            </aside>
-          </div>
         </div>
-      </div>
+    </section>
+    
+    <section id="oferta">
+        <div class="wrap">
+            <div class="panel">
+                <div class="grid grid--two">
+                    <div>
+                        <h2 class="section__title">Flagowe Sesje Neuro</h2>
+                        <div class="price-list">
+                            <div class="price-row header">
+                                <div>Nazwa</div><div>Czas</div><div>Cena</div><div>Opis</div>
+                            </div>
+                            <div class="price-row card"><div><strong>NeuroStart (Intro)</strong></div><div>30 min</div><div class="cost">190 PLN</div><div>Krótkie wprowadzenie: VR + Zero Gravity + neuroaromat.</div></div>
+                            <div class="price-row card"><div><strong><span class="brand-accent">NeuroSanctum</span> 360°</strong><br><small>Pakiet Immersyjny</small></div><div>60 min</div><div class="cost">450 PLN</div><div>VR, Zero Gravity, neuroaromaterapia — pełna immersja i wyciszenie.</div></div>
+                            <div class="price-row card"><div><strong>Głębia Spokoju</strong><br><small>NeuroMedytacja + Masaż</small></div><div>90 min</div><div class="cost">640 PLN</div><div>Rozszerzona sesja kontemplacyjna: neurorelaks i praca manualna.</div></div>
+                            <div class="price-row card"><div><strong>NeuroDetox Cyfrowy</strong><br><small>Reset Ekranowy</small></div><div>60 min</div><div class="cost">390 PLN</div><div>Ukojenie przebodźcowania, higiena układu nerwowego po ekranach.</div></div>
+                            <div class="price-row card"><div><strong>Focus & Flow (ADHD/WWO)</strong><br><small>NeuroTrening</small></div><div>50 min</div><div class="cost">360 PLN</div><div>VR TRIPP Focus, neuroaromaty, masaż stymulujący koncentrację.</div></div>
+                            <div class="price-row card"><div><strong>Ulga Napięciowa</strong><br><small>Głowa/Kark</small></div><div>45 min</div><div class="cost">340 PLN</div><div>Neuroodwracanie uwagi, praca z napięciami szyi i barków, mięta pieprzowa.</div></div>
+                            <div class="price-row card"><div><strong>Regeneracja & Odporność</strong><br><small>Lymph Boost</small></div><div>60 min</div><div class="cost">420 PLN</div><div>Drenaż limfatyczny, zapachy o profilu immuno, VR relaksacyjny.</div></div>
+                        </div>
+                    </div>
+                    <aside>
+                        <div class="panel" style="margin-bottom:18px;">
+                            <h4>Dodatki (Add-ons)</h4>
+                            <ul class="small" style="padding-left:18px;">
+                                <li>VR „Deep Focus” lub „Forest Bathing” — <strong>+49 PLN</strong></li>
+                                <li>Aroma Upgrade (signature blend) — <strong>+29 PLN</strong></li>
+                                <li>Hands-on upgrade (15 min pracy manualnej) — <strong>+79 PLN</strong></li>
+                            </ul>
+                        </div>
+                        <div class="panel">
+                            <h4>Pakiety</h4>
+                            <ul class="small" style="padding-left:18px;">
+                                <li>Pakiet 4 sesji — <strong>−8%</strong></li>
+                                <li>Pakiet 8 sesji — <strong>−15%</strong></li>
+                                <li><strong>NeuroClub 299 PLN/mies.</strong> → 1× NeuroStart 30’ + stała zniżka −15%</li>
+                            </ul>
+                        </div>
+                        <p class="small" style="margin-top:14px;color:#cfcaff">Uwaga: sesje mają charakter wellbeing/edukacyjny i nie stanowią świadczenia zdrowotnego. Efekty są indywidualne.</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="zespol">
-      <div class="wrap">
-        <div class="panel">
-          <h2 class="section__title">Nasz Zespół</h2>
-          <div class="grid--team">
-            <div class="card team-card">
-              <h4>dr inż. Marlena Gąsior-Głogowska</h4>
-              <p class="small" style="color:var(--clr-primary);font-weight:800;margin-top:-4px">Architekt sensorycznej przestrzeni • Specjalista neuroestetyki</p>
-              <p style="font-size:15px;opacity:.95">Projektuje środowiska sprzyjające regulacji układu nerwowego: światło, akustyka, materiały, zapach. W NCNI odpowiada za standard neuroestetyczny gabinetów oraz komfort percepcyjny w immersyjnych scenariuszach VR.</p>
-              <ul class="small">
-                <li>Mapowanie bodźców i redukcja przebodźcowania</li>
-                <li>Dobór oświetlenia i dźwięku pod relaks/koncentrację</li>
-                <li>Wytyczne zapachów i materiałów przyjaznych sensorycznie</li>
-                <li>Audyty przestrzeni i szybkie prototypowanie</li>
-              </ul>
+        <div class="wrap">
+            <div class="panel">
+                <h2 class="section__title">Nasz Zespół</h2>
+                <div class="grid--team">
+                    <div class="card team-card panel">
+                        <h4>dr inż. Marlena Gąsior-Głogowska</h4>
+                        <p class="small" style="color:var(--clr-primary);font-weight:800;margin-top:-4px">Architekt sensorycznej przestrzeni • Specjalista neuroestetyki</p>
+                        <p style="font-size:15px;opacity:.95">Projektuje środowiska sprzyjające regulacji układu nerwowego: światło, akustyka, materiały, zapach. W NCNI odpowiada za standard neuroestetyczny gabinetów oraz komfort percepcyjny w immersyjnych scenariuszach VR.</p>
+                        <ul class="small">
+                            <li>Mapowanie bodźców i redukcja przebodźcowania</li>
+                            <li>Dobór oświetlenia i dźwięku pod relaks/koncentrację</li>
+                            <li>Wytyczne zapachów i materiałów przyjaznych sensorycznie</li>
+                            <li>Audyty przestrzeni i szybkie prototypowanie</li>
+                        </ul>
+                    </div>
+                    <div class="card team-card panel">
+                        <h4>dr hab. inż. Sebastian Kraszewski</h4>
+                        <p class="small" style="color:var(--clr-primary);font-weight:800;margin-top:-4px">Ekspert neurobiochemii i żywienia mózgu</p>
+                        <p style="font-size:15px;opacity:.95">Twórca protokołu „Mózg w Formie”. Łączy wiedzę o neuroprzekaźnikach, metabolizmie energetycznym neuronów i osi jelito–mózg z praktycznymi zaleceniami żywieniowymi. W NCNI nadzoruje standaryzację suplementacji i żywienia opartego na dowodach.</p>
+                        <ul class="small">
+                            <li>Optymalizacja energii neuronalnej (glukoza/ciała ketonowe)</li>
+                            <li>Protokoły wspierające koncentrację i odporność na stres</li>
+                            <li>Konsultacje przypadków i korekty suplementacji/diety</li>
+                            <li>Edukacja evidence-based</li>
+                        </ul>
+                    </div>
+                    <div class="card team-card panel">
+                        <h4>Karol Kiszło</h4>
+                        <p class="small" style="color:var(--clr-primary);font-weight:800;margin-top:-4px">Head of NeuroPerformance & Corporate Programs • NeuroWellbeing Coach</p>
+                        <p style="font-size:15px;opacity:.95">Projektuje interwencje VR/Zero-Gravity oraz protokoły Focus & Flow dla liderów i zespołów wiedzy. Prowadzi Executive NeuroCoaching (PL/EN) ukierunkowany na koncentrację, odporność na stres i higienę bodźców — z naciskiem na mierzalne efekty w pracy.</p>
+                        <ul class="small">
+                            <li>Programy Focus & Flow (B2B)</li>
+                            <li>Executive NeuroCoaching: koncentracja, odporność na stres</li>
+                            <li>Standardy higieny bodźców i pracy głębokiej</li>
+                            <li>Warsztaty i mentoring dla HR/Wellbeing</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="card team-card">
-              <h4>dr hab. inż. Sebastian Kraszewski</h4>
-              <p class="small" style="color:var(--clr-primary);font-weight:800;margin-top:-4px">Ekspert neurobiochemii i żywienia mózgu</p>
-              <p style="font-size:15px;opacity:.95">Twórca protokołu „Mózg w Formie”. Łączy wiedzę o neuroprzekaźnikach, metabolizmie energetycznym neuronów i osi jelito–mózg z praktycznymi zaleceniami żywieniowymi. W NCNI nadzoruje standaryzację suplementacji i żywienia opartego na dowodach.</p>
-              <ul class="small">
-                <li>Optymalizacja energii neuronalnej (glukoza/ciała ketonowe)</li>
-                <li>Protokoły wspierające koncentrację i odporność na stres</li>
-                <li>Konsultacje przypadków i korekty suplementacji/diety</li>
-                <li>Edukacja evidence-based</li>
-              </ul>
-            </div>
-            <div class="card team-card">
-              <h4>Karol Kiszło</h4>
-              <p class="small" style="color:var(--clr-primary);font-weight:800;margin-top:-4px">Head of NeuroPerformance & Corporate Programs • NeuroWellbeing Coach</p>
-              <p style="font-size:15px;opacity:.95">Projektuje interwencje VR/Zero-Gravity oraz protokoły Focus & Flow dla liderów i zespołów wiedzy. Prowadzi Executive NeuroCoaching (PL/EN) ukierunkowany na koncentrację, odporność na stres i higienę bodźców — z naciskiem na mierzalne efekty w pracy.</p>
-              <ul class="small">
-                <li>Programy Focus & Flow (B2B)</li>
-                <li>Executive NeuroCoaching: koncentracja, odporność na stres</li>
-                <li>Standardy higieny bodźców i pracy głębokiej</li>
-                <li>Warsztaty i mentoring dla HR/Wellbeing</li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <section id="konsultacje">
-      <div class="wrap">
-        <div class="panel">
-          <h2 class="section__title">Konsultacje Premium</h2>
-          <p>Głębokie wsparcie w optymalizacji funkcji poznawczych i dobrostanu sensorycznego.</p>
-          <div class="price-list">
-            <div class="price-row header"><div>Nazwa</div><div>Czas</div><div>Cena</div><div>Opis</div></div>
-            <div class="price-row card"><div><strong>NeuroMapowanie + Plan Indywidualny</strong></div><div>60 min</div><div class="cost">490 PLN</div><div>Wywiad, testy wstępne, PDF z planem + 7-dniowe zalecenia.</div></div>
-            <div class="price-row card"><div><strong>Neurodietetyka + Protokół Żywieniowy</strong></div><div>60 min</div><div class="cost">450 PLN</div><div>Indywidualny protokół (7 dni), opcjonalne rekomendacje suplementacji.</div></div>
-            <div class="price-row card"><div><strong>Sesja Integracyjna + Biofeedback</strong></div><div>50 min</div><div class="cost">360 PLN</div><div>Integracja wniosków + trening biofeedback; pakiet 3× biofeedback 750 PLN.</div></div>
-          </div>
+        <div class="wrap">
+            <div class="panel">
+                <h2 class="section__title">Konsultacje Premium</h2>
+                <p>Głębokie wsparcie w optymalizacji funkcji poznawczych i dobrostanu sensorycznego.</p>
+                <div class="price-list">
+                    <div class="price-row header"><div>Nazwa</div><div>Czas</div><div>Cena</div><div>Opis</div></div>
+                    <div class="price-row card"><div><strong>NeuroMapowanie + Plan Indywidualny</strong></div><div>60 min</div><div class="cost">490 PLN</div><div>Wywiad, testy wstępne, PDF z planem + 7-dniowe zalecenia.</div></div>
+                    <div class="price-row card"><div><strong>Neurodietetyka + Protokół Żywieniowy</strong></div><div>60 min</div><div class="cost">450 PLN</div><div>Indywidualny protokół (7 dni), opcjonalne rekomendacje suplementacji.</div></div>
+                    <div class="price-row card"><div><strong>Sesja Integracyjna + Biofeedback</strong></div><div>50 min</div><div class="cost">360 PLN</div><div>Integracja wniosków + trening biofeedback; pakiet 3× biofeedback 750 PLN.</div></div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="ai">
-      <div class="wrap">
-        <div class="panel">
-          <h2 class="section__title">✨ Odkryj sesję dla siebie z Neuro-Asystentem AI</h2>
-          <p>Nie wiesz, od czego zacząć? Opisz, jak się czujesz, a my zasugerujemy najlepszą sesję.</p>
-          <form id="ai-assistant-form">
-            <textarea id="user-prompt" placeholder="Np. 'Jestem przebodźcowany po ekranach i mam problem z koncentracją.'"></textarea>
-            <button type="submit" class="btn btn--primary">Znajdź idealną sesję</button>
-          </form>
-          <div id="ai-assistant-result" style="margin-top:24px;display:none;"></div>
+        <div class="wrap">
+            <div class="panel">
+                <h2 class="section__title">✨ Odkryj sesję dla siebie z Neuro-Asystentem AI</h2>
+                <p>Nie wiesz, od czego zacząć? Opisz, jak się czujesz, a my zasugerujemy najlepszą sesję.</p>
+                <form id="ai-assistant-form">
+                    <label for="user-prompt">Opisz, jak się czujesz</label>
+                    <textarea id="user-prompt" placeholder="Np. 'Jestem przebodźcowany po ekranach i mam problem z koncentracją.'"></textarea>
+                    <button type="submit" class="btn btn--primary">Znajdź idealną sesję</button>
+                </form>
+                <div id="ai-assistant-result" style="margin-top:24px;display:none;"></div>
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="rezerwacja">
-      <div class="wrap">
-        <div class="panel">
-          <h2 class="section__title">Zarezerwuj sesję</h2>
-          <p>Wybierz najwygodniejszą dla siebie formę kontaktu. Jesteśmy do Twojej dyspozycji.</p>
-          <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-            <div class="card">
-              <h4>Adres</h4>
-              <p style="margin:0;"><a href="https://maps.google.com/?q=%C5%BBeromskiego%2060/5a%2C%20Wroc%C5%82aw" target="_blank" rel="noopener" style="color:var(--clr-accent);font-weight:900">ul. Żeromskiego 60/5a, Wrocław</a></p>
+        <div class="wrap">
+            <div class="panel">
+                <h2 class="section__title">Zarezerwuj sesję</h2>
+                <p>Wybierz najwygodniejszą dla siebie formę kontaktu. Jesteśmy do Twojej dyspozycji.</p>
+                <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+                    <div class="panel">
+                        <h4>Adres</h4>
+                        <p><a href="https://maps.google.com/?q=ul.+Żeromskiego+60/5a,+Wrocław" target="_blank" rel="noopener noreferrer">ul. Żeromskiego 60/5a, Wrocław</a></p>
+                    </div>
+                    <div class="panel"><h4>Telefon</h4><p><a href="tel:+48123456789">+48 123 456 789</a></p></div>
+                    <div class="panel"><h4>E-mail</h4><p><a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p></div>
+                    <div class="panel"><h4>System Rezerwacji</h4><p>Link do Booksy już wkrótce.</p></div>
+                    <div class="panel" style="grid-column:1/-1">
+                        <h4>Mapa</h4>
+                        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.752323933948!2d17.0519363157297!3d51.13095397957488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fe9e5b5e2a69d%3A0x8e5b6a7b3c2d4e0b!2sStefana%20%C5%BBeromskiego%2060%2C%2050-312%20Wroc%C5%82aw!5e0!3m2!1spl!2spl!4v1678886400000!5m2!1spl!2spl"
+                                    width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade" title="Mapa dojazdu — NCNI"></iframe>
+                        </div>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+                            <a class="btn btn--primary" href="https://maps.google.com/?q=ul.+Żeromskiego+60/5a,+Wrocław" target="_blank" rel="noopener noreferrer">Nawiguj – Google Maps</a>
+                            <a class="btn btn--ghost" href="https://maps.apple.com/?address=%C5%BBeromskiego%2060/5a,%20Wroc%C5%82aw,%20Poland&q=NCNI" target="_blank" rel="noopener noreferrer">Nawiguj – Apple Maps</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card"><h4>Telefon</h4><p style="margin:0;"><a href="tel:+48123456789" style="color:var(--clr-accent);font-weight:900">+48 123 456 789</a></p></div>
-            <div class="card"><h4>E-mail</h4><p style="margin:0;"><a href="mailto:kontakt@ncni.pl" style="color:var(--clr-accent);font-weight:900">kontakt@ncni.pl</a></p></div>
-            <div class="card"><h4>System Rezerwacji</h4><p style="margin:0;">Link do Booksy już wkrótce.</p></div>
-            <div class="card" style="grid-column:1/-1">
-              <h4>Mapa</h4>
-              <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)">
-                <iframe src="https://www.google.com/maps?q=%C5%BBeromskiego%2060/5a%20Wroc%C5%82aw&output=embed"
-                        width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" title="Mapa dojazdu — NCNI"></iframe>
-              </div>
-              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-                <a class="btn btn--primary" href="https://maps.google.com/?q=%C5%BBeromskiego%2060/5a%2C%20Wroc%C5%82aw" target="_blank" rel="noopener">Nawiguj – Google Maps</a>
-                <a class="btn btn--ghost" href="https://maps.apple.com/?address=%C5%BBeromskiego%2060/5a,%20Wroc%C5%82aw,%20Poland&q=NCNI" target="_blank" rel="noopener">Nawiguj – Apple Maps</a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
   </main>
 
@@ -305,32 +325,46 @@ body::before{content:''; position:fixed; inset:0; pointer-events:none; z-index:0
   </footer>
 
   <script>
-    const nav = document.querySelector('.nav');
-    window.addEventListener('scroll', () => { nav.style.boxShadow = window.scrollY > 10 ? '0 10px 30px rgba(0,0,0,.25)' : 'none'; });
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.nav');
+      window.addEventListener('scroll', () => {
+        nav.style.boxShadow = window.scrollY > 10 ? '0 10px 30px rgba(0,0,0,.25)' : 'none';
+      });
 
-    const aiForm = document.getElementById('ai-assistant-form');
-    const resultContainer = document.getElementById('ai-assistant-result');
-    aiForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const userInput = (document.getElementById('user-prompt').value || '').toLowerCase();
-      if(!userInput.trim()) return;
-      resultContainer.style.display='block';
-      resultContainer.innerHTML = '<div class="loader" aria-label="Ładowanie"></div>';
-      const rules = [
-        {kw:['sen','zasyp','noc','bezsenn'], pick:{n:'Głębia Spokoju', o:'Rozszerzona sesja kontemplacyjna: neurorelaks i praca manualna.', w:'Brzmi jak kłopot z wyciszeniem – ta sesja mocno obniża pobudzenie.'}},
-        {kw:['ekran','telefon','komp','przebodź','scroll'], pick:{n:'NeuroDetox Cyfrowy', o:'Ukojenie przebodźcowania, higiena układu nerwowego po ekranach.', w:'Dominują objawy po nadmiarze bodźców cyfrowych – Detox adresuje je wprost.'}},
-        {kw:['koncentr','focus','uwa','prac','rozprasz'], pick:{n:'Focus & Flow (ADHD/WWO)', o:'VR TRIPP Focus, neuroaromaty, masaż stymulujący koncentrację.', w:'Priorytetem jest skupienie – ten protokół wspiera tryb pracy głębokiej.'}},
-      ];
-      let pick = rules[0].pick;
-      for(const r of rules){ if(r.kw.some(k => userInput.includes(k))) { pick = r.pick; break; } }
-      resultContainer.innerHTML = `
-        <div class="card">
-          <h4>Rekomendacja dla Ciebie:</h4>
-          <h3 style="margin:.4rem 0;color:var(--clr-primary)">${pick.n}</h3>
-          <small>${pick.o}</small>
-          <p style="margin-top:12px"><strong>Dlaczego ta sesja?</strong><br>${pick.w}</p>
-          <a href="#rezerwacja" class="btn btn--primary" style="margin-top:12px">Zarezerwuj teraz</a>
-        </div>`;
+      const aiForm = document.getElementById('ai-assistant-form');
+      const resultContainer = document.getElementById('ai-assistant-result');
+      if(aiForm) {
+        aiForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const userInput = (document.getElementById('user-prompt').value || '').toLowerCase().trim();
+          if(!userInput) return;
+          
+          resultContainer.style.display='block';
+          resultContainer.innerHTML = '<div class="loader" aria-label="Ładowanie"></div>';
+
+          const rules = [
+            {kw:['sen','zasyp','noc','bezsenn'], pick:{n:'Głębia Spokoju', o:'Rozszerzona sesja kontemplacyjna: neurorelaks i praca manualna.', w:'Brzmi jak kłopot z wyciszeniem – ta sesja mocno obniża pobudzenie.'}},
+            {kw:['ekran','telefon','komp','przebodź','scroll'], pick:{n:'NeuroDetox Cyfrowy', o:'Ukojenie przebodźcowania, higiena układu nerwowego po ekranach.', w:'Dominują objawy po nadmiarze bodźców cyfrowych – Detox adresuje je wprost.'}},
+            {kw:['koncentr','focus','uwa','prac','rozprasz'], pick:{n:'Focus & Flow (ADHD/WWO)', o:'VR TRIPP Focus, neuroaromaty, masaż stymulujący koncentrację.', w:'Priorytetem jest skupienie – ten protokół wspiera tryb pracy głębokiej.'}},
+            // Domyślna odpowiedź, jeśli żadne słowo kluczowe nie pasuje
+            {kw:[], pick:{n:'NeuroSanctum 360°', o:'Pełna immersja i wyciszenie z użyciem VR, Zero Gravity i neuroaromaterapii.', w:'To nasza flagowa, uniwersalna sesja głębokiej regeneracji, idealna na początek.'}}
+          ];
+
+          let foundRule = rules.find(r => r.kw.some(k => userInput.includes(k)));
+          let pick = foundRule ? foundRule.pick : rules[rules.length - 1].pick;
+          
+          setTimeout(() => { // Symulacja opóźnienia dla lepszego efektu
+            resultContainer.innerHTML = `
+              <div class="card">
+                <h4>Rekomendacja dla Ciebie:</h4>
+                <h3 style="margin:.4rem 0;color:var(--clr-primary)">${pick.n}</h3>
+                <small>${pick.o}</small>
+                <p style="margin-top:12px"><strong>Dlaczego ta sesja?</strong><br>${pick.w}</p>
+                <a href="#rezerwacja" class="btn btn--primary" style="margin-top:12px">Zarezerwuj teraz</a>
+              </div>`;
+          }, 800);
+        });
+      }
     });
   </script>
 </body>
