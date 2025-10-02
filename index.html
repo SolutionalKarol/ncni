@@ -7,9 +7,13 @@
   <meta name="description" content="Głęboka neuroregeneracja: VR, Zero Gravity, neuroaromaterapia, biofeedback. Wrocław & online." />
   <style>
     :root{ --bg1:#0b1120; --bg2:#111827; --muted:#94a3b8; --accent:#88b6ff;
-           --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.18); }
+          --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.18); }
     *{box-sizing:border-box} html,body{height:100%}
-    body{ margin:0; color:#eaf1ff; background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    body{ margin:0; color:#eaf1ff; 
+          background: linear-gradient(180deg, rgba(11, 17, 32, 0.92), rgba(17, 24, 39, 0.92)), url('1%20(2).jpg');
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
           font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Noto Sans", sans-serif; line-height:1.6; }
     a{color:#dbe4ff; text-decoration:none} a:hover{opacity:.92}
     .wrap{width:min(1100px,92%); margin-inline:auto}
@@ -18,26 +22,24 @@
     header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(10px);
            background:rgba(11,18,32,.6); border-bottom:1px solid rgba(255,255,255,.06)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
-    .brand{display:flex; gap:10px; align-items:center}
-    .logo{width:36px; height:36px; border-radius:10px; background:#cfd6e3; color:#0b1120;
-          display:grid; place-items:center; font-weight:800; box-shadow:var(--shadow)}
-    .brand h1{margin:0; font-size:1rem; letter-spacing:.3px}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:50px; height:50px; object-fit: cover;}
+    .brand h1{margin:0; font-size:1.15rem; letter-spacing:.3px; font-weight: 700;}
     nav ul{display:flex; gap:16px; list-style:none; margin:0; padding:0}
     nav a{font-weight:600; opacity:.95}
     .btn{padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.15);
-         background:rgba(255,255,255,.05); color:#eaf1ff; font-weight:700; cursor:pointer}
+         background:rgba(255,255,255,.05); color:#eaf1ff; font-weight:700; cursor:pointer; transition: all .2s ease;}
+    .btn:hover{opacity: 1; background:rgba(255,255,255,.1); border-color: rgba(255,255,255,.25);}
     .btn.primary{background:linear-gradient(180deg,var(--accent),#6ea6ff); color:#0b1220; border-color:transparent}
+    .btn.primary:hover{opacity: .9;}
 
-    /* HERO – dokładnie to tło */
+    /* HERO */
     .hero{
       position:relative; min-height:70vh; display:grid; align-items:center; padding:80px 0 40px;
-      background-image:url('images/hero-ncni.png');
-      background-size:cover; background-repeat:no-repeat; background-position:left top; /* logo po lewej */
     }
-    @media (min-width:1000px){ .hero{ background-position:left center; } } /* lepsze kadrowanie na desktop */
     .hero::after{content:""; position:absolute; inset:0;
-      background: radial-gradient(70% 70% at 28% 32%, rgba(2,6,23,0), rgba(2,6,23,.55) 60%),
-                  linear-gradient(180deg, rgba(2,6,23,.25), rgba(2,6,23,.6)); pointer-events:none}
+      background: radial-gradient(circle at center, rgba(11,17,32,0.1), rgba(11,17,32,0.5)),
+                  linear-gradient(180deg, rgba(2,6,23,.15), rgba(2,6,23,.4)); pointer-events:none}
     .hero>.wrap{position:relative; z-index:1}
     .tag{display:inline-flex; gap:8px; align-items:center; font-size:.85rem; color:#c7d2fe; background:rgba(136,182,255,.12);
          border:1px solid rgba(136,182,255,.25); padding:6px 10px; border-radius:999px}
@@ -50,34 +52,73 @@
     h2{font-size:clamp(22px,3.2vw,34px); margin:0 0 12px}
     .kicker{font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:.12em; font-size:.8rem}
     .muted{color:var(--muted)}
-    .card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+    .card{background:rgba(17, 24, 39, 0.45);
+          -webkit-backdrop-filter: blur(12px) saturate(120%);
+          backdrop-filter: blur(12px) saturate(120%);
+          border:1px solid rgba(255,255,255,.1);
           border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
     .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
     .col-4{grid-column:span 4} .col-6{grid-column:span 6} .col-12{grid-column:span 12}
+    @media (max-width: 940px) { .col-4, .col-6 { grid-column: span 12; } }
     .table{width:100%; border-collapse:separate; border-spacing:0}
     .table th,.table td{padding:12px 10px; border-bottom:1px solid rgba(255,255,255,.07)}
     .table th{color:#cbd5e1; text-align:left; font-weight:800}
     .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
-      border:1px solid rgba(255,255,255,.14); border-radius:999px; background:rgba(255,255,255,.03); color:#eaf1ff}
+      border:1px solid rgba(255,255,255,.14); border-radius:999px; background:rgba(30,41,59,.5); color:#eaf1ff}
 
     /* Kontakt */
     .contact{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 18, 32, .8);
+      backdrop-filter: saturate(120%) blur(10px);
+      color: var(--muted);
+      padding: 16px 0;
+      z-index: 100;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      transform: translateY(120%);
+      opacity: 0;
+      transition: transform .4s ease-out, opacity .4s ease-out;
+      visibility: hidden;
+    }
+    .cookie-banner.show {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .cookie-banner > .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .cookie-banner p { margin: 0; font-size: 0.9rem; }
+    .cookie-banner p a { color: var(--accent); text-decoration: underline; }
+    .cookie-banner .buttons { display: flex; gap: 10px; flex-shrink: 0; }
+    
     /* Mobile tweaks */
     @media (max-width:940px){ nav ul{display:none} .hero{min-height:58vh; padding:66px 0 28px} .cta-row .btn{width:100%; text-align:center} }
     @media (max-width:720px){
+      .brand h1 { display: none; }
       .contact{grid-template-columns:1fr}
       .table thead{display:none}
       .table tr{display:block; margin:10px 0; border:1px solid rgba(255,255,255,.08); border-radius:12px}
       .table td{display:flex; justify-content:space-between; gap:12px; border:0; padding:10px 12px}
       .table td::before{content:attr(data-label); color:#bcd0ff; font-weight:700}
+      .cookie-banner > .wrap { flex-direction: column; align-items: flex-start; text-align: center; }
+      .cookie-banner p { margin-bottom: 12px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand"><div class="logo">N</div><h1>Naukowe Centrum Neuroinnowacji</h1></div>
+      <div class="brand"><img src="ChatGPT%20Image%201%20pa%C5%BA%202025,%2010_47_12.png" alt="NCNI Logo" class="logo"><h1>Naukowe Centrum Neuroinnowacji</h1></div>
       <nav>
         <ul>
           <li><a href="#oferta">Flagowe sesje</a></li>
@@ -113,7 +154,7 @@
       <div class="wrap">
         <div class="kicker">Flagowe sesje</div>
         <h2>Flagowe Sesje Neuro</h2>
-        <div class="card" style="overflow:auto">
+        <div class="card" style="overflow-x:auto">
           <table class="table">
             <thead><tr><th>Nazwa</th><th>Czas</th><th>Cena</th><th>Opis</th><th></th></tr></thead>
             <tbody>
@@ -172,7 +213,7 @@
       <div class="wrap">
         <div class="kicker">Konsultacje Premium</div>
         <h2>Głębokie wsparcie poznawcze i sensoryczne</h2>
-        <div class="card">
+        <div class="card" style="overflow-x:auto">
           <table class="table">
             <thead><tr><th>Nazwa</th><th>Czas</th><th>Cena</th><th>Opis</th></tr></thead>
             <tbody>
@@ -201,7 +242,7 @@
           </div>
           <div class="card">
             <h3>Kontakt</h3>
-            <p><strong>Telefon:</strong> <a href="tel:+48500111222">+48 500 111 222</a><br>
+            <p><strong>Telefon:</strong> <a href="tel:+48600608333">+48 600 608 333</a><br>
                <strong>E-mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a><br>
                <strong>Booksy:</strong> <a id="booksy-link" href="#" rel="nofollow">dodaj link</a><br>
                <strong>Calendly:</strong> <a id="calendly-link" href="#" rel="nofollow">dodaj link</a></p>
@@ -215,61 +256,100 @@
       </div>
     </section>
   </main>
+  
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="wrap">
+      <p>Ta strona używa plików cookie w celu zapewnienia najlepszych wrażeń. <a href="#">Dowiedz się więcej</a>.</p>
+      <div class="buttons">
+        <button id="cookie-decline" class="btn">Odrzuć</button>
+        <button id="cookie-accept" class="btn primary">Akceptuję</button>
+      </div>
+    </div>
+  </div>
 
-  <footer><div class="wrap">© <span id="y"></span> NCNI. Wszelkie prawa zastrzeżone.</div></footer>
+  <footer><div class="wrap" style="padding: 20px 0; text-align:center; color: var(--muted); font-size: .9rem">© <span id="y"></span> NCNI. Wszelkie prawa zastrzeżone.</div></footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Cookie Banner Logic ---
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('cookie-accept');
+      const declineBtn = document.getElementById('cookie-decline');
 
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        if(id.length>1){
-          const el = document.querySelector(id);
-          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      // Show banner if no consent is stored
+      setTimeout(() => {
+        if (!localStorage.getItem('cookieConsent')) {
+          cookieBanner.classList.add('show');
         }
+      }, 500);
+
+      // Handle Accept click
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieBanner.classList.remove('show');
       });
-    });
 
-    // PODMIEŃ NA SWOJE LINKI
-    const LINKS = {
-      booksy: "https://booksy.com/pl-pl/your-ncni",
-      calendly: "https://calendly.com/twoj-kalendarz",
-      stripe: { start:"", premium:"", diet:"" }
-    };
+      // Handle Decline click
+      declineBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'declined');
+        cookieBanner.classList.remove('show');
+      });
 
-    // UI linki
-    const booksyA = document.getElementById('booksy-link');
-    const calA = document.getElementById('calendly-link');
-    if(LINKS.booksy && booksyA){ booksyA.href = LINKS.booksy; booksyA.textContent = LINKS.booksy; }
-    if(LINKS.calendly && calA){ calA.href = LINKS.calendly; calA.textContent = LINKS.calendly; }
+      // --- Original Page Logic ---
+      document.getElementById('y').textContent = new Date().getFullYear();
 
-    // globalny Rezerwuj
-    document.getElementById('btn-book')?.addEventListener('click', e=>{
-      if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
-    });
+      // smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          const id = a.getAttribute('href');
+          if(id.length>1){
+            const el = document.querySelector(id);
+            if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+          }
+        });
+      });
 
-    // przyciski w ofertach/tele
-    document.querySelectorAll('[data-book]').forEach(b=>{
-      b.addEventListener('click', e=>{
+      // PODMIEŃ NA SWOJE LINKI
+      const LINKS = {
+        booksy: "https://booksy.com/pl-pl/your-ncni",
+        calendly: "https://calendly.com/twoj-kalendarz",
+        stripe: { start:"", premium:"", diet:"" }
+      };
+
+      // UI linki
+      const booksyA = document.getElementById('booksy-link');
+      const calA = document.getElementById('calendly-link');
+      if(LINKS.booksy && booksyA){ booksyA.href = LINKS.booksy; booksyA.textContent = LINKS.booksy; }
+      if(LINKS.calendly && calA){ calA.href = LINKS.calendly; calA.textContent = LINKS.calendly; }
+
+      // globalny Rezerwuj
+      document.getElementById('btn-book')?.addEventListener('click', e=>{
         if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
       });
-    });
-    document.querySelectorAll('[data-pay]').forEach(b=>{
-      b.addEventListener('click', e=>{
-        e.preventDefault(); const url = LINKS.stripe?.[b.getAttribute('data-pay')];
-        if(url) window.open(url,'_blank'); else alert('Dodaj link Stripe w LINKS.stripe');
-      });
-    });
 
-    // kontakt szybkie guziki
-    document.getElementById('book-now')?.addEventListener('click', e=>{
-      if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
-    });
-    document.getElementById('calendly-now')?.addEventListener('click', e=>{
-      if(LINKS.calendly){ e.preventDefault(); window.open(LINKS.calendly, '_blank'); }
+      // przyciski w ofertach/tele
+      document.querySelectorAll('[data-book]').forEach(b=>{
+        b.addEventListener('click', e=>{
+          if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
+        });
+      });
+      document.querySelectorAll('[data-pay]').forEach(b=>{
+        b.addEventListener('click', e=>{
+          e.preventDefault(); const url = LINKS.stripe?.[b.getAttribute('data-pay')];
+          if(url) window.open(url,'_blank'); else alert('Dodaj link Stripe w LINKS.stripe');
+        });
+      });
+
+      // kontakt szybkie guziki
+      document.getElementById('book-now')?.addEventListener('click', e=>{
+        if(LINKS.booksy){ e.preventDefault(); window.open(LINKS.booksy, '_blank'); }
+      });
+      document.getElementById('calendly-now')?.addEventListener('click', e=>{
+        if(LINKS.calendly){ e.preventDefault(); window.open(LINKS.calendly, '_blank'); }
+      });
     });
   </script>
 </body>
 </html>
+
+
