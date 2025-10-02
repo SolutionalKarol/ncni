@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NCNI — Naukowe Centrum Neuroinnowacji</title>
   <meta name="description" content="Głęboka neuroregeneracja: VR, Zero-Gravity, neuroaromaterapia, biofeedback EEG/HRV. Wrocław & online." />
+  
   <link rel="canonical" href="https://solutionalkarol.github.io/ncni/" />
+  
   <meta name="theme-color" content="#0b1120" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
@@ -15,6 +17,10 @@
   <meta property="og:url" content="https://solutionalkarol.github.io/ncni/" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
   <style>
     :root{ --bg1:#0b1120; --bg2:#111827; --muted:#94a3b8; --accent:#88b6ff; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.18); --focus:#a8c1ff; }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -27,7 +33,7 @@
     /* Hero */
     .hero{display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:100vh; padding:40px 0;
       background:linear-gradient(180deg,rgba(11,17,32,.7),rgba(17,24,39,.9)), url('tlo.jpg'); background-size:cover; background-position:center;}
-    @media (min-width:1024px){ .hero{ background-attachment:fixed; } }
+    @media (min-width:1024px){ .hero{ background-attachment:fixed; } } /* Uwaga: 'fixed' może wpływać na wydajność na słabszych urządzeniach */
     .hero img{ width:clamp(80px,15vw,120px); height:auto; margin-bottom:20px; }
     .hero h1{ font-size:clamp(2.5rem,6vw,4.5rem); font-weight:800; margin:0 0 24px; text-shadow:0 4px 20px rgba(0,0,0,.3); }
     .nav{ display:flex; gap:clamp(12px,3vw,24px); flex-wrap:wrap; justify-content:center }
@@ -40,7 +46,7 @@
     h2{font-size:clamp(22px,3.2vw,34px); margin:0 0 12px}
     h3{font-size:clamp(18px,2.5vw,22px); margin:24px 0 10px; color:var(--accent)}
     .muted{color:var(--muted)}
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:24px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:24px; padding-left:0; list-style:none; margin:0;} /* Dodano reset dla ul */
     .col-4{grid-column:span 4} .col-6{grid-column:span 6} .col-12{grid-column:span 12}
     @media (max-width:940px){ .col-4{grid-column:span 6} .col-6{grid-column:span 12} } @media (max-width:600px){ .col-4{grid-column:span 12} }
 
@@ -64,10 +70,9 @@
 <body>
   <a class="skip-link" href="#main">Przejdź do treści głównej</a>
 
-  <!-- HERO -->
   <header class="hero" role="banner" aria-label="Sekcja powitalna NCNI">
     <div class="wrap">
-      <img src="logo.png" alt="Logo NCNI — Naukowe Centrum Neuroinnowacji" loading="lazy" decoding="async">
+      <img src="logo.png" alt="Logo NCNI" width="120" height="120">
       <h1>Naukowe Centrum Neuroinnowacji</h1>
       <nav class="nav" aria-label="Główna nawigacja">
         <a href="#oferta">Ścieżki Neuro</a>
@@ -78,47 +83,48 @@
   </header>
 
   <main id="main">
-    <!-- ALIAS dla starych linków: #teleporady prowadzi do Ścieżki Neuro -->
     <div id="teleporady" aria-hidden="true"></div>
 
-    <!-- ŚCIEŻKI NEURO -->
     <section id="oferta" aria-labelledby="oferta-heading">
       <div class="wrap">
         <div class="kicker">Nasze ścieżki</div>
         <h2 id="oferta-heading">Spersonalizowane Programy Neuro-Wellbeing</h2>
         <p class="muted" style="max-width:70ch; margin:0 auto 32px; text-align:center">Wybierz ścieżkę dopasowaną do Twoich celów. Każdy program jest personalizowany na podstawie wywiadu, pomiarów i Twoich potrzeb.</p>
 
-        <div class="grid" role="list">
-          <div class="col-6" role="listitem"><div class="card"><h3>Regulacja Stresu</h3><p><strong>Cel:</strong> obniżenie pobudzenia, stabilizacja nastroju, lepsza odporność na obciążenia.<br><strong>W środku:</strong> VR relaksacyjny, zero-gravity, HRV biofeedback, muzykoterapia, aromaterapia, higiena snu.<br><strong>Mierzymy:</strong> HRV (RMSSD), skale stresu/snu, NRS 0–10.<br><strong>Efekt:</strong> spokojniejszy układ nerwowy, szybszy powrót do równowagi.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Regulacja Stresu” →</a></div></div>
-          <div class="col-6" role="listitem"><div class="card"><h3>Sen & Regeneracja</h3><p><strong>Cel:</strong> łatwiejsze zasypianie, mniej wybudzeń, większa poranna energia.<br><strong>W środku:</strong> VR pre-sleep, oddech, HRV trening, plan światło/ruch, dietetyka kliniczna i suplementacja pod sen.<br><strong>Mierzymy:</strong> dzienniczek/urządzenie snu, skale senności, HRV nocne.<br><strong>Efekt:</strong> głębszy sen, lepsza regeneracja.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Sen & Regeneracja” →</a></div></div>
-          <div class="col-6" role="listitem"><div class="card"><h3>Fokus / ADHD</h3><p><strong>Cel:</strong> poprawa koncentracji, kontroli impulsów i organizacji.<br><strong>W środku:</strong> VR fokus, EEG/HRV biofeedback, protokoły aktywacji/regulacji, wsparcie żywieniowe.<br><strong>Mierzymy:</strong> skale uwagi, HRV, listy funkcji wykonawczych.<br><strong>Efekt:</strong> dłuższe pasma skupienia, mniejsza męczliwość poznawcza.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Fokus/ADHD” →</a></div></div>
-          <div class="col-6" role="listitem"><div class="card"><h3>Anti-Aging Neuro</h3><p><strong>Cel:</strong> spowolnienie starzenia układu nerwowego, utrzymanie sprawności poznawczej.<br><strong>W środku:</strong> VR kognitywny, HRV/oddech, sensoryka, ruch, dietetyka + suplementacja pro-neuro.<br><strong>Mierzymy:</strong> kwestionariusze, HRV, cele funkcjonalne.<br><strong>Efekt:</strong> większa rezerwa poznawcza, energia mentalna.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Anti-Aging Neuro” →</a></div></div>
-          <div class="col-6" role="listitem"><div class="card"><h3>Ból & Napięcia</h3><p><strong>Cel:</strong> zmniejszenie napięć, lęku bólowego i poprawa komfortu ruchu.<br><strong>W środku:</strong> VR analgesic/relaks, zero-gravity, oddech przeponowy, muzykoterapia, edukacja neuro-bólu, wsparcie snu i żywienia przeciwzapalnego.<br><strong>Mierzymy:</strong> NRS 0–10, wpływ bólu na funkcjonowanie, HRV.<br><strong>Efekt:</strong> mniejsza percepcja bólu, większa sprawczość.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Ból & Napięcia” →</a></div></div>
-          <div class="col-6" role="listitem"><div class="card"><h3>Neuro-Wellbeing dla Zespołów</h3><p><strong>Cel:</strong> odporność na stres, fokus i regeneracja w zespole (praca/sport).<br><strong>W środku:</strong> krótkie protokoły VR/HRV, mikro-nawyki, raport zbiorczy (bez danych wrażliwych).<br><strong>Mierzymy:</strong> frekwencję, satysfakcję, agregaty HRV (anonimowo).<br><strong>Efekt:</strong> mniej „presenteeismu”, lepsze skupienie i sen.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Pilotaż dla firmy →</a></div></div>
-        </div>
+        <ul class="grid">
+          <li class="col-6"><div class="card"><h3>Regulacja Stresu</h3><p><strong>Cel:</strong> obniżenie pobudzenia, stabilizacja nastroju, lepsza odporność na obciążenia.<br><strong>W środku:</strong> VR relaksacyjny, zero-gravity, HRV biofeedback, muzykoterapia, aromaterapia, higiena snu.<br><strong>Mierzymy:</strong> HRV (RMSSD), skale stresu/snu, NRS 0–10.<br><strong>Efekt:</strong> spokojniejszy układ nerwowy, szybszy powrót do równowagi.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Regulacja Stresu” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Sen & Regeneracja</h3><p><strong>Cel:</strong> łatwiejsze zasypianie, mniej wybudzeń, większa poranna energia.<br><strong>W środku:</strong> VR pre-sleep, oddech, HRV trening, plan światło/ruch, dietetyka kliniczna i suplementacja pod sen.<br><strong>Mierzymy:</strong> dzienniczek/urządzenie snu, skale senności, HRV nocne.<br><strong>Efekt:</strong> głębszy sen, lepsza regeneracja.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Sen & Regeneracja” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Fokus / ADHD</h3><p><strong>Cel:</strong> poprawa koncentracji, kontroli impulsów i organizacji.<br><strong>W środku:</strong> VR fokus, EEG/HRV biofeedback, protokoły aktywacji/regulacji, wsparcie żywieniowe.<br><strong>Mierzymy:</strong> skale uwagi, HRV, listy funkcji wykonawczych.<br><strong>Efekt:</strong> dłuższe pasma skupienia, mniejsza męczliwość poznawcza.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Fokus/ADHD” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Anti-Aging Neuro</h3><p><strong>Cel:</strong> spowolnienie starzenia układu nerwowego, utrzymanie sprawności poznawczej.<br><strong>W środku:</strong> VR kognitywny, HRV/oddech, sensoryka, ruch, dietetyka + suplementacja pro-neuro.<br><strong>Mierzymy:</strong> kwestionariusze, HRV, cele funkcjonalne.<br><strong>Efekt:</strong> większa rezerwa poznawcza, energia mentalna.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Anti-Aging Neuro” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Ból & Napięcia</h3><p><strong>Cel:</strong> zmniejszenie napięć, lęku bólowego i poprawa komfortu ruchu.<br><strong>W środku:</strong> VR analgesic/relaks, zero-gravity, oddech przeponowy, muzykoterapia, edukacja neuro-bólu, wsparcie snu i żywienia przeciwzapalnego.<br><strong>Mierzymy:</strong> NRS 0–10, wpływ bólu na funkcjonowanie, HRV.<br><strong>Efekt:</strong> mniejsza percepcja bólu, większa sprawczość.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Ból & Napięcia” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Neuro-Wellbeing dla Zespołów</h3><p><strong>Cel:</strong> odporność na stres, fokus i regeneracja w zespole (praca/sport).<br><strong>W środku:</strong> krótkie protokoły VR/HRV, mikro-nawyki, raport zbiorczy (bez danych wrażliwych).<br><strong>Mierzymy:</strong> frekwencję, satysfakcję, agregaty HRV (anonimowo).<br><strong>Efekt:</strong> mniej „presenteeismu”, lepsze skupienie i sen.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Pilotaż dla firmy →</a></div></li>
+        </ul>
 
         <div style="margin-top:60px">
           <h2 style="text-align:center">Szczegóły Programu</h2>
-          <div class="grid">
-            <div class="col-6"><div class="card"><h3>Co wchodzi w typową sesję</h3><ul><li><strong>VR / Zero-Gravity</strong> — głęboka relaksacja i „reset”.</li><li><strong>Biofeedback (EEG/HRV)</strong> — nauka samoregulacji na podstawie sygnałów z ciała.</li><li><strong>Sensoryka</strong> — muzykoterapia i aromaterapia.</li><li><strong>Instrukcja domowa</strong> — krótkie ćwiczenia + terapie cyfrowe.</li><li><strong>Podsumowanie</strong> — wnioski i zalecenia.</li></ul></div></div>
-            <div class="col-6"><div class="card"><h3>Mierzalność i bezpieczeństwo</h3><ul><li><strong>Metryki postępu:</strong> HRV, kwestionariusze snu/stresu, cele funkcjonalne.</li><li><strong>Przegląd co 2–4 tygodnie</strong> i korekta protokołu.</li><li><strong>Kwalifikacja i przeciwwskazania</strong> — „safety first”.</li><li><strong>Ścieżka kliniczna</strong> — w razie wskazań łączymy z konsultacją lekarską.</li></ul></div></div>
-          </div>
+          <ul class="grid">
+            <li class="col-6"><div class="card"><h3>Co wchodzi w typową sesję</h3><ul><li><strong>VR / Zero-Gravity</strong> — głęboka relaksacja i „reset”.</li><li><strong>Biofeedback (EEG/HRV)</strong> — nauka samoregulacji na podstawie sygnałów z ciała.</li><li><strong>Sensoryka</strong> — muzykoterapia i aromaterapia.</li><li><strong>Instrukcja domowa</strong> — krótkie ćwiczenia + terapie cyfrowe.</li><li><strong>Podsumowanie</strong> — wnioski i zalecenia.</li></ul></div></li>
+            <li class="col-6"><div class="card"><h3>Mierzalność i bezpieczeństwo</h3><ul><li><strong>Metryki postępu:</strong> HRV, kwestionariusze snu/stresu, cele funkcjonalle.</li><li><strong>Przegląd co 2–4 tygodnie</strong> i korekta protokołu.</li><li><strong>Kwalifikacja i przeciwwskazania</strong> — „safety first”.</li><li><strong>Ścieżka kliniczna</strong> — w razie wskazań łączymy z konsultacją lekarską.</li></ul></div></li>
+          </ul>
         </div>
 
         <div style="margin-top:60px">
           <h2 style="text-align:center">Pakiety i Cennik</h2>
-          <p class="muted" style="text-align:center; margin-bottom:24px">Przykładowe pakiety. Zapytaj o aktualne ceny i dostępność.</p>
-          <div class="grid" role="list">
-            <div class="col-4" role="listitem"><div class="card" style="text-align:center"><h3>START (2 tyg.)</h3><p>Kwalifikacja + 3 sesje + plan domowy + 1 przegląd wyników.</p></div></div>
-            <div class="col-4" role="listitem"><div class="card" style="text-align:center"><h3>CORE (4 tyg.)</h3><p>6 sesji + monitoring HRV + korekta planu + wsparcie dietetyczne.</p></div></div>
-            <div class="col-4" role="listitem"><div class="card" style="text-align:center"><h3>PRO (8 tyg.)</h3><p>12 sesji + rozszerzony biofeedback (opc. EEG) + plan anti-aging + raport końcowy.</p></div></div>
-          </div>
+          <p class="muted" style="text-align:center; margin-bottom:24px">Poniżej przykładowe pakiety. Ceny są orientacyjne — zapytaj o aktualną ofertę i dostępność.</p>
+          <ul class="grid">
+            <li class="col-4"><div class="card" style="text-align:center">
+              <h3>START (2 tyg.)</h3>
+              <p>Kwalifikacja + 3 sesje + plan domowy + 1 przegląd wyników.</p>
+              <p style="margin-top:16px; font-weight:700; color:var(--accent)">od 990 zł</p>
+            </div></li>
+            <li class="col-4"><div class="card" style="text-align:center"><h3>CORE (4 tyg.)</h3><p>6 sesji + monitoring HRV + korekta planu + wsparcie dietetyczne.</p></div></li>
+            <li class="col-4"><div class="card" style="text-align:center"><h3>PRO (8 tyg.)</h3><p>12 sesji + rozszerzony biofeedback (opc. EEG) + plan anti-aging + raport końcowy.</p></div></li>
+          </ul>
           <div style="text-align:center; margin-top:24px"><a href="#kontakt" class="btn primary">Zapytaj o terminy →</a></div>
         </div>
       </div>
     </section>
 
-    <!-- O NAS -->
     <section id="zespol" style="background:#0b1120" aria-labelledby="zespol-heading">
       <div class="wrap">
         <div class="kicker">O nas</div>
@@ -131,15 +137,14 @@
         </div>
 
         <h2 style="margin-top:60px">Zespół i zaplecze</h2>
-        <div class="grid" role="list">
-          <div class="col-6" role="listitem"><div class="card"><h3>dr inż. Marlena Gąsior-Głogowska</h3><p class="muted">Architekt sensorycznej przestrzeni • Neuroestetyka</p><ul><li>Mapowanie bodźców i redukcja przebodźcowania</li><li>Światło/dźwięk pod relaks i fokus</li><li>Aromaty i materiały przyjazne sensorycznie</li></ul></div></div>
-          <div class="col-6" role="listitem"><div class="card"><h3>dr hab. inż. Sebastian Kraszewski</h3><p class="muted">Neurobiochemia i żywienie mózgu</p><ul><li>Protokoły koncentracji i odporności na stres</li><li>Standaryzacja suplementacji i żywienia</li></ul></div></div>
-          <div class="col-12" role="listitem"><div class="card"><h3>Karol Kiszło</h3><p class="muted">Head of NeuroPerformance • NeuroWellbeing Coach</p><ul><li>Programy Focus & Flow (B2B), Executive NeuroCoaching</li><li>Higiena bodźców i standardy pracy głębokiej</li></ul></div></div>
-        </div>
+        <ul class="grid">
+          <li class="col-6"><div class="card"><h3>dr inż. Marlena Gąsior-Głogowska</h3><p class="muted">Architekt sensorycznej przestrzeni • Neuroestetyka</p><ul><li>Mapowanie bodźców i redukcja przebodźcowania</li><li>Światło/dźwięk pod relaks i fokus</li><li>Aromaty i materiały przyjazne sensorycznie</li></ul></div></li>
+          <li class="col-6"><div class="card"><h3>dr hab. inż. Sebastian Kraszewski</h3><p class="muted">Neurobiochemia i żywienie mózgu</p><ul><li>Protokoły koncentracji i odporności na stres</li><li>Standaryzacja suplementacji i żywienia</li></ul></div></li>
+          <li class="col-12"><div class="card"><h3>Karol Kiszło</h3><p class="muted">Head of NeuroPerformance • NeuroWellbeing Coach</p><ul><li>Programy Focus & Flow (B2B), Executive NeuroCoaching</li><li>Higiena bodźców i standardy pracy głębokiej</li></ul></div></li>
+        </ul>
       </div>
     </section>
 
-    <!-- KONTAKT -->
     <section id="kontakt" style="background:#0b1120" aria-labelledby="kontakt-heading">
       <div class="wrap">
         <div class="kicker">Kontakt</div>
@@ -149,14 +154,14 @@
             <h3>Adres</h3>
             <p>ul. Żeromskiego 60/5a, <strong>50-312</strong> Wrocław</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=%C5%BBeromskiego%2060/5a%2050-312%20Wroc%C5%82aw">Nawiguj — Google Maps</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ul.+%C5%BBeromskiego+60%2F5a,+50-312+Wroc%C5%82aw">Nawiguj — Google Maps</a>
               <a class="btn" target="_blank" rel="noopener" href="https://maps.apple.com/?address=%C5%BBeromskiego%2060/5a,%2050-312%20Wroc%C5%82aw">Nawiguj — Apple Maps</a>
             </div>
           </div>
           <div class="card">
             <h3>Dane kontaktowe</h3>
-            <p><strong>Telefon:</strong> <a href="tel:+48600608333">+48&nbsp;600&nbsp;608&nbsp;333</a><br><strong>E-mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
-            <p class="muted">IG: <a href="https://instagram.com/ncni" target="_blank" rel="noopener">@ncni</a></p>
+            <p><strong>Telefon:</strong> <a href="tel:+48600608333">+48 600 608 333</a><br><strong>E-mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
+            <p class="muted">IG: <a href="https://instagram.com/ncni" target="_blank" rel="noopener noreferrer">@ncni</a></p>
           </div>
         </div>
         <p class="muted" style="margin-top:12px; text-align:center">Wrocław • kontakt@ncni.pl</p>
@@ -164,7 +169,6 @@
     </section>
   </main>
 
-  <!-- COOKIE -->
   <div id="cookie" class="cookie" role="region" aria-label="Baner cookies" aria-live="polite">
     <div class="wrap">
       <p>Ta strona używa plików cookie w celu zapewnienia najlepszych wrażeń. <a href="/polityka-prywatnosci">Dowiedz się więcej</a>.</p>
@@ -179,30 +183,42 @@
 
   <script>
     // Wsteczna zgodność: przekieruj #teleporady do #oferta
-    (function aliasHash(){
+    (function aliasHash() {
       if (location.hash && location.hash.toLowerCase() === '#teleporady') {
         const target = document.getElementById('oferta');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
         history.replaceState(null, '', '#oferta');
       }
     })();
 
-    // Cookie banner
+    // Obsługa banera cookie i ustawienie roku w stopce
     document.addEventListener('DOMContentLoaded', () => {
       const bar = document.getElementById('cookie');
       const acc = document.getElementById('cookie-accept');
       const dec = document.getElementById('cookie-decline');
 
-      setTimeout(() => {
-        if (!localStorage.getItem('cookieConsent')) bar.classList.add('show');
-      }, 400);
+      if (bar && acc && dec) {
+        setTimeout(() => {
+          if (!localStorage.getItem('cookieConsent')) {
+            bar.classList.add('show');
+          }
+        }, 400);
 
-      function closeBanner(choice){ localStorage.setItem('cookieConsent', choice); bar.classList.remove('show'); }
-      acc.addEventListener('click', () => closeBanner('accepted'));
-      dec.addEventListener('click', () => closeBanner('declined'));
+        function closeBanner(choice) {
+          localStorage.setItem('cookieConsent', choice);
+          bar.classList.remove('show');
+        }
 
-      // Rok w stopce
-      document.getElementById('year').textContent = new Date().getFullYear();
+        acc.addEventListener('click', () => closeBanner('accepted'));
+        dec.addEventListener('click', () => closeBanner('declined'));
+      }
+
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
     });
   </script>
 </body>
