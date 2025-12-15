@@ -123,24 +123,51 @@
             background: white; text-decoration: none; display: block; transition: all 0.3s ease;
         }
         .team-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .team-img-wrapper { width: 100%; height: 320px; overflow: hidden; background: #E2E8F0; }
-        .team-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: 0.5s ease; filter: grayscale(100%); }
-        .team-card:hover .team-img { transform: scale(1.05); filter: grayscale(0%); }
-        .team-info { padding: 24px; }
-        .team-role { font-size: 0.85rem; text-transform: uppercase; color: var(--accent); font-weight: 700; display: block; margin-bottom: 8px; }
-        .team-card h3 { color: var(--text-main); margin-bottom: 8px; }
         
+        /* IMAGE FIX: Stała wysokość dla wszystkich zdjęć */
+        .team-img-wrapper { 
+            width: 100%; 
+            height: 350px; /* Stała wysokość */
+            overflow: hidden; 
+            background: #E2E8F0; 
+            position: relative;
+        }
+        .team-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* Ważne: przycina, aby wypełnić */
+            object-position: top center; /* Kadruje od góry */
+            transition: 0.5s ease; 
+            filter: grayscale(100%); 
+        }
+        .team-card:hover .team-img { transform: scale(1.05); filter: grayscale(0%); }
+        
+        .team-info { padding: 24px; }
+        .team-role { font-size: 0.8rem; text-transform: uppercase; color: var(--accent); font-weight: 700; display: block; margin-bottom: 8px; line-height: 1.4; }
+        .team-card h3 { color: var(--text-main); font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        .team-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Company Data */
+        .company-data {
+            background: #F1F5F9; border-top: 1px solid var(--border); padding: 40px 0;
+            text-align: center; color: var(--text-muted); font-size: 0.9rem;
+        }
+        .company-data h4 { font-size: 1.1rem; color: var(--text-main); margin-bottom: 16px; }
+        .company-data p { margin-bottom: 8px; }
+
         /* Footer */
-        footer { background: white; border-top: 1px solid var(--border); padding: 60px 0 20px; margin-top: 80px; text-align: center; }
+        footer { background: white; border-top: 1px solid var(--border); padding: 60px 0 20px; margin-top: 0; text-align: center; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left; }
 
         @media (max-width: 768px) {
             .hero-mini h1 { font-size: 2.2rem; }
             .story-block { padding: 24px; }
+            .team-img-wrapper { height: 400px; } /* Wyższe na mobile */
         }
     </style>
 </head>
 <body>
+
     <div id="bg-canvas"></div>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -226,7 +253,7 @@
         </div>
 
         <div class="team-grid">
-            <!-- Sebastian Kraszewski -->
+            <!-- 1: Sebastian Kraszewski -->
             <a href="kraszewski.html" class="team-card glass cursor-trigger">
                 <div class="team-img-wrapper">
                     <img src="sk.jpg" alt="Sebastian Kraszewski" class="team-img" onerror="this.src='https://ui-avatars.com/api/?name=Sebastian+Kraszewski&background=6366F1&color=fff&size=400'">
@@ -238,19 +265,7 @@
                 </div>
             </a>
 
-            <!-- Karol Kiszło -->
-            <a href="kiszlo.html" class="team-card glass cursor-trigger">
-                <div class="team-img-wrapper">
-                    <img src="kk.jpg" alt="Karol Kiszło" class="team-img" onerror="this.src='https://ui-avatars.com/api/?name=Karol+Kiszlo&background=0F766E&color=fff&size=400'">
-                </div>
-                <div class="team-info">
-                    <span class="team-role">Head of NeuroPerformance</span>
-                    <h3>Karol Kiszło</h3>
-                    <p style="color: var(--text-muted);">Strateg wydajności i trener odporności psychicznej.</p>
-                </div>
-            </a>
-
-            <!-- Psycholog -->
+            <!-- 2: Psycholog -->
             <a href="psycholog.html" class="team-card glass cursor-trigger">
                 <div class="team-img-wrapper">
                     <img src="psycholog.jpg" alt="Psycholog NCNI" class="team-img" onerror="this.src='https://ui-avatars.com/api/?name=Psycholog&background=0F766E&color=fff&size=400'">
@@ -262,10 +277,10 @@
                 </div>
             </a>
 
-            <!-- Dietetyk -->
+            <!-- 3: Dietetyk -->
             <a href="dietetyk.html" class="team-card glass cursor-trigger">
                 <div class="team-img-wrapper">
-                    <img src="https://ui-avatars.com/api/?name=Dietetyk+NCNI&background=10B981&color=fff&size=400" alt="Dietetyk NCNI" class="team-img">
+                    <img src="https://ui-avatars.com/api/?name=Dietetyk+Kliniczny&background=10B981&color=fff&size=400" alt="Dietetyk NCNI" class="team-img">
                 </div>
                 <div class="team-info">
                     <span class="team-role" style="color: #10B981;">Psychodietetyka</span>
@@ -274,7 +289,7 @@
                 </div>
             </a>
 
-            <!-- Fizjoterapeuta -->
+            <!-- 4: Fizjoterapeuta -->
             <a href="fizjoterapia.html" class="team-card glass cursor-trigger">
                 <div class="team-img-wrapper">
                     <img src="https://ui-avatars.com/api/?name=Fizjo+NCNI&background=F59E0B&color=fff&size=400" alt="Fizjoterapeuta NCNI" class="team-img">
@@ -286,7 +301,19 @@
                 </div>
             </a>
 
-            <!-- SZABLON / MIEJSCE NA NOWEGO CZŁONKA ZESPOŁU -->
+            <!-- 5: Karol Kiszło (Na końcu, jako klamra) -->
+            <a href="kiszlo.html" class="team-card glass cursor-trigger">
+                <div class="team-img-wrapper">
+                    <img src="kk.jpg" alt="Karol Kiszło" class="team-img" onerror="this.src='https://ui-avatars.com/api/?name=Karol+Kiszlo&background=0F766E&color=fff&size=400'">
+                </div>
+                <div class="team-info">
+                    <span class="team-role">Współzałożyciel • Executive Director • Head of NeuroPerformance</span>
+                    <h3>Karol Kiszło</h3>
+                    <p style="color: var(--text-muted);">Strateg wydajności. Wspiera liderów w odzyskiwaniu równowagi między technologią a dobrostanem.</p>
+                </div>
+            </a>
+
+            <!-- 6: SZABLON / REKRUTACJA -->
             <a href="szablon-profil.html" class="team-card glass cursor-trigger">
                 <div class="team-img-wrapper">
                     <img src="https://ui-avatars.com/api/?name=Do%C5%82%C4%85cz+do+nas&background=CBD5E1&color=fff&size=400" alt="Placeholder" class="team-img">
@@ -297,6 +324,16 @@
                     <p style="color: var(--text-muted);">Miejsce na nowego eksperta w zespole NCNI.</p>
                 </div>
             </a>
+        </div>
+    </section>
+
+    <!-- DANE REJESTROWE FIRMY -->
+    <section class="company-data">
+        <div class="container">
+            <h4>Dane Rejestrowe</h4>
+            <p><strong>Naukowe Centrum Neuroinnowacji Sp. z o.o.</strong></p>
+            <p>NIP: 8982325965 | REGON: 54303723800000 | KRS: 0001200984</p>
+            <p>Konto Bankowe: PL46 1050 1575 1000 0090 8590 4721</p>
         </div>
     </section>
 
