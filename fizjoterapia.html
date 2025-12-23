@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & AI Optimization -->
     <title>Fizjoterapia Somatyczna i Praca z Ciałem | NCNI Wrocław</title>
     <meta name="description" content="Fizjoterapia psychosomatyczna w NCNI Wrocław. Uwalnianie napięć, praca z ciałem w stresie i traumie, integracja sensoryczna. Wsparcie dla dzieci i dorosłych.">
     <meta name="keywords" content="Fizjoterapia Wrocław, Fizjoterapia psychosomatyczna, Praca z ciałem, Napięcie mięśniowe stres, Integracja Sensoryczna, Fizjoterapeuta NCNI">
     <link rel="canonical" href="https://ncni.pl/fizjoterapia.html">
     <link rel="icon" href="logo.png" type="image/png">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Libraries (Three.js for particles) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -250,8 +246,7 @@
     <div class="container">
         <div class="profile-header">
             <div class="profile-img-container cursor-trigger">
-                <!-- Używam awatara, chyba że masz zdjęcie, wtedy wgraj jako fizjoterapeuta.jpg -->
-                <img src="https://ui-avatars.com/api/?name=Fizjoterapeuta&background=F59E0B&color=fff&size=400" alt="Fizjoterapeuta NCNI" class="profile-img">
+                <img src="fizjoterapeuta.jpg" alt="Fizjoterapeuta NCNI" class="profile-img">
             </div>
             
             <div>
@@ -296,27 +291,23 @@
             </p>
         </div>
 
-        <!-- NOWA SEKCJA: GALERIA / PRZESTRZEŃ (Zgodnie z prośbą) -->
         <section class="container" style="margin-bottom: 80px;">
             <div class="content-block glass" style="border: none; background: transparent; padding: 0; box-shadow: none;">
                 <h2 style="text-align: center; border: none; margin-bottom: 40px; color: var(--text-main);">Sala Fizjoterapii i SI</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item cursor-trigger">
-                        <!-- Placeholder for Sala -->
                         <img src="sala_fizjo.jpg" alt="Sala Fizjoterapii" onerror="this.src='https://placehold.co/600x400/E2E8F0/1E293B?text=Sala+Fizjoterapii'">
                         <div class="gallery-overlay">
                             <h3>Sala Fizjoterapii</h3>
                         </div>
                     </div>
                     <div class="gallery-item cursor-trigger">
-                        <!-- Placeholder for Sprzęt -->
                         <img src="sprzet_si.jpg" alt="Sprzęt do Integracji Sensorycznej" onerror="this.src='https://placehold.co/600x400/E2E8F0/1E293B?text=Sprz%C4%99t+SI'">
                         <div class="gallery-overlay">
                             <h3>Sprzęt SI</h3>
                         </div>
                     </div>
                     <div class="gallery-item cursor-trigger">
-                        <!-- Placeholder for Gabinet -->
                         <img src="gabinet_fizjo.jpg" alt="Gabinet Terapii Manualnej" onerror="this.src='https://placehold.co/600x400/E2E8F0/1E293B?text=Gabinet+Manualny'">
                         <div class="gallery-overlay">
                             <h3>Gabinet Manualny</h3>
@@ -377,7 +368,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         function initParticles(){const container=document.getElementById('bg-canvas');if(!container)return;const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0xF8FAFC,0.002);const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);camera.position.z=10;const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setSize(window.innerWidth,window.innerHeight);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));container.appendChild(renderer.domElement);const geometry=new THREE.BufferGeometry();const count=200;const positions=new Float32Array(count*3);const colors=new Float32Array(count*3);for(let i=0;i<count*3;i+=3){positions[i]=(Math.random()-0.5)*25;positions[i+1]=(Math.random()-0.5)*25;positions[i+2]=(Math.random()-0.5)*25;const mix=Math.random();if(mix>0.5){colors[i]=0.06;colors[i+1]=0.46;colors[i+2]=0.43;}else{colors[i]=0.39;colors[i+1]=0.4;colors[i+2]=0.94;}}geometry.setAttribute('position',new THREE.BufferAttribute(positions,3));geometry.setAttribute('color',new THREE.BufferAttribute(colors,3));const material=new THREE.PointsMaterial({size:0.1,vertexColors:true,transparent:true,opacity:0.4});const particles=new THREE.Points(geometry,material);scene.add(particles);let mouseX=0,mouseY=0,targetX=0,targetY=0;const windowHalfX=window.innerWidth/2;const windowHalfY=window.innerHeight/2;document.addEventListener('mousemove',(e)=>{mouseX=(e.clientX-windowHalfX);mouseY=(e.clientY-windowHalfY);});const clock=new THREE.Clock();function animate(){const time=clock.getElapsedTime();targetX=mouseX*0.0001;targetY=mouseY*0.0001;particles.rotation.y+=0.01*(targetX-particles.rotation.y);particles.rotation.x+=0.01*(targetY-particles.rotation.x);particles.rotation.z+=0.0005;const scale=1+Math.sin(time*0.5)*0.02;particles.scale.set(scale,scale,scale);renderer.render(scene,camera);requestAnimationFrame(animate);}animate();window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});}document.addEventListener("DOMContentLoaded",initParticles);
         
